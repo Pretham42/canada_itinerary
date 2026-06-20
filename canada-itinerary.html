@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banff & Beyond — 12-Day Canada Itinerary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9ECE3;
+  --paper-2:#F4F6EF;
+  --card:#FCFBF6;
+  --ink:#1E2B26;
+  --ink-soft:#52635A;
+  --line:#D3D6C5;
+  --turquoise:#1B8A86;
+  --turquoise-deep:#0F5C59;
+  --amber:#C97A3D;
+  --amber-deep:#A5602B;
+  --pine:#21372D;
+  --radius:14px;
+  --shadow:0 4px 18px rgba(30,43,38,.08);
+  --font-display:'Fraunces',serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.55;}
+img,svg{display:block;}
+a{color:var(--turquoise-deep);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;margin:0 0 .4em;line-height:1.15;color:var(--pine);}
+h2{font-size:clamp(1.6rem,3vw,2.4rem);}
+h3{font-size:1.25rem;}
+h3 .sub{font-family:var(--font-mono);font-size:.7rem;color:var(--ink-soft);font-weight:400;text-transform:none;letter-spacing:0;}
+p{margin:0 0 1em;}
+.eyebrow{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--turquoise-deep);font-weight:600;}
+section{padding:60px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+.lede{font-size:1.05rem;color:var(--ink-soft);max-width:640px;}
+
+.topbar{position:sticky;top:0;z-index:60;background:rgba(233,236,227,.93);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:16px;flex-wrap:wrap;}
+.brand{font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--pine);}
+.topbar nav{display:flex;gap:16px;font-size:.82rem;flex-wrap:wrap;}
+.topbar nav a{color:var(--ink-soft);text-decoration:none;}
+.topbar nav a:hover{color:var(--turquoise-deep);}
+.route-pills{display:flex;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px;}
+.route-pills button{border:none;background:transparent;padding:6px 13px;border-radius:999px;font-family:var(--font-mono);font-size:.72rem;cursor:pointer;color:var(--ink-soft);}
+.route-pills button.active{background:var(--turquoise);color:#fff;}
+
+.hero{padding-top:60px;position:relative;overflow:hidden;}
+.hero .ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:160px;}
+.hero-inner{position:relative;z-index:2;padding-bottom:130px;}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);max-width:760px;}
+.hero .meta-row{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px;font-family:var(--font-mono);font-size:.8rem;color:var(--ink-soft);}
+.hero .meta-row strong{display:block;font-family:var(--font-display);font-size:1.35rem;color:var(--pine);font-weight:600;}
+.howto{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:32px;}
+.howto div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:.85rem;}
+.howto div b{color:var(--pine);display:block;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px;}
+@media(max-width:760px){.compare-grid{grid-template-columns:1fr;}}
+.compare-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
+.compare-card dl{margin:14px 0 0;}
+.compare-card dt{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;color:var(--turquoise-deep);letter-spacing:.08em;margin-top:13px;}
+.compare-card dd{margin:2px 0 0;color:var(--ink-soft);font-size:.92rem;}
+.big-toggle{display:flex;gap:12px;margin:24px 0 8px;}
+.big-toggle button{flex:1;padding:16px;border-radius:var(--radius);border:2px solid var(--line);background:var(--card);font-family:var(--font-display);font-size:1rem;cursor:pointer;color:var(--ink);}
+.big-toggle button.active{border-color:var(--turquoise);background:var(--turquoise);color:#fff;}
+
+.elevation-chart{width:100%;height:auto;margin:18px 0 4px;display:none;}
+.elevation-chart.show{display:block;}
+.elevation-chart .line{fill:none;stroke:var(--turquoise);stroke-width:2.4;}
+.elevation-chart .dot{fill:var(--amber);}
+.elevation-chart .dot.peak{fill:var(--amber-deep);}
+.elevation-chart text{font-family:var(--font-mono);font-size:9px;fill:var(--ink-soft);}
+.elevation-chart .lbl{font-size:9.5px;fill:var(--pine);font-weight:600;}
+
+.day-list{display:flex;flex-direction:column;gap:12px;margin-top:22px;}
+.day-card{display:grid;grid-template-columns:84px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 22px;}
+.day-card .day-num{font-family:var(--font-mono);color:var(--turquoise-deep);font-weight:600;font-size:1.4rem;}
+.day-card .day-num span{display:block;font-size:.65rem;color:var(--ink-soft);font-weight:400;margin-top:2px;}
+.day-card h4{margin:0 0 5px;font-size:1.02rem;}
+.day-card p{margin:0;color:var(--ink-soft);font-size:.92rem;}
+@media(max-width:600px){.day-card{grid-template-columns:1fr;}.day-card .day-num{display:flex;align-items:baseline;gap:8px;}}
+
+.dest-block{margin-top:36px;}
+.dest-block:first-of-type{margin-top:18px;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;margin-top:16px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .15s ease;}
+.card:hover{transform:translateY(-3px);}
+.card-badge{padding:18px 18px 12px;background:linear-gradient(135deg,var(--pine),var(--turquoise-deep));color:#fff;display:flex;align-items:center;justify-content:space-between;}
+.card-badge svg{width:26px;height:26px;color:#fff;}
+.card-tag{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;background:rgba(255,255,255,.2);padding:4px 9px;border-radius:999px;}
+.card.essential .card-badge{background:linear-gradient(135deg,var(--amber-deep),var(--amber));}
+.card-photo{position:relative;height:148px;overflow:hidden;background:var(--pine);}
+.card-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.card-photo .card-tag{position:absolute;top:10px;right:10px;background:rgba(33,55,46,.72);backdrop-filter:blur(2px);}
+.card-photo .photo-credit{position:absolute;bottom:0;left:0;right:0;font-family:var(--font-mono);font-size:.6rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55));padding:14px 8px 4px;text-align:right;opacity:0;transition:opacity .15s;}
+.card-photo:hover .photo-credit{opacity:1;}
+.photo-credit a{color:#fff;}
+#credits{font-size:.78rem;color:var(--ink-soft);}
+#credits summary{cursor:pointer;font-family:var(--font-mono);color:var(--turquoise-deep);}
+#credits ul{columns:2;-webkit-columns:2;gap:24px;padding-left:18px;margin-top:10px;}
+@media(max-width:600px){#credits ul{columns:1;}}
+#credits li{break-inside:avoid;margin-bottom:4px;}
+.card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.card-body h4{margin:0;font-size:1.02rem;}
+.stars{color:var(--amber);font-size:.82rem;}
+.price,.cost-note{font-family:var(--font-mono);font-size:.78rem;color:var(--turquoise-deep);}
+.blurb{font-size:.86rem;color:var(--ink-soft);flex:1;}
+.card-actions{display:flex;gap:14px;font-size:.8rem;}
+.card-actions a{text-decoration:none;}
+.select-row{display:flex;align-items:center;gap:8px;font-size:.84rem;margin-top:4px;border-top:1px solid var(--line);padding-top:10px;cursor:pointer;flex-wrap:wrap;}
+.select-row input[type=checkbox]{width:17px;height:17px;accent-color:var(--turquoise);cursor:pointer;}
+.nights-field{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.74rem;margin-left:auto;}
+.nights-field input{width:42px;padding:3px;border:1px solid var(--line);border-radius:6px;font-family:var(--font-mono);}
+
+.map-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;margin-top:22px;}
+@media(max-width:860px){.map-layout{grid-template-columns:1fr;}}
+.map-frame-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
+.map-frame-wrap iframe{width:100%;height:440px;border:0;display:block;}
+.stops-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px;}
+.stops-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;max-height:200px;overflow:auto;}
+.stops-list li{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--paper-2);border-radius:8px;padding:6px 10px;font-size:.82rem;}
+.stops-list button{border:none;background:none;color:var(--amber-deep);cursor:pointer;font-size:1rem;line-height:1;padding:2px 4px;}
+.empty-stops{font-size:.82rem;color:var(--ink-soft);}
+.add-stop-form{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:12px;}
+.add-stop-form input{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-family:var(--font-body);font-size:.85rem;}
+.add-stop-form button{padding:9px;border-radius:8px;border:none;background:var(--turquoise);color:#fff;font-weight:600;cursor:pointer;font-size:.85rem;}
+.add-stop-form button:hover{background:var(--turquoise-deep);}
+#mapCapNote,#openMapLink{font-size:.78rem;color:var(--ink-soft);}
+#openMapLink{display:inline-block;margin-top:2px;}
+
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:22px;}
+.tip-card{background:var(--card);border-left:4px solid var(--turquoise);border-radius:10px;padding:15px 17px;font-size:.88rem;color:var(--ink-soft);}
+.tip-card .tip-emoji{font-size:1.25rem;margin-bottom:4px;display:block;}
+.tip-card strong{color:var(--ink);}
+
+footer{padding:30px 24px 90px;text-align:center;font-size:.78rem;color:var(--ink-soft);}
+
+.cost-tracker{position:fixed;right:18px;bottom:18px;z-index:90;font-family:var(--font-mono);}
+.cost-toggle{background:var(--pine);color:#fff;border:none;border-radius:999px;padding:14px 20px;font-family:var(--font-mono);font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.22);}
+.cost-panel{display:none;position:absolute;bottom:62px;right:0;width:290px;background:#fff;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.2);padding:18px;border:1px solid var(--line);}
+.cost-panel.open{display:block;}
+.cost-row{display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0;color:var(--ink-soft);}
+.cost-row.total{border-top:1px solid var(--line);margin-top:6px;padding-top:9px;font-weight:700;font-family:var(--font-body);font-size:1.02rem;color:var(--ink);}
+.travelers-row{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-family:var(--font-body);font-size:.82rem;color:var(--ink-soft);}
+.travelers-row input{width:48px;padding:4px;border-radius:6px;border:1px solid var(--line);font-family:var(--font-mono);}
+.reset-note{font-size:.68rem;color:var(--ink-soft);margin-top:10px;font-family:var(--font-body);}
+@media(max-width:480px){.cost-panel{width:82vw;right:-4px;}}
+
+:focus-visible{outline:2px solid var(--turquoise);outline-offset:2px;}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+</style>
+</head>
+<body class="route-a">
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="brand">Banff &amp; Beyond</span>
+    <nav>
+      <a href="#decide">Decide</a>
+      <a href="#itinerary">Itinerary</a>
+      <a href="#stay">Stay</a>
+      <a href="#do">Do</a>
+      <a href="#map">Map</a>
+      <a href="#tips">Tips</a>
+    </nav>
+    <div class="route-pills">
+      <button data-route-btn="A" class="active">Toronto</button>
+      <button data-route-btn="B">Québec + Montréal</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">A family road trip · July 18–29, 2026</p>
+    <h1>12 days, the Rockies, and one more region you haven't picked yet.</h1>
+    <p class="lede">A working plan built around Banff, with everything for Toronto <em>or</em> Québec City &amp; Montréal laid out so your family can compare and decide together. Check off hotels and attractions as you go — your route and running cost update live.</p>
+    <div class="meta-row">
+      <div><strong>12</strong>days total</div>
+      <div><strong>5</strong>nights in the Rockies</div>
+      <div><strong>2</strong>routes to compare</div>
+      <div><strong>Jul 18–29</strong>approx. dates (30th = flex/return day)</div>
+    </div>
+    <div class="howto">
+      <div><b>Check boxes</b>Add hotels &amp; attractions to your trip — the cost tracker in the bottom-right updates live.</div>
+      <div><b>Flip the toggle</b>Switch between the Toronto route and the Québec + Montréal route, top right.</div>
+      <div><b>Build the map</b>Selected stops plot in order automatically — add your own stops too, down in the Map section.</div>
+    </div>
+  </div>
+  <svg class="ridge" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+    <polygon points="0,200 0,120 120,40 220,110 320,30 430,120 540,60 650,130 760,50 880,120 980,70 1100,130 1200,90 1200,200" fill="#21372D" opacity="0.12"/>
+    <polygon points="0,200 0,160 150,90 260,150 380,80 500,160 620,100 740,170 860,110 980,165 1100,120 1200,170 1200,200" fill="#0F5C59" opacity="0.10"/>
+  </svg>
+</header>
+
+<section id="decide">
+  <div class="wrap">
+    <p class="eyebrow">Step one</p>
+    <h2>You're not doing all four cities — pick the second half</h2>
+    <p class="lede">Banff anchors the first 5 nights either way. The only real decision is what comes after Calgary: a direct hop to Toronto, or a flight to Montréal with a side trip to Québec City. Quick note up front — Banff sits in the Rocky Mountains in Alberta (Western Canada), while Toronto/Québec/Montréal are in central &amp; eastern Canada, so this trip really has two distinct halves no matter which you pick.</p>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h3>Route A — Banff + Toronto</h3>
+        <dl>
+          <dt>Flight from Calgary</dt><dd>~3h45m nonstop to Toronto (YYZ)</dd>
+          <dt>Vibe</dt><dd>Big-city skyline, CN Tower, Niagara Falls — one international flight home, no internal transfers</dd>
+          <dt>Best for</dt><dd>First-timers, families who want "two icons in one trip" (mountains + Niagara), and the simplest logistics</dd>
+          <dt>Trade-off</dt><dd>You'll miss the Old World cobblestones and French-Canadian culture of Québec</dd>
+        </dl>
+      </div>
+      <div class="compare-card">
+        <h3>Route B — Banff + Québec City &amp; Montréal</h3>
+        <dl>
+          <dt>Flight from Calgary</dt><dd>~4h15–4h30m nonstop to Montréal (YUL), plus a ~3h train or drive to Québec City and back</dd>
+          <dt>Vibe</dt><dd>Walled Old Town, French language &amp; food culture, slower-paced and very walkable</dd>
+          <dt>Best for</dt><dd>Families who want history, architecture, and food over big-city sightseeing — July is also festival season in Québec</dd>
+          <dt>Trade-off</dt><dd>One extra travel day (the Québec ⇄ Montréal leg), and a bit more packing/unpacking</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="big-toggle">
+      <button data-route-btn="A" class="active">Preview Route A: Toronto</button>
+      <button data-route-btn="B">Preview Route B: Québec + Montréal</button>
+    </div>
+    <p style="font-size:.82rem;color:var(--ink-soft)">Everything below — itinerary, hotels, attractions, map — follows whichever route is selected.</p>
+  </div>
+</section>
+
+<section id="itinerary">
+  <div class="wrap">
+    <p class="eyebrow">The plan</p>
+    <h2>Day by day</h2>
+    <p class="lede">Days 1–5 are the same either way: Banff, Lake Louise, and the Icefields Parkway. Day 6 onward depends on your route. The line below is a (very rough) elevation profile of the trip — the Rockies really are that much higher than everywhere else you're going.</p>
+
+    <svg class="elevation-chart route-chart-a show" viewBox="0 0 660 145" aria-hidden="true">
+      <polyline class="line" points="20,56 76,38 132,11 188,22 244,56 300,121 356,121 412,121 468,120 524,121 580,121 636,121"/>
+      <circle class="dot" cx="20" cy="56" r="3"/><circle class="dot" cx="76" cy="38" r="3"/>
+      <circle class="dot peak" cx="132" cy="11" r="4"/><circle class="dot" cx="188" cy="22" r="3"/>
+      <circle class="dot" cx="244" cy="56" r="3"/><circle class="dot" cx="300" cy="121" r="3"/>
+      <circle class="dot" cx="356" cy="121" r="3"/><circle class="dot" cx="412" cy="121" r="3"/>
+      <circle class="dot" cx="468" cy="120" r="3"/><circle class="dot" cx="524" cy="121" r="3"/>
+      <circle class="dot" cx="580" cy="121" r="3"/><circle class="dot" cx="636" cy="121" r="3"/>
+      <text class="lbl" x="100" y="48">Banff ~1,400m</text>
+      <text class="lbl" x="115" y="8">Sulphur Mtn ~2,280m</text>
+      <text class="lbl" x="420" y="138">Toronto ~76m</text>
+      <text x="20" y="143">D1</text><text x="128" y="143">D3</text><text x="244" y="143">D5</text>
+      <text x="356" y="143">D7</text><text x="468" y="143">D9</text><text x="580" y="143">D11</text>
+    </svg>
+    <svg class="elevation-chart route-chart-b" viewBox="0 0 660 145" aria-hidden="true">
+      <polyline class="line" points="20,56 76,38 132,11 188,22 244,56 300,120 356,120 412,120 468,123 524,123 580,113 636,123"/>
+      <circle class="dot" cx="20" cy="56" r="3"/><circle class="dot" cx="76" cy="38" r="3"/>
+      <circle class="dot peak" cx="132" cy="11" r="4"/><circle class="dot" cx="188" cy="22" r="3"/>
+      <circle class="dot" cx="244" cy="56" r="3"/><circle class="dot" cx="300" cy="120" r="3"/>
+      <circle class="dot" cx="356" cy="120" r="3"/><circle class="dot" cx="412" cy="120" r="3"/>
+      <circle class="dot" cx="468" cy="123" r="3"/><circle class="dot" cx="524" cy="123" r="3"/>
+      <circle class="dot peak" cx="580" cy="113" r="4"/><circle class="dot" cx="636" cy="123" r="3"/>
+      <text class="lbl" x="100" y="48">Banff ~1,400m</text>
+      <text class="lbl" x="115" y="8">Sulphur Mtn ~2,280m</text>
+      <text class="lbl" x="340" y="113">Québec City ~98m</text>
+      <text class="lbl" x="540" y="105">Mt Royal ~233m</text>
+      <text x="20" y="143">D1</text><text x="128" y="143">D3</text><text x="244" y="143">D5</text>
+      <text x="356" y="143">D7</text><text x="468" y="143">D9</text><text x="580" y="143">D11</text>
+    </svg>
+
+    <div class="day-list" id="dayList">
+      <div class="day-card" data-route="common"><div class="day-num">01<span>Calgary → Banff</span></div><div><h4>Arrive &amp; settle in</h4><p>Land in Calgary (YYC), drive the Trans-Canada to Banff (~1h25 / 130km), check into your hotel. Easy first evening: wander Banff Avenue, sunset at Bow Falls &amp; Surprise Corner.</p></div></div>
+      <div class="day-card" data-route="common"><div class="day-num">02<span>Lake Louise</span></div><div><h4>Lake Louise &amp; Moraine Lake</h4><p>The big one — book your Parks Canada shuttle reservation as early as possible (see Good to Know). Canoe on the lake if you have time and energy left.</p></div></div>
+      <div class="day-card" data-route="common"><div class="day-num">03<span>Banff townsite</span></div><div><h4>Gondola, canyon &amp; hot springs</h4><p>Banff Gondola up Sulphur Mountain in the morning, Johnston Canyon catwalk hike to the falls midday, Banff Upper Hot Springs or Cave and Basin to finish.</p></div></div>
+      <div class="day-card" data-route="common"><div class="day-num">04<span>Icefields Pkwy</span></div><div><h4>Scenic drive day</h4><p>One of the most scenic drives on Earth: Bow Lake, Crowfoot Glacier, and Peyto Lake Viewpoint. Turn back at Saskatchewan River Crossing, or push on to the Columbia Icefield if you're up for a long day.</p></div></div>
+      <div class="day-card" data-route="common"><div class="day-num">05<span>Banff area</span></div><div><h4>Choose your adventure</h4><p>Lake Minnewanka cruise or the Tunnel Mountain/Hoodoos hike, free afternoon for Canmore/shopping/spa, last dinner in Banff.</p></div></div>
+
+      <div class="day-card" data-route="A"><div class="day-num">06<span>Banff → Toronto</span></div><div><h4>Fly to Toronto</h4><p>Drive back to Calgary, fly Calgary→Toronto, check in, easy evening at the Distillery District.</p></div></div>
+      <div class="day-card" data-route="A"><div class="day-num">07<span>Toronto</span></div><div><h4>CN Tower &amp; the Islands</h4><p>CN Tower early to beat the lines, Harbourfront, ferry out to the Toronto Islands for the afternoon.</p></div></div>
+      <div class="day-card" data-route="A"><div class="day-num">08<span>Toronto</span></div><div><h4>Museums &amp; neighborhoods</h4><p>Royal Ontario Museum, Casa Loma, then Kensington Market &amp; Graffiti Alley.</p></div></div>
+      <div class="day-card" data-route="A"><div class="day-num">09<span>Niagara Falls</span></div><div><h4>Day trip to the Falls</h4><p>About 1.5 hours from Toronto. Hornblower boat cruise to the base of the Horseshoe Falls, dinner in Niagara-on-the-Lake.</p></div></div>
+      <div class="day-card" data-route="A"><div class="day-num">10<span>Toronto</span></div><div><h4>Market &amp; free day</h4><p>St. Lawrence Market in the morning, free afternoon for shopping/neighborhoods (Queen West, Yorkville) or a ball game if the Jays are in town.</p></div></div>
+      <div class="day-card" data-route="A"><div class="day-num">11<span>Toronto</span></div><div><h4>Flex day</h4><p>Rest day, second Niagara wine-country outing, or anything you missed. Pack up.</p></div></div>
+      <div class="day-card" data-route="A"><div class="day-num">12<span>Depart</span></div><div><h4>Fly home</h4><p>Depart Toronto Pearson (YYZ).</p></div></div>
+
+      <div class="day-card" data-route="B"><div class="day-num">06<span>Banff → Québec</span></div><div><h4>Fly to Québec City</h4><p>Fly Calgary→Montréal, then transfer to Québec City (VIA Rail ~3h, or rental car ~2h45). Check into Old Québec.</p></div></div>
+      <div class="day-card" data-route="B"><div class="day-num">07<span>Québec City</span></div><div><h4>Old Québec walking day</h4><p>Château Frontenac &amp; Dufferin Terrace, Petit Champlain, the funicular, the Citadelle.</p></div></div>
+      <div class="day-card" data-route="B"><div class="day-num">08<span>Québec City</span></div><div><h4>Falls &amp; Île d'Orléans</h4><p>Montmorency Falls (taller than Niagara!) in the morning, farm stands and cidery tastings on Île d'Orléans in the afternoon — strawberries peak in late July.</p></div></div>
+      <div class="day-card" data-route="B"><div class="day-num">09<span>Québec → Montréal</span></div><div><h4>Travel day</h4><p>Train to Montréal (~3h), check in, evening wander through Old Montréal &amp; the Old Port.</p></div></div>
+      <div class="day-card" data-route="B"><div class="day-num">10<span>Montréal</span></div><div><h4>Basilica &amp; the Port</h4><p>Notre-Dame Basilica, the Old Port (Ferris wheel), the Jacques-Cartier Bridge area.</p></div></div>
+      <div class="day-card" data-route="B"><div class="day-num">11<span>Montréal</span></div><div><h4>Mountain &amp; markets</h4><p>Mount Royal Park lookout, Jean-Talon Market, the Plateau Mont-Royal neighborhood.</p></div></div>
+      <div class="day-card" data-route="B"><div class="day-num">12<span>Depart</span></div><div><h4>Fly home</h4><p>Depart Montréal-Trudeau (YUL).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="stay">
+  <div class="wrap">
+    <p class="eyebrow">Where to stay</p>
+    <h2>Hotels for each stop</h2>
+    <p class="lede">A spread of price points for each destination. Prices are nightly CAD estimates for summer 2026 gathered from current listings — always confirm the live rate before booking, since hotel pricing changes constantly.</p>
+
+    <div class="dest-block" data-route="common">
+      <h3>Banff <span class="sub">— suggested 4 nights</span></h3>
+      <div class="card-grid" id="hotels-banff"></div>
+    </div>
+    <div class="dest-block" data-route="common">
+      <h3>Lake Louise <span class="sub">— optional splurge, 1 night (many do it as a day trip instead)</span></h3>
+      <div class="card-grid" id="hotels-lakelouise"></div>
+    </div>
+    <div class="dest-block" data-route="A">
+      <h3>Toronto <span class="sub">— suggested 6 nights</span></h3>
+      <div class="card-grid" id="hotels-toronto"></div>
+    </div>
+    <div class="dest-block" data-route="B">
+      <h3>Québec City <span class="sub">— suggested 3 nights</span></h3>
+      <div class="card-grid" id="hotels-quebec"></div>
+    </div>
+    <div class="dest-block" data-route="B">
+      <h3>Montréal <span class="sub">— suggested 3 nights</span></h3>
+      <div class="card-grid" id="hotels-montreal"></div>
+    </div>
+  </div>
+</section>
+
+<section id="do">
+  <div class="wrap">
+    <p class="eyebrow">Things to do</p>
+    <h2>Attractions, with Banff front and center</h2>
+    <p class="lede">Amber badges mark the can't-miss picks in each destination; the rest are great if you have the time. Costs are approximate per-adult CAD — many of the best things here (hikes, viewpoints, walking the towns) are free.</p>
+
+    <div class="dest-block" data-route="common">
+      <h3>Banff &amp; Lake Louise <span class="sub">— the heart of the trip</span></h3>
+      <div class="card-grid" id="attr-banff"></div>
+    </div>
+    <div class="dest-block" data-route="A">
+      <h3>Toronto &amp; Niagara</h3>
+      <div class="card-grid" id="attr-toronto"></div>
+    </div>
+    <div class="dest-block" data-route="B">
+      <h3>Québec City</h3>
+      <div class="card-grid" id="attr-quebec"></div>
+    </div>
+    <div class="dest-block" data-route="B">
+      <h3>Montréal</h3>
+      <div class="card-grid" id="attr-montreal"></div>
+    </div>
+  </div>
+</section>
+
+<section id="map">
+  <div class="wrap">
+    <p class="eyebrow">Build your route</p>
+    <h2>Your trip on one map</h2>
+    <p class="lede">Every hotel and attraction you check above plots here automatically, in travel order. Add your own stops below too — a restaurant, a trailhead, anything — and they'll join the route.</p>
+    <div class="map-layout">
+      <div class="map-frame-wrap">
+        <iframe id="mapFrame" src="https://www.google.com/maps?q=Banff+National+Park,AB&output=embed" loading="lazy" allowfullscreen title="Trip route map"></iframe>
+      </div>
+      <div class="stops-panel">
+        <h4 style="margin:0;">Your stops</h4>
+        <ul class="stops-list" id="stopsList"><li class="empty-stops" style="background:none;">Nothing selected yet — check items above to add them here.</li></ul>
+        <p id="mapCapNote">Check items below to start building your route.</p>
+        <a id="openMapLink" href="https://www.google.com/maps/search/?api=1&query=Banff+National+Park" target="_blank" rel="noopener">Open full route in Google Maps ↗</a>
+        <form class="add-stop-form" id="addStopForm">
+          <strong style="font-family:var(--font-body);font-size:.85rem;">Add your own stop</strong>
+          <input type="text" id="stopName" placeholder="Place name (e.g. Surprise Corner)" required>
+          <input type="text" id="stopAddr" placeholder="City / address (optional)">
+          <input type="number" id="stopCost" placeholder="Est. cost CAD (optional)" min="0" step="1">
+          <button type="submit">Add to route</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="wrap">
+    <p class="eyebrow">Good to know</p>
+    <h2>Before you go</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><span class="tip-emoji">🎟️</span><strong>Book your Moraine Lake / Lake Louise shuttle now.</strong> Private vehicles are banned on Moraine Lake Road. Parks Canada releases reservations in waves (40% in advance, the remaining 60% on a rolling 2-day-ahead basis) — for a mid/late-July trip, check <a href="https://reservation.pc.gc.ca/" target="_blank" rel="noopener">reservation.pc.gc.ca</a> immediately and keep checking the 48-hour release if your date shows sold out.</div>
+      <div class="tip-card"><span class="tip-emoji">💸</span><strong>Check the Canada Strong Pass.</strong> Parks Canada has indicated this pass returns for summer 2026 with free admission to national parks and historic sites — worth confirming before you buy a separate Banff park pass.</div>
+      <div class="tip-card"><span class="tip-emoji">✈️</span><strong>Book flights early.</strong> Mid-to-late July is peak Canadian summer travel. Both routes fly out of Calgary (YYC) — fares typically rise the closer you get to departure.</div>
+      <div class="tip-card"><span class="tip-emoji">🚗</span><strong>Rent a car for the Banff leg.</strong> Roam Transit covers the townsite, but the Icefields Parkway and most trailheads need your own wheels (or a guided tour).</div>
+      <div class="tip-card"><span class="tip-emoji">🌤️</span><strong>Pack layers.</strong> Banff in July runs roughly 8–23°C and mountain weather turns fast — bring a rain shell even on a sunny forecast. Toronto/Québec/Montréal run warm and humid, upper 20s°C.</div>
+      <div class="tip-card"><span class="tip-emoji">🗣️</span><strong>Route B language note.</strong> Québec City and Montréal are predominantly French-speaking. English is common in tourist areas, but a few French phrases go a long way.</div>
+      <div class="tip-card"><span class="tip-emoji">⛰️</span><strong>Altitude.</strong> Banff sits at ~1,400m and Lake Louise higher still. Take the first day easy, drink more water than usual, especially before any big hike.</div>
+      <div class="tip-card"><span class="tip-emoji">🛂</span><strong>ID &amp; entry.</strong> A valid passport is the simplest way to enter Canada by air — confirm requirements for every traveler in your group well ahead of time.</div>
+    </div>
+  </div>
+</section>
+
+<section id="photo-note" style="padding:32px 0;border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <details id="credits">
+      <summary>Photo credits — 23 real photos via Wikimedia Commons (free-licensed)</summary>
+      <p style="margin-top:10px;">All photos on this page are freely-licensed images (CC BY / CC BY-SA / CC0 / public domain) sourced from Wikimedia Commons — no stock photography or hotlinked copyrighted images. Hover any photo for a direct credit link, or see the full list below. Listings without a photo use a simple illustrated icon instead.</p>
+      <ul id="creditsList"></ul>
+    </details>
+  </div>
+</section>
+
+<footer>
+  Built for your July 2026 trip — every price, link, and timing here is an estimate to help you plan; please confirm directly before booking. Selections reset if you reload the page, so screenshot or jot down your favorites. Have an amazing trip!
+</footer>
+
+<div class="cost-tracker" id="costTracker">
+  <button class="cost-toggle" id="costToggleBtn">🧮 Trip cost: $0</button>
+  <div class="cost-panel" id="costPanel">
+    <div class="cost-row"><span>Hotels</span><span id="costHotels">$0</span></div>
+    <div class="cost-row"><span>Attractions</span><span id="costAttr">$0</span></div>
+    <div class="cost-row"><span>Custom stops</span><span id="costCustom">$0</span></div>
+    <div class="cost-row total"><span>Total</span><span id="costGrand">$0</span></div>
+    <div class="travelers-row"><span>Travelers (for attraction costs)</span><input type="number" id="travelersInput" min="1" max="12" value="4"></div>
+    <p class="reset-note">Estimates only — hotel total = nightly rate × nights selected; attraction total = per-person cost × travelers. Resets on page reload.</p>
+  </div>
+</div>
+
+<script>
+const ICONS = {
+  mountain:'<polyline points="2,20 8,9 12,15 16,7 22,20"/>',
+  lake:'<path d="M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>',
+  tower:'<line x1="12" y1="2" x2="12" y2="22"/><polyline points="6,22 12,6 18,22"/><line x1="8" y1="14" x2="16" y2="14"/>',
+  castle:'<rect x="3" y="10" width="18" height="11"/><polyline points="3,10 3,5 6,5 6,8 9,5 9,8 12,5 12,8 15,5 15,8 18,5 18,8 21,5 21,10"/>',
+  falls:'<line x1="7" y1="3" x2="7" y2="15"/><line x1="12" y1="3" x2="12" y2="18"/><line x1="17" y1="3" x2="17" y2="15"/><path d="M3 21c4-2 14-2 18 0"/>',
+  market:'<path d="M3 9l2-5h14l2 5"/><rect x="4" y="9" width="16" height="11"/><line x1="9" y1="9" x2="9" y2="20"/><line x1="15" y1="9" x2="15" y2="20"/>',
+  museum:'<polygon points="12,3 21,9 3,9"/><line x1="5" y1="9" x2="5" y2="20"/><line x1="9" y1="9" x2="9" y2="20"/><line x1="15" y1="9" x2="15" y2="20"/><line x1="19" y1="9" x2="19" y2="20"/><line x1="3" y1="21" x2="21" y2="21"/>',
+  tree:'<polygon points="12,2 18,12 14,12 19,19 5,19 10,12 6,12"/><line x1="12" y1="19" x2="12" y2="22"/>',
+  bed:'<path d="M3 18v-6a3 3 0 013-3h12a3 3 0 013 3v6"/><path d="M3 21v-3M21 21v-3"/><path d="M3 13h18"/><circle cx="7.5" cy="10" r="1.5"/>',
+  gondola:'<line x1="3" y1="4" x2="21" y2="20"/><rect x="9" y="9" width="6" height="5" rx="1"/><line x1="12" y1="14" x2="12" y2="9"/>',
+  hotsprings:'<circle cx="12" cy="13" r="6"/><path d="M9 5c0 1-1 1-1 2s1 1 1 2M13 4c0 1-1 1-1 2s1 1 1 2"/>',
+  boat:'<path d="M3 16h18l-2 5H5z"/><line x1="12" y1="3" x2="12" y2="16"/><path d="M12 6l6 4H12z"/>'
+};
+function iconSvg(name){
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'+(ICONS[name]||ICONS.mountain)+'</svg>';
+}
+function starsHtml(n){
+  const full = Math.floor(n);
+  const half = (n - full) >= 0.5;
+  return '★'.repeat(full) + (half ? '½' : '');
+}
+
+const DEST_META = {
+  banff:{nightsDefault:4},
+  lakelouise:{nightsDefault:1},
+  toronto:{nightsDefault:6},
+  quebec:{nightsDefault:3},
+  montreal:{nightsDefault:3}
+};
+
+const HOTELS = [
+  {id:"h1",dest:"banff",name:"Fairmont Banff Springs",stars:5,price:650,priceNote:"~$650+ CAD/night (summer peak)",tag:"Landmark splurge",blurb:"An 1888 castle-hotel above the Bow River — golf course, a 40,000 sq ft spa, and the most iconic silhouette in the Rockies.",link:"https://www.fairmont.com/banff-springs/",mapQuery:"Fairmont Banff Springs, Banff, AB",icon:"castle",image:"Banff Springs Hotel 7373 Banff National Park, Albarta Canada 07.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Banff_Springs_Hotel_7373_Banff_National_Park,_Albarta_Canada_07.JPG"},
+  {id:"h2",dest:"banff",name:"The Juniper Hotel",stars:4,price:420,priceNote:"~$420 CAD/night",tag:"Boutique & sustainable",blurb:"Eco-minded boutique stay just outside downtown, reclaimed-wood interiors, private balconies, quick access to the Gondola base.",link:"https://www.google.com/search?q=The+Juniper+Hotel+Banff",mapQuery:"The Juniper Hotel, Banff, AB",icon:"tree"},
+  {id:"h3",dest:"banff",name:"Moose Hotel & Suites",stars:4,price:380,priceNote:"~$380 CAD/night",tag:"Rooftop hot pools",blurb:"Downtown on Banff Avenue with rooftop mineral hot pools and a stone fireplace lounge — easy walk to everything.",link:"https://www.google.com/search?q=Moose+Hotel+and+Suites+Banff",mapQuery:"Moose Hotel and Suites, Banff, AB",icon:"hotsprings"},
+  {id:"h4",dest:"banff",name:"Canalta Lodge",stars:3,price:240,priceNote:"~$240 CAD/night",tag:"Best value",blurb:"Clean, modern, walkable, and one of the few downtown hotels with free parking — a smart base on a budget.",link:"https://www.google.com/search?q=Canalta+Lodge+Banff",mapQuery:"Canalta Lodge, Banff, AB",icon:"bed"},
+  {id:"h5",dest:"lakelouise",name:"Fairmont Chateau Lake Louise",stars:5,price:700,priceNote:"~$700+ CAD/night (varies widely by room)",tag:"Bucket-list splurge",blurb:"Wake up on the turquoise shoreline itself — the most-requested splurge night on this whole trip.",link:"https://www.fairmont.com/lake-louise/",mapQuery:"Fairmont Chateau Lake Louise, Lake Louise, AB",icon:"castle",image:"Fairmont Chateau Lake Louise.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Fairmont_Chateau_Lake_Louise.JPG"},
+  {id:"h6",dest:"lakelouise",name:"Lake Louise Inn",stars:3,price:260,priceNote:"~$260 CAD/night",tag:"Budget-friendly base",blurb:"A few minutes' drive from the lake at a fraction of the Chateau's price — good if you'd rather day-trip in.",link:"https://www.google.com/search?q=Lake+Louise+Inn",mapQuery:"Lake Louise Inn, Lake Louise, AB",icon:"bed"},
+  {id:"h7",dest:"toronto",name:"Fairmont Royal York",stars:4.5,price:420,priceNote:"~$420 CAD/night",tag:"Historic landmark",blurb:"A 1929 grand-dame hotel directly above Union Station — unbeatable location for a car-free Toronto stay.",link:"https://www.fairmont.com/royal-york-toronto/",mapQuery:"Fairmont Royal York, Toronto, ON",icon:"castle",image:"Fairmont Royal York Hotel.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Fairmont_Royal_York_Hotel.JPG"},
+  {id:"h8",dest:"toronto",name:"The Omni King Edward Hotel",stars:4.5,price:350,priceNote:"~$350 CAD/night",tag:"Boutique heritage",blurb:"Toronto's oldest grand hotel (1903), known for lobby afternoon tea and old-world charm in the Financial District.",link:"https://www.google.com/search?q=Omni+King+Edward+Hotel+Toronto",mapQuery:"Omni King Edward Hotel, Toronto, ON",icon:"museum"},
+  {id:"h9",dest:"toronto",name:"Chelsea Hotel, Toronto",stars:4,price:260,priceNote:"~$260 CAD/night",tag:"Family pick",blurb:"Canada's largest hotel, with an indoor family waterpark and a supervised kids' zone — a hit with younger travelers.",link:"https://www.google.com/search?q=Chelsea+Hotel+Toronto",mapQuery:"Chelsea Hotel Toronto, Toronto, ON",icon:"bed"},
+  {id:"h10",dest:"toronto",name:"DoubleTree by Hilton Toronto Downtown",stars:4,price:280,priceNote:"~$280 CAD/night",tag:"Reliable mid-range",blurb:"Solid, central, steps from the Eaton Centre and the PATH underground walkway — easy in any weather.",link:"https://www.google.com/search?q=DoubleTree+by+Hilton+Toronto+Downtown",mapQuery:"DoubleTree by Hilton Hotel Toronto Downtown, Toronto, ON",icon:"bed"},
+  {id:"h11",dest:"quebec",name:"Fairmont Le Château Frontenac",stars:4.5,price:480,priceNote:"~$480+ CAD/night (summer)",tag:"The skyline itself",blurb:"You've seen this hotel on every postcard of Québec City — it literally defines the Old Town skyline.",link:"https://www.fairmont.com/frontenac-quebec/",mapQuery:"Fairmont Le Chateau Frontenac, Quebec City, QC",icon:"castle",image:"Chateau Frontenac Quebec City.jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Chateau_Frontenac_Quebec_City.jpg"},
+  {id:"h12",dest:"quebec",name:"Hôtel Manoir Victoria",stars:4,price:240,priceNote:"~$240 CAD/night",tag:"Old Town value",blurb:"A historic mid-range option a block off Rue Saint-Jean, with a small spa and pool — great walkable base.",link:"https://www.google.com/search?q=Hotel+Manoir+Victoria+Quebec+City",mapQuery:"Hotel Manoir Victoria, Quebec City, QC",icon:"bed"},
+  {id:"h13",dest:"quebec",name:"Hôtel Le Priori",stars:4,price:220,priceNote:"~$220 CAD/night",tag:"Boutique charm",blurb:"Tucked in the Lower Town near Place Royale, with exposed stone walls and a quietly stylish look.",link:"https://www.google.com/search?q=Hotel+Le+Priori+Quebec+City",mapQuery:"Hotel Le Priori, Quebec City, QC",icon:"bed"},
+  {id:"h14",dest:"quebec",name:"Hôtel Palace Royal",stars:4,price:260,priceNote:"~$260 CAD/night",tag:"Family pick",blurb:"Indoor pool, kids' club, and an easy walk into the Old Town — a comfortable base for families.",link:"https://www.google.com/search?q=Hotel+Palace+Royal+Quebec+City",mapQuery:"Hotel Palace Royal, Quebec City, QC",icon:"bed"},
+  {id:"h15",dest:"montreal",name:"Hôtel Place d'Armes",stars:4.5,price:340,priceNote:"~$340 CAD/night",tag:"Old Montréal boutique",blurb:"A converted heritage building on Place d'Armes with a rooftop terrace and spa, right across from Notre-Dame Basilica.",link:"https://www.google.com/search?q=Hotel+Place+d%27Armes+Montreal",mapQuery:"Hotel Place d'Armes, Montreal, QC",icon:"museum"},
+  {id:"h16",dest:"montreal",name:"Le Mount Stephen",stars:5,price:300,priceNote:"~$300 CAD/night",tag:"Heritage mansion",blurb:"A restored 1880s mansion downtown with one of the city's most striking stained-glass domes.",link:"https://www.google.com/search?q=Le+Mount+Stephen+Hotel+Montreal",mapQuery:"Le Mount Stephen, Montreal, QC",icon:"castle"},
+  {id:"h17",dest:"montreal",name:"Hôtel Bonaparte",stars:4,price:240,priceNote:"~$240 CAD/night",tag:"Old Montréal charm",blurb:"Quiet, ivy-covered, and steps from the cobblestones of Place Jacques-Cartier — a low-key favorite.",link:"https://www.google.com/search?q=Hotel+Bonaparte+Montreal",mapQuery:"Hotel Bonaparte, Montreal, QC",icon:"bed"},
+  {id:"h18",dest:"montreal",name:"Hampton Inn by Hilton Montreal Downtown",stars:3.5,price:230,priceNote:"~$230 CAD/night",tag:"Family pick",blurb:"Reliable and family-friendly with free breakfast — good value near both Old Montréal and downtown.",link:"https://www.google.com/search?q=Hampton+Inn+by+Hilton+Montreal+Downtown",mapQuery:"Hampton Inn by Hilton Montreal Downtown, Montreal, QC",icon:"bed"}
+];
+
+const ATTRACTIONS = [
+  {id:"a1",dest:"banff",name:"Moraine Lake & Valley of the Ten Peaks",cost:8,costNote:"Free entry · ~$8 CAD shuttle reservation fee",time:"Half day",essential:true,blurb:"The single most photographed view in the Rockies. Private vehicles are banned on the access road — book a Parks Canada or commercial shuttle ahead of time.",link:"https://reservation.pc.gc.ca/",mapQuery:"Moraine Lake, Improvement District No. 9, AB",icon:"lake",image:"Moraine Lake-Banff NP.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Moraine_Lake-Banff_NP.JPG"},
+  {id:"a2",dest:"banff",name:"Lake Louise Lakeshore & Canoeing",cost:0,costNote:"Free to walk · canoe rental ~$155/hr",time:"Half day",essential:true,blurb:"A flat, easy lakeshore trail with the glacier and the Fairmont Chateau as backdrop — paddle out for the classic shot from the water.",link:"https://www.banfflakelouise.com/",mapQuery:"Lake Louise, Lake Louise, AB",icon:"lake",image:"Lake Louise Canada Banff.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Lake_Louise_Canada_Banff.JPG"},
+  {id:"a3",dest:"banff",name:"Banff Gondola (Sulphur Mountain)",cost:65,costNote:"~$65 CAD/adult",time:"2–3 hours",essential:true,blurb:"An 8-minute glass gondola to a ridgetop boardwalk with views of six mountain ranges — go early or book an evening Sunset Festival slot.",link:"https://www.banffjaspercollection.com/attractions/banff-gondola/",mapQuery:"Banff Gondola, Banff, AB",icon:"gondola",image:"Banff Sulphur Mountain Gondola IMG 4259.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Banff_Sulphur_Mountain_Gondola_IMG_4259.JPG"},
+  {id:"a4",dest:"banff",name:"Johnston Canyon",cost:0,costNote:"Free (trail)",time:"2–3 hours",essential:true,blurb:"A catwalk trail bolted into the canyon walls leading to the Lower and Upper Falls — arrive before 9am in summer or the lot fills.",link:"https://www.google.com/search?q=Johnston+Canyon+Banff",mapQuery:"Johnston Canyon, Banff National Park, AB",icon:"falls",image:"Cascade Falls Johnston Canyon from the cave (9906891773).jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Cascade_Falls_Johnston_Canyon_from_the_cave_(9906891773).jpg"},
+  {id:"a5",dest:"banff",name:"Icefields Parkway: Bow Lake & Peyto Lake",cost:0,costNote:"Free (park pass required)",time:"Full day",blurb:"One of the most scenic drives on Earth — pull-offs at Bow Lake, Crowfoot Glacier, and the famous wolf-head shape of Peyto Lake.",link:"https://www.google.com/search?q=Icefields+Parkway+Peyto+Lake",mapQuery:"Peyto Lake Viewpoint, Improvement District No. 9, AB",icon:"mountain",image:"Peyto Lake-Banff NP-Canada.jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Peyto_Lake-Banff_NP-Canada.jpg"},
+  {id:"a6",dest:"banff",name:"Lake Minnewanka Cruise",cost:60,costNote:"~$60 CAD/adult",time:"1.5 hours",blurb:"A guided boat cruise on Banff's largest lake, past old townsite ruins submerged since the 1940s dam.",link:"https://www.google.com/search?q=Lake+Minnewanka+Cruise",mapQuery:"Lake Minnewanka, Banff National Park, AB",icon:"boat",image:"Banff National Park - Lake Minnewanka (33321241396).jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Banff_National_Park_-_Lake_Minnewanka_(33321241396).jpg"},
+  {id:"a7",dest:"banff",name:"Banff Upper Hot Springs",cost:22,costNote:"~$22 CAD/adult",time:"1–2 hours",blurb:"A historic mineral hot pool with mountain views — the perfect way to end a big hiking day.",link:"https://www.google.com/search?q=Banff+Upper+Hot+Springs",mapQuery:"Banff Upper Hot Springs, Banff, AB",icon:"hotsprings"},
+  {id:"a8",dest:"banff",name:"Tunnel Mountain & Hoodoos Trail",cost:0,costNote:"Free",time:"2–3 hours",blurb:"A moderate hike with sweeping Bow Valley views, finishing near the eerie limestone hoodoo pillars.",link:"https://www.google.com/search?q=Tunnel+Mountain+Trail+Banff",mapQuery:"Tunnel Mountain Trail, Banff, AB",icon:"mountain"},
+  {id:"a9",dest:"banff",name:"Bow Falls & Surprise Corner",cost:0,costNote:"Free",time:"30–45 min",blurb:"A short, easy stroll to the waterfall and the postcard view of the Fairmont Banff Springs across the valley — great for golden hour.",link:"https://www.google.com/search?q=Bow+Falls+Banff",mapQuery:"Bow Falls, Banff, AB",icon:"falls",image:"'Roots' -- Near the Bow Falls at Banff (AB) September 2019 (49571536726).jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:%27Roots%27_--_Near_the_Bow_Falls_at_Banff_(AB)_September_2019_(49571536726).jpg"},
+  {id:"a10",dest:"banff",name:"Cave and Basin National Historic Site",cost:12,costNote:"~$12 CAD/adult",time:"1 hour",blurb:"The natural hot spring that started Banff National Park in 1885 — small museum, warm-water cave, short boardwalk trails.",link:"https://www.google.com/search?q=Cave+and+Basin+National+Historic+Site",mapQuery:"Cave and Basin National Historic Site, Banff, AB",icon:"hotsprings"},
+
+  {id:"a11",dest:"toronto",name:"CN Tower",cost:53,costNote:"~$53 CAD/adult (LookOut level)",time:"1.5–2 hours",essential:true,blurb:"The 553m icon of the skyline — go for the glass floor, splurge for the EdgeWalk if anyone's brave enough.",link:"https://www.cntower.ca/",mapQuery:"CN Tower, Toronto, ON",icon:"tower",image:"CN Tower, Toronto, Canada9.jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:CN_Tower,_Toronto,_Canada9.jpg"},
+  {id:"a12",dest:"toronto",name:"Royal Ontario Museum (ROM)",cost:30,costNote:"~$30 CAD/adult",time:"2–3 hours",blurb:"Dinosaurs, gems, and crystal-clad architecture — Canada's largest museum of natural history and world culture.",link:"https://www.rom.on.ca/",mapQuery:"Royal Ontario Museum, Toronto, ON",icon:"museum",image:"Royal Ontario Museum-Michael Lee-Chin Crystal.jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Royal_Ontario_Museum-Michael_Lee-Chin_Crystal.jpg"},
+  {id:"a13",dest:"toronto",name:"Toronto Islands",cost:10,costNote:"~$10 CAD ferry (return)",time:"Half day",essential:true,blurb:"Car-free islands with beaches, bike rentals, and the best skyline view in the city looking back at downtown.",link:"https://www.google.com/search?q=Toronto+Islands+Ferry",mapQuery:"Toronto Islands, Toronto, ON",icon:"boat",image:"Toronto skyline toronto islands b.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Toronto_skyline_toronto_islands_b.JPG"},
+  {id:"a14",dest:"toronto",name:"Niagara Falls Day Trip",cost:40,costNote:"~$40 CAD/adult boat cruise · falls themselves free",time:"Full day",essential:true,blurb:"About 1.5 hours from Toronto — ride right up to the base of the Horseshoe Falls, then dinner in pretty Niagara-on-the-Lake.",link:"https://www.google.com/search?q=Niagara+Falls+Hornblower+Cruise",mapQuery:"Niagara Falls, ON",icon:"falls",image:"Horseshoe Falls.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Horseshoe_Falls.JPG"},
+  {id:"a15",dest:"toronto",name:"St. Lawrence Market",cost:0,costNote:"Free to browse",time:"1–2 hours",blurb:"A 200-plus-year-old food market — the peameal bacon sandwich is the local must-try.",link:"https://www.google.com/search?q=St+Lawrence+Market+Toronto",mapQuery:"St. Lawrence Market, Toronto, ON",icon:"market"},
+  {id:"a16",dest:"toronto",name:"Casa Loma",cost:40,costNote:"~$40 CAD/adult",time:"1.5–2 hours",blurb:"A genuine early-1900s castle in midtown Toronto, complete with secret passages and gardens.",link:"https://www.google.com/search?q=Casa+Loma+Toronto",mapQuery:"Casa Loma, Toronto, ON",icon:"castle",image:"Casa Loma, Toronto, Ontario (29709456890).jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Casa_Loma,_Toronto,_Ontario_(29709456890).jpg"},
+  {id:"a17",dest:"toronto",name:"Distillery District & Kensington Market",cost:0,costNote:"Free to browse",time:"Half day",blurb:"Cobblestone Victorian-era distillery buildings turned into galleries and cafes, plus the bohemian, mural-covered streets of Kensington.",link:"https://www.google.com/search?q=Distillery+District+Toronto",mapQuery:"Distillery District, Toronto, ON",icon:"market"},
+
+  {id:"a18",dest:"quebec",name:"Château Frontenac & Dufferin Terrace",cost:0,costNote:"Terrace free · guided hotel tour ~$22 CAD",time:"1–2 hours",essential:true,blurb:"Walk the boardwalk along the St. Lawrence beneath the most photographed hotel in the world, then drop into the Old Town below.",link:"https://www.fairmont.com/frontenac-quebec/",mapQuery:"Dufferin Terrace, Quebec City, QC",icon:"castle",image:"Chateau Frontenac 25.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Chateau_Frontenac_25.JPG"},
+  {id:"a19",dest:"quebec",name:"Old Québec & Petit Champlain",cost:0,costNote:"Free to wander",time:"Half day",essential:true,blurb:"The only walled city north of Mexico — cobblestones, creperies, North America's oldest commercial street.",link:"https://www.google.com/search?q=Petit+Champlain+Quebec+City",mapQuery:"Quartier Petit Champlain, Quebec City, QC",icon:"market",image:"Petit champlain, Quebec Ville, Canada 2.jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Petit_champlain,_Quebec_Ville,_Canada_2.jpg"},
+  {id:"a20",dest:"quebec",name:"Montmorency Falls",cost:18,costNote:"~$18 CAD cable car + suspended footbridge",time:"2–3 hours",essential:true,blurb:"30m taller than Niagara, with a fraction of the crowds — walk the suspended bridge right over the top.",link:"https://www.google.com/search?q=Montmorency+Falls",mapQuery:"Montmorency Falls Park, Quebec City, QC",icon:"falls",image:"Cascada Montmorency.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Cascada_Montmorency.JPG"},
+  {id:"a21",dest:"quebec",name:"Île d'Orléans",cost:0,costNote:"Free to drive · tastings extra",time:"Half/full day",blurb:"A 20-minute drive into farm country — strawberry stands and cidery tastings are at their best in late July.",link:"https://www.google.com/search?q=Ile+d%27Orleans+Quebec",mapQuery:"Île d'Orléans, QC",icon:"tree"},
+  {id:"a22",dest:"quebec",name:"Citadelle of Québec",cost:20,costNote:"~$20 CAD/adult",time:"1.5 hours",blurb:"A still-active military fort with a summer Changing of the Guard ceremony — sweeping river views from the ramparts.",link:"https://www.google.com/search?q=Citadelle+of+Quebec",mapQuery:"La Citadelle de Quebec, Quebec City, QC",icon:"castle",image:"Citadelle de Quebec 284.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Citadelle_de_Quebec_284.JPG"},
+  {id:"a23",dest:"quebec",name:"Plains of Abraham",cost:0,costNote:"Free",time:"1–2 hours",blurb:"The battlefield park where Canada's fate was decided in 1759 — now a huge green space, great for a picnic or bike ride.",link:"https://www.google.com/search?q=Plains+of+Abraham+Quebec",mapQuery:"Plains of Abraham, Quebec City, QC",icon:"tree"},
+  {id:"a24",dest:"quebec",name:"Old Québec Funicular",cost:4.5,costNote:"~$4.50 CAD one-way",time:"5 minutes",blurb:"The fastest (and most fun) way between Upper and Lower Town, with a view straight down onto the rooftops of Petit Champlain.",link:"https://www.google.com/search?q=Quebec+City+Funicular",mapQuery:"Old Quebec Funicular, Quebec City, QC",icon:"tower"},
+
+  {id:"a25",dest:"montreal",name:"Notre-Dame Basilica",cost:15,costNote:"~$15 CAD entry · AURA light show extra",time:"1 hour",essential:true,blurb:"A jaw-dropping blue-and-gold Gothic Revival interior — genuinely one of the most beautiful churches in North America.",link:"https://www.basiliquenotredame.ca/",mapQuery:"Notre-Dame Basilica, Montreal, QC",icon:"museum",image:"Exterior of Notre-Dame de Montréal Basilica.jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:Exterior_of_Notre-Dame_de_Montr%C3%A9al_Basilica.jpg"},
+  {id:"a26",dest:"montreal",name:"Old Montréal & Old Port",cost:0,costNote:"Free to wander",time:"Half day",essential:true,blurb:"Cobblestone streets, horse-drawn calèches, and the Old Port waterfront — Europe without the flight.",link:"https://www.google.com/search?q=Old+Montreal",mapQuery:"Old Montreal, Montreal, QC",icon:"market",image:"Vieux-Port de Montreal 10.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:Vieux-Port_de_Montreal_10.JPG"},
+  {id:"a27",dest:"montreal",name:"Mount Royal Park Lookout",cost:0,costNote:"Free",time:"1.5–2 hours",essential:true,blurb:"Frederick Law Olmsted (also designed Central Park) laid out this hilltop park — the Kondiaronk Belvedere has the best skyline view in the city.",link:"https://www.google.com/search?q=Mount+Royal+Park+Montreal",mapQuery:"Mount Royal Park, Montreal, QC",icon:"mountain",image:"View of Montreal in winter from Mount Royal.JPG",creditUrl:"https://commons.wikimedia.org/wiki/File:View_of_Montreal_in_winter_from_Mount_Royal.JPG"},
+  {id:"a28",dest:"montreal",name:"Jean-Talon Market",cost:0,costNote:"Free to browse",time:"1–2 hours",blurb:"One of North America's largest open-air markets — Quebec strawberries and maple everything are in full swing in late July.",link:"https://www.google.com/search?q=Jean-Talon+Market+Montreal",mapQuery:"Jean-Talon Market, Montreal, QC",icon:"market"},
+  {id:"a29",dest:"montreal",name:"Old Port Ferris Wheel (La Grande Roue)",cost:25,costNote:"~$25 CAD/adult",time:"30 min",blurb:"A 60m wheel right on the St. Lawrence waterfront — go around sunset for the best light on the city.",link:"https://www.google.com/search?q=La+Grande+Roue+Montreal",mapQuery:"La Grande Roue de Montreal, Montreal, QC",icon:"tower"},
+  {id:"a30",dest:"montreal",name:"Montreal Museum of Fine Arts",cost:0,costNote:"Free (permanent collection) · special exhibits extra",time:"2 hours",blurb:"One of Canada's oldest museums — the permanent collection is free, which is rare for a museum this good.",link:"https://www.mbam.qc.ca/en/",mapQuery:"Montreal Museum of Fine Arts, Montreal, QC",icon:"museum"},
+  {id:"a31",dest:"montreal",name:"Plateau Mont-Royal",cost:0,costNote:"Free to wander",time:"Half day",blurb:"Colorful spiral staircases, murals, and some of the city's best terrasse dining — wander Rue Saint-Denis or Avenue du Mont-Royal.",link:"https://www.google.com/search?q=Plateau+Mont-Royal",mapQuery:"Plateau-Mont-Royal, Montreal, QC",icon:"tree"}
+];
+
+const state = { route:"A", travelers:4, hotelNights:{}, selectedAttr:new Set(), customStops:[] };
+
+function mediaBlock(item, tagText){
+  if(item.image){
+    const fileUrl = "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(item.image) + "?width=700";
+    const creditHtml = item.creditUrl ? ('<a href="'+item.creditUrl+'" target="_blank" rel="noopener">Photo: Wikimedia Commons</a>') : "Photo: Wikimedia Commons";
+    return '<div class="card-photo">'
+      + '<img src="'+fileUrl+'" alt="" loading="lazy" onerror="this.closest(\'.card-photo\').outerHTML=window.__badgeFallback('+JSON.stringify(item.icon)+','+JSON.stringify(tagText)+');">'
+      + '<span class="card-tag">' + tagText + '</span>'
+      + '<span class="photo-credit">' + creditHtml + '</span>'
+      + '</div>';
+  }
+  return '<div class="card-badge">' + iconSvg(item.icon) + '<span class="card-tag">' + tagText + '</span></div>';
+}
+window.__badgeFallback = function(icon, tag){
+  return '<div class="card-badge">' + iconSvg(icon) + '<span class="card-tag">' + tag + '</span></div>';
+};
+
+function hotelCard(h){
+  const def = DEST_META[h.dest].nightsDefault;
+  return '<article class="card hotel-card" data-dest="'+h.dest+'">'
+    + mediaBlock(h, h.tag)
+    + '<div class="card-body">'
+    + '<h4>' + h.name + '</h4>'
+    + '<div class="stars" aria-label="' + h.stars + ' stars">' + starsHtml(h.stars) + '</div>'
+    + '<p class="price">' + h.priceNote + '</p>'
+    + '<p class="blurb">' + h.blurb + '</p>'
+    + '<div class="card-actions"><a href="' + h.link + '" target="_blank" rel="noopener">View hotel ↗</a>'
+    + '<a href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(h.mapQuery) + '" target="_blank" rel="noopener">Map ↗</a></div>'
+    + '<label class="select-row">'
+    + '<input type="checkbox" data-type="hotel" data-id="' + h.id + '"> Add to trip'
+    + '<span class="nights-field" hidden><input type="number" min="1" max="14" value="' + def + '" data-nights-for="' + h.id + '"> nights</span>'
+    + '</label></div></article>';
+}
+function attrCard(a){
+  return '<article class="card attr-card' + (a.essential ? ' essential' : '') + '" data-dest="' + a.dest + '">'
+    + mediaBlock(a, a.essential ? "Essential" : a.time)
+    + '<div class="card-body">'
+    + '<h4>' + a.name + '</h4>'
+    + '<p class="cost-note">' + a.costNote + ' · ' + a.time + '</p>'
+    + '<p class="blurb">' + a.blurb + '</p>'
+    + '<div class="card-actions"><a href="' + a.link + '" target="_blank" rel="noopener">More info ↗</a>'
+    + '<a href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a.mapQuery) + '" target="_blank" rel="noopener">Map ↗</a></div>'
+    + '<label class="select-row"><input type="checkbox" data-type="attraction" data-id="' + a.id + '"> Add to trip</label>'
+    + '</div></article>';
+}
+
+function renderAll(){
+  ["banff","lakelouise","toronto","quebec","montreal"].forEach(function(dest){
+    const hEl = document.getElementById("hotels-"+dest);
+    if(hEl) hEl.innerHTML = HOTELS.filter(function(h){return h.dest===dest;}).map(hotelCard).join("");
+  });
+  ["banff","toronto","quebec","montreal"].forEach(function(dest){
+    const aEl = document.getElementById("attr-"+dest);
+    if(aEl) aEl.innerHTML = ATTRACTIONS.filter(function(a){return a.dest===dest;}).map(attrCard).join("");
+  });
+}
+
+function setRoute(r){
+  state.route = r;
+  document.body.classList.toggle("route-a", r==="A");
+  document.body.classList.toggle("route-b", r==="B");
+  document.querySelectorAll("[data-route-btn]").forEach(function(b){
+    b.classList.toggle("active", b.dataset.routeBtn===r);
+  });
+  document.querySelector(".route-chart-a").classList.toggle("show", r==="A");
+  document.querySelector(".route-chart-b").classList.toggle("show", r==="B");
+  recalcAndRender();
+}
+
+function money(n){ return "$" + Math.round(n).toLocaleString("en-CA"); }
+
+function orderedStops(){
+  const order = state.route==="A" ? ["banff","lakelouise","toronto"] : ["banff","lakelouise","quebec","montreal"];
+  const stops = [];
+  order.forEach(function(dest){
+    HOTELS.filter(function(h){return h.dest===dest && state.hotelNights[h.id];}).forEach(function(h){
+      stops.push({name:h.name, query:h.mapQuery});
+    });
+    ATTRACTIONS.filter(function(a){return a.dest===dest && state.selectedAttr.has(a.id);}).forEach(function(a){
+      stops.push({name:a.name, query:a.mapQuery});
+    });
+  });
+  state.customStops.forEach(function(c){ stops.push({name:c.name, query:c.query}); });
+  return stops;
+}
+
+function updateMap(){
+  const stops = orderedStops();
+  const iframe = document.getElementById("mapFrame");
+  const openLink = document.getElementById("openMapLink");
+  const note = document.getElementById("mapCapNote");
+  if(stops.length===0){
+    iframe.src = "https://www.google.com/maps?q=Banff+National+Park,AB&output=embed";
+    openLink.href = "https://www.google.com/maps/search/?api=1&query=Banff+National+Park";
+    note.textContent = "Check items above to start building your route.";
+    return;
+  }
+  const capped = stops.slice(0,10);
+  const path = capped.map(function(s){return encodeURIComponent(s.query);}).join("/");
+  iframe.src = "https://www.google.com/maps/dir/" + path + "?output=embed";
+  openLink.href = "https://www.google.com/maps/dir/" + path;
+  note.textContent = stops.length>10
+    ? "Showing your first 10 stops in route order (Google Maps' limit for one route). You have " + stops.length + " selected — see the full list below."
+    : stops.length + " stop" + (stops.length>1?"s":"") + " on your route.";
+}
+
+function updateStopsList(){
+  const list = document.getElementById("stopsList");
+  const items = [];
+  HOTELS.forEach(function(h){
+    if(state.hotelNights[h.id]) items.push('<li><span>🛏️ ' + h.name + '</span><button data-uncheck-hotel="' + h.id + '" title="Remove">✕</button></li>');
+  });
+  ATTRACTIONS.forEach(function(a){
+    if(state.selectedAttr.has(a.id)) items.push('<li><span>📍 ' + a.name + '</span><button data-uncheck-attr="' + a.id + '" title="Remove">✕</button></li>');
+  });
+  state.customStops.forEach(function(c){
+    items.push('<li><span>⭐ ' + c.name + '</span><button data-remove-custom="' + c.id + '" title="Remove">✕</button></li>');
+  });
+  list.innerHTML = items.length ? items.join("") : '<li class="empty-stops" style="background:none;">Nothing selected yet — check items above to add them here.</li>';
+}
+
+function updateCost(){
+  let hotelTotal = 0;
+  Object.keys(state.hotelNights).forEach(function(id){
+    const h = HOTELS.find(function(x){return x.id===id;});
+    if(h) hotelTotal += h.price * state.hotelNights[id];
+  });
+  let attrTotal = 0;
+  state.selectedAttr.forEach(function(id){
+    const a = ATTRACTIONS.find(function(x){return x.id===id;});
+    if(a) attrTotal += a.cost * state.travelers;
+  });
+  let customTotal = 0;
+  state.customStops.forEach(function(c){ customTotal += (c.cost || 0); });
+  const grand = hotelTotal + attrTotal + customTotal;
+  document.getElementById("costHotels").textContent = money(hotelTotal);
+  document.getElementById("costAttr").textContent = money(attrTotal);
+  document.getElementById("costCustom").textContent = money(customTotal);
+  document.getElementById("costGrand").textContent = money(grand);
+  document.getElementById("costToggleBtn").textContent = "🧮 Trip cost: " + money(grand);
+}
+
+function recalcAndRender(){
+  updateCost();
+  updateMap();
+  updateStopsList();
+}
+
+document.addEventListener("change", function(e){
+  if(e.target.matches('[data-type="hotel"]')){
+    const id = e.target.dataset.id;
+    const field = e.target.closest("label").querySelector(".nights-field");
+    if(e.target.checked){
+      field.hidden = false;
+      const nightsInput = field.querySelector("input");
+      state.hotelNights[id] = parseInt(nightsInput.value) || 1;
+    } else {
+      field.hidden = true;
+      delete state.hotelNights[id];
+    }
+    recalcAndRender();
+  } else if(e.target.matches('[data-type="attraction"]')){
+    const id = e.target.dataset.id;
+    if(e.target.checked) state.selectedAttr.add(id); else state.selectedAttr.delete(id);
+    recalcAndRender();
+  } else if(e.target.matches("[data-nights-for]")){
+    const id = e.target.dataset.nightsFor;
+    if(id in state.hotelNights){
+      state.hotelNights[id] = parseInt(e.target.value) || 1;
+      recalcAndRender();
+    }
+  } else if(e.target.id === "travelersInput"){
+    state.travelers = parseInt(e.target.value) || 1;
+    recalcAndRender();
+  }
+});
+
+document.addEventListener("click", function(e){
+  if(e.target.matches("[data-route-btn]")){
+    setRoute(e.target.dataset.routeBtn);
+  } else if(e.target.id === "costToggleBtn"){
+    document.getElementById("costPanel").classList.toggle("open");
+  } else if(e.target.matches("[data-uncheck-hotel]")){
+    const id = e.target.dataset.uncheckHotel;
+    const cb = document.querySelector('input[data-type="hotel"][data-id="'+id+'"]');
+    if(cb){ cb.checked = false; cb.dispatchEvent(new Event("change", {bubbles:true})); }
+  } else if(e.target.matches("[data-uncheck-attr]")){
+    const id = e.target.dataset.uncheckAttr;
+    const cb = document.querySelector('input[data-type="attraction"][data-id="'+id+'"]');
+    if(cb){ cb.checked = false; cb.dispatchEvent(new Event("change", {bubbles:true})); }
+  } else if(e.target.matches("[data-remove-custom]")){
+    const id = e.target.dataset.removeCustom;
+    state.customStops = state.customStops.filter(function(c){ return c.id !== id; });
+    recalcAndRender();
+  } else if(!e.target.closest("#costTracker")){
+    document.getElementById("costPanel").classList.remove("open");
+  }
+});
+
+document.getElementById("addStopForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("stopName").value.trim();
+  const addr = document.getElementById("stopAddr").value.trim();
+  const cost = parseFloat(document.getElementById("stopCost").value) || 0;
+  if(!name) return;
+  const query = addr ? (name + ", " + addr) : (name + ", Canada");
+  state.customStops.push({id:"c"+Date.now(), name:name, query:query, cost:cost});
+  e.target.reset();
+  recalcAndRender();
+});
+
+function renderCredits(){
+  const all = HOTELS.concat(ATTRACTIONS).filter(function(x){ return x.image; });
+  const el = document.getElementById("creditsList");
+  if(!el) return;
+  el.innerHTML = all.map(function(x){
+    return '<li>' + x.name + ' — <a href="' + (x.creditUrl||'#') + '" target="_blank" rel="noopener">Wikimedia Commons</a></li>';
+  }).join("");
+}
+
+renderAll();
+renderCredits();
+setRoute("A");
+</script>
+</body>
+</html>
