@@ -368,7 +368,7 @@ const DAYS=[
    ],
    mapLat:51.1784,mapLng:-115.5708,mapZoom:13,
    mapsOrigin:'Banff Gondola Sulphur Mountain Banff',mapsDest:'Vermilion Lakes Banff',
-   mapsWaypoints:['Bow Falls Banff','Cave and Basin National Historic Site Banff','Banff Upper Hot Springs'],
+   mapsWaypoints:['Bow Falls, Banff, AB','Cave and Basin National Historic Site Banff','Banff Upper Hot Springs'],
    tip:'Book the Banff Gondola online to avoid the queue. The entire Bow Falls–Cave & Basin–Upper Hot Springs loop is within 2km of the town centre. Park downtown and walk.',
    bookings:[
      {name:'Banff Gondola',url:'https://www.banffjaspercollection.com',urgent:true},
@@ -575,7 +575,7 @@ const MYMAPS=[
      {name:'Banff Upper Hot Springs',addr:'1 Mountain Ave, Banff, AB T1L 1J2'},
      {name:'Vermilion Lakes',addr:'Vermilion Lakes Rd, Banff, AB T1L 1K2'}
    ],
-   mapsOrigin:'Banff Gondola Banff',mapsDest:'Vermilion Lakes Banff',mapsWaypoints:['Bow Falls Banff','Cave and Basin Banff','Banff Upper Hot Springs']},
+   mapsOrigin:'Banff Gondola Banff',mapsDest:'Vermilion Lakes Banff',mapsWaypoints:['Bow Falls, Banff, AB','Cave and Basin Banff','Banff Upper Hot Springs']},
   {day:6,date:'Jul 24',title:'Canmore Hidden Gems',
    places:[
      {name:'Grassi Lakes Trailhead',addr:'Spray Lakes Rd, Canmore, AB T1W 2W2'},
@@ -639,6 +639,19 @@ const MYMAPS=[
    mapsOrigin:'Hinton Alberta',mapsDest:'9030 Macleod Trail SE Calgary',mapsWaypoints:['Abraham Lake Alberta']}
 ];
 
+/* ===== HOTEL LOOKUP ===== */
+const HOTEL_BY_STAY=[
+  {days:[1,2,3], addr:'8360 Blackfoot Trail SE, Calgary, AB'},
+  {days:[4,5,6,7], addr:'825 9 Street, Canmore, AB'},
+  {days:[8,9], addr:'1416 Golden View Road, Golden, BC'},
+  {days:[10,11,12,13], addr:'752 Carmichael Lane, Hinton, AB'},
+  {days:[14], addr:'9030 Macleod Trail SE, Calgary, AB'}
+];
+function getHotelOrigin(n){
+  const h=HOTEL_BY_STAY.find(s=>s.days.includes(n));
+  return h?h.addr:null;
+}
+
 /* ===== RENDER FUNCTIONS ===== */
 
 function buildRouteLink(origin,dest,waypoints){
@@ -672,7 +685,9 @@ function renderDays(){
       </div>`).join('');
 
     const mapSrc=`https://maps.google.com/maps?q=${d.mapLat},${d.mapLng}&z=${d.mapZoom}&output=embed`;
-    const routeLink=buildRouteLink(d.mapsOrigin,d.mapsDest,d.mapsWaypoints);
+    const placesLink=buildRouteLink(d.mapsOrigin,d.mapsDest,d.mapsWaypoints);
+    const hotelOrigin=getHotelOrigin(d.n);
+    const hotelLink=hotelOrigin?buildRouteLink(hotelOrigin,d.mapsDest,[d.mapsOrigin,...(d.mapsWaypoints||[])]):null;
 
     const bookingsHtml=d.bookings&&d.bookings.length?`
       <div class="day-bookings">
@@ -697,8 +712,9 @@ function renderDays(){
       <div class="day-map-section">
         <div class="day-map-label">Day ${d.n} map</div>
         <iframe class="day-map-frame" src="${mapSrc}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div>
-          <a class="open-day-btn" href="${routeLink}" target="_blank" rel="noopener">Open Day ${d.n} route in Google Maps ↗</a>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          ${hotelLink?`<a class="open-day-btn" href="${hotelLink}" target="_blank" rel="noopener">Route from hotel ↗</a>`:''}
+          <a class="open-day-btn secondary" href="${placesLink}" target="_blank" rel="noopener">Places only ↗</a>
         </div>
       </div>
       ${d.tip?`<div class="day-tip"><span>📌</span><span><b>Tip —</b> ${d.tip}</span></div>`:''}
