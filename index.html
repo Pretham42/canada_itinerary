@@ -100,6 +100,14 @@ section .section-intro{color:var(--ink-soft);max-width:660px;margin-bottom:30px;
 .open-day-btn.secondary{background:var(--turq-l);color:var(--turq-d)}
 .open-day-btn.secondary:hover{background:var(--turq);color:#fff}
 
+/* day bookings strip */
+.day-bookings{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 26px;background:#FFF8F0;border-top:1px solid rgba(201,122,61,.18)}
+.db-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--amber-d)}
+.db-link{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;padding:4px 12px;border-radius:20px;text-decoration:none;border:1.5px solid var(--amber);color:var(--amber-d);background:#fff;transition:background .18s,color .18s}
+.db-link:hover{background:var(--amber);color:#fff}
+.db-link.urgent{background:var(--amber);color:#fff;border-color:var(--amber)}
+.db-link.urgent:hover{background:var(--amber-d);border-color:var(--amber-d)}
+
 /* day tip */
 .day-tip{display:flex;gap:8px;background:var(--paper-d);border-top:1px solid var(--line);padding:12px 26px;font-size:12.8px;color:var(--ink-soft)}
 .day-tip b{color:var(--pine)}
@@ -319,7 +327,10 @@ const DAYS=[
    mapLat:51.0447,mapLng:-114.0719,mapZoom:13,
    mapsOrigin:'Heritage Park Historical Village Calgary',mapsDest:'Stephen Avenue Calgary',
    mapsWaypoints:['Peace Bridge Calgary',"Prince's Island Park Calgary"],
-   tip:'Heritage Park sells out on summer weekends — book tickets online. The steam train runs on a schedule; plan around it.'},
+   tip:'Heritage Park sells out on summer weekends — book tickets online. The steam train runs on a schedule; plan around it.',
+   bookings:[
+     {name:'Heritage Park tickets',url:'https://www.heritagepark.ca'}
+   ]},
 
   {n:3,date:'Jul 21',dest:'calgary',title:'Calgary Tower & Drive to Canmore',base:'Calgary → Canmore',
    overview:'Quick morning in Calgary, then head west on the Trans-Canada. The mountains appear on the horizon 45 minutes out of the city and grow larger for the rest of the drive. Check into your Canmore hotel on 9 St and walk the townsite. Railway Ave has a perfect eye-level view of the Three Sisters.',
@@ -358,7 +369,11 @@ const DAYS=[
    mapLat:51.1784,mapLng:-115.5708,mapZoom:13,
    mapsOrigin:'Banff Gondola Sulphur Mountain Banff',mapsDest:'Vermilion Lakes Banff',
    mapsWaypoints:['Bow Falls Banff','Cave and Basin National Historic Site Banff','Banff Upper Hot Springs'],
-   tip:'Book the Banff Gondola online to avoid the queue. The entire Bow Falls–Cave & Basin–Upper Hot Springs loop is within 2km of the town centre. Park downtown and walk.'},
+   tip:'Book the Banff Gondola online to avoid the queue. The entire Bow Falls–Cave & Basin–Upper Hot Springs loop is within 2km of the town centre. Park downtown and walk.',
+   bookings:[
+     {name:'Banff Gondola',url:'https://www.banffjaspercollection.com',urgent:true},
+     {name:'Banff Upper Hot Springs',url:'https://www.hotsprings.ca'}
+   ]},
 
   {n:6,date:'Jul 24',dest:'banff',title:'Canmore Hidden Gems: Grassi Lakes · Grotto Canyon · Lake Minnewanka',base:'Canmore',
    overview:'The best kept secrets in the whole Banff corridor, and almost no tourists find them. Grassi Lakes sits above Canmore with ancient petroglyphs on the canyon walls. Grotto Canyon is a slot canyon with actual prehistoric pictographs — remarkable and nearly unmarked. Lake Minnewanka for a boat cruise or shoreline walk in the afternoon.',
@@ -395,7 +410,10 @@ const DAYS=[
    mapLat:51.42,mapLng:-116.52,mapZoom:10,
    mapsOrigin:'Takakkaw Falls Yoho National Park',mapsDest:'Golden Skybridge Golden BC',
    mapsWaypoints:['Cathedral Mountain Bakery Field BC','Wapta Falls Trailhead Yoho'],
-   tip:'Takakkaw Falls Road: tight switchbacks turn vehicles over 25ft. Open June–Oct only. The road fills by 9am in July. Go early. Wapta Falls trailhead is ~30km west of Field on Hwy 1, just before the BC/AB border.'},
+   tip:'Takakkaw Falls Road: tight switchbacks turn vehicles over 25ft. Open June–Oct only. The road fills by 9am in July. Go early. Wapta Falls trailhead is ~30km west of Field on Hwy 1, just before the BC/AB border.',
+   bookings:[
+     {name:'Golden Skybridge',url:'https://www.goldenskybridge.ca'}
+   ]},
 
   {n:9,date:'Jul 27',dest:'jasper',title:'Icefields Parkway — The Most Scenic Drive in Canada',base:'Golden → Hinton · via Icefields Parkway · 5-7 hrs',
    overview:'The centrepiece of the entire trip. Leave Golden early, drive east through Yoho back to Lake Louise, then turn north on Highway 93 — the Icefields Parkway. 230km of glaciers, alpine lakes, and mountains you can\'t believe are real. Fill the tank in Lake Louise before you go.',
@@ -410,7 +428,11 @@ const DAYS=[
    mapLat:51.97,mapLng:-116.94,mapZoom:8,
    mapsOrigin:'Lake Louise Alberta',mapsDest:'Hinton Alberta',
    mapsWaypoints:['Bow Lake Banff National Park','Peyto Lake Bow Summit','Columbia Icefield Discovery Centre','Glacier Skywalk Jasper','Sunwapta Falls Jasper'],
-   tip:'Book Ice Explorer AND Glacier Skywalk at banffjaspercollection.com — both sell out in July. Fill up in Lake Louise; the next gas is the Icefield Centre (expensive). Budget 6-7 hours Lake Louise to Hinton with stops.'},
+   tip:'Book Ice Explorer AND Glacier Skywalk at banffjaspercollection.com — both sell out in July. Fill up in Lake Louise; the next gas is the Icefield Centre (expensive). Budget 6-7 hours Lake Louise to Hinton with stops.',
+   bookings:[
+     {name:'Columbia Icefield Ice Explorer',url:'https://www.banffjaspercollection.com',urgent:true},
+     {name:'Glacier Skywalk',url:'https://www.banffjaspercollection.com',urgent:true}
+   ]},
 
   {n:10,date:'Jul 28',dest:'jasper',title:'Maligne Valley: Medicine Lake · Spirit Island · Valley of Five Lakes',base:'Hinton',
    overview:'Drive from Hinton west to Jasper, then take the Maligne Road east into the valley. Stop at Medicine Lake first — a lake with no outlet river that drains underground through limestone caverns and literally disappears in autumn. Spirit Island cruise on Maligne Lake is one of the most photographed views in Canada. Valley of Five Lakes in the afternoon.',
@@ -422,7 +444,10 @@ const DAYS=[
    mapLat:52.72,mapLng:-117.63,mapZoom:10,
    mapsOrigin:'Hinton Alberta',mapsDest:'Valley of the Five Lakes Jasper',
    mapsWaypoints:['Medicine Lake Jasper National Park','Maligne Lake Jasper Alberta'],
-   tip:'Book the Maligne Lake Spirit Island Cruise at banffjaspercollection.com well before your trip — it sells out in summer. Maligne Canyon (on the same road) is closed all of 2026. Valley of Five Lakes was closed in 2024-25 and reopened for 2026.'},
+   tip:'Book the Maligne Lake Spirit Island Cruise at banffjaspercollection.com well before your trip — it sells out in summer. Maligne Canyon (on the same road) is closed all of 2026. Valley of Five Lakes was closed in 2024-25 and reopened for 2026.',
+   bookings:[
+     {name:'Maligne Lake Spirit Island Cruise',url:'https://www.banffjaspercollection.com',urgent:true}
+   ]},
 
   {n:11,date:'Jul 29',dest:'jasper',title:'Athabasca Falls · Horseshoe Lake · SkyTram · Pyramid Lake',base:'Hinton',
    overview:'Athabasca Falls is the most powerful waterfall in the Rockies — easy boardwalk, the sound hits you before you see it. Horseshoe Lake is the secret locals don\'t tell anyone: turquoise, quiet, and sometimes warm enough to swim in July. SkyTram up Whistlers Mountain in the afternoon when crowds thin.',
@@ -435,7 +460,10 @@ const DAYS=[
    mapLat:52.55,mapLng:-117.93,mapZoom:11,
    mapsOrigin:'Athabasca Falls Jasper',mapsDest:'Pyramid Lake Jasper Alberta',
    mapsWaypoints:['Horseshoe Lake Jasper National Park','Jasper SkyTram Whistlers Mountain'],
-   tip:'Horseshoe Lake: no signs, pullout on Hwy 93A about 8km south of the Jasper junction. The colour is best from the north cliff. Bring a towel if the kids want to swim — the water is surprisingly warm in late July. Athabasca Falls fills up by 10am; go right at 9.'},
+   tip:'Horseshoe Lake: no signs, pullout on Hwy 93A about 8km south of the Jasper junction. The colour is best from the north cliff. Bring a towel if the kids want to swim — the water is surprisingly warm in late July. Athabasca Falls fills up by 10am; go right at 9.',
+   bookings:[
+     {name:'Jasper SkyTram',url:'https://www.banffjaspercollection.com',urgent:true}
+   ]},
 
   {n:12,date:'Jul 30',dest:'jasper',title:'Miette Hot Springs · Old Fort Point · Jasper Townsite',base:'Hinton',
    overview:'A convenient Hinton-side day — Miette is only 40 minutes from your hotel, much closer than from Jasper townsite. Canada\'s warmest natural springs, open at 8:30am in a beautiful mountain valley. The Fiddle River approach is outstanding for wildlife. Old Fort Point for a short sunset hike, then a final evening in Jasper townsite.',
@@ -447,7 +475,10 @@ const DAYS=[
    mapLat:52.90,mapLng:-117.82,mapZoom:10,
    mapsOrigin:'Miette Hot Springs Jasper',mapsDest:'Jasper Alberta Townsite',
    mapsWaypoints:['Old Fort Point Jasper Alberta'],
-   tip:'Miette Hot Springs closes one day per week — check hotsprings.ca/jasper before you go. The Fiddle River Valley (Miette Rd) is one of the most reliable elk-watching drives in the park. Coco\'s Cafe in Jasper opens early for breakfast; The Raven Bistro is better for dinner.'},
+   tip:'Miette Hot Springs closes one day per week — check hotsprings.ca/jasper before you go. The Fiddle River Valley (Miette Rd) is one of the most reliable elk-watching drives in the park. Coco\'s Cafe in Jasper opens early for breakfast; The Raven Bistro is better for dinner.',
+   bookings:[
+     {name:'Miette Hot Springs',url:'https://www.hotsprings.ca'}
+   ]},
 
   {n:13,date:'Jul 31',dest:'calgary',title:'Drive Back to Calgary',base:'Hinton → Calgary',
    overview:'Drive east from Hinton on Highway 16, then south on Highway 2 — direct to Calgary in about 3.5 hours. Or take the scenic David Thompson Highway (Hwy 11) through Rocky Mountain House to see Abraham Lake — turquoise braided channels backed by the front range, one of Alberta\'s most surreal views — adding about 1.5 hours if you leave by 8am.',
@@ -643,6 +674,12 @@ function renderDays(){
     const mapSrc=`https://maps.google.com/maps?q=${d.mapLat},${d.mapLng}&z=${d.mapZoom}&output=embed`;
     const routeLink=buildRouteLink(d.mapsOrigin,d.mapsDest,d.mapsWaypoints);
 
+    const bookingsHtml=d.bookings&&d.bookings.length?`
+      <div class="day-bookings">
+        <span class="db-label">📅 Book ahead</span>
+        ${d.bookings.map(b=>`<a class="db-link${b.urgent?' urgent':''}" href="${b.url}" target="_blank" rel="noopener">${b.name} ↗</a>`).join('')}
+      </div>`:'';
+
     return `<div class="day-card">
       <div class="day-header">
         <div class="day-header-top">
@@ -653,6 +690,7 @@ function renderDays(){
         </div>
         <p class="day-overview">${d.overview}</p>
       </div>
+      ${bookingsHtml}
       <div class="day-activities" style="grid-template-columns:repeat(${cols},1fr)">
         ${actHtml}
       </div>
