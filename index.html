@@ -9,17 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#E9ECE3; --paper-d:#DCE0D4; --ink:#1E2B26; --ink-soft:#3D4A44;
-  --turq:#1B8A86; --turq-d:#0F5C59; --turq-l:#E3F1EF;
-  --amber:#C97A3D; --amber-d:#A5602B; --amber-l:#F5E9DD;
-  --pine:#21372D; --line:rgba(30,43,38,.14); --card:#FFFFFF;
-  --shadow:0 2px 10px rgba(30,43,38,.07), 0 1px 2px rgba(30,43,38,.06);
+  --paper:#E9ECE3;--paper-d:#DCE0D4;--ink:#1E2B26;--ink-soft:#3D4A44;
+  --turq:#1B8A86;--turq-d:#0F5C59;--turq-l:#E3F1EF;
+  --amber:#C97A3D;--amber-d:#A5602B;--amber-l:#F5E9DD;
+  --pine:#21372D;--line:rgba(30,43,38,.14);--card:#FFFFFF;
+  --shadow:0 2px 12px rgba(30,43,38,.08),0 1px 3px rgba(30,43,38,.06);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.12;color:var(--pine)}
-.mono{font-family:'IBM Plex Mono',monospace}
 a{color:var(--turq-d)}
 img{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
@@ -35,107 +34,92 @@ img{display:block;max-width:100%}
 @media(max-width:760px){#topbar nav{display:none}}
 
 /* hero */
-#hero{padding:64px 0 36px;position:relative;overflow:hidden}
+#hero{padding:64px 0 40px}
 #hero .eyebrow{display:block;margin-bottom:14px}
 #hero h1{font-size:44px;max-width:760px;letter-spacing:-.01em}
 #hero p.lede{margin-top:16px;max-width:600px;font-size:16.5px;color:var(--ink-soft)}
 #hero .stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
 #hero .stat b{font-family:'Fraunces',serif;font-size:26px;color:var(--pine);display:block}
 #hero .stat span{font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-family:'IBM Plex Mono',monospace}
-#elevation{margin-top:40px;width:100%;height:170px}
-#elevation .fillpath{fill:url(#elevGrad)}
-#elevation .linepath{fill:none;stroke:var(--turq-d);stroke-width:2.2}
-#elevation text{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:var(--ink-soft)}
-#elevation .pt{fill:var(--amber)}
-#elevation .pt-r{fill:var(--turq-d)}
 
-/* section shells */
+/* divider */
+.divider{border:none;border-top:1px solid var(--line);max-width:1180px;margin:0 auto}
 section{padding:54px 0}
 section h2{font-size:30px;margin-bottom:6px}
-section .section-intro{color:var(--ink-soft);max-width:640px;margin-bottom:30px;font-size:15px}
-.divider{border:none;border-top:1px solid var(--line);max-width:1180px;margin:0 auto}
+section .section-intro{color:var(--ink-soft);max-width:660px;margin-bottom:30px;font-size:15px}
 
-/* day cards */
-.day-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:220px 1fr}
-.day-card .day-photo{position:relative;min-height:160px;background:var(--turq-l)}
-.day-card .day-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.day-card .day-photo .badge-fallback{height:100%;min-height:160px;border-radius:0}
-.day-card .day-photo .photo-credit{position:absolute;bottom:4px;right:6px;font-size:9px;background:rgba(0,0,0,.45);color:#fff;padding:1px 6px;border-radius:8px}
-.day-card .day-photo .photo-credit a{color:#fff}
-.day-card .day-body{padding:24px 26px}
-.day-card .day-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px}
-.day-num{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#fff;background:var(--pine);padding:3px 10px;border-radius:20px}
-.day-date{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--turq-d);padding:3px 10px;border-radius:20px;background:var(--turq-l)}
-.day-card h3{font-size:21px}
-.day-card .day-base{font-size:12.5px;color:var(--turq-d);font-weight:600;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
-.day-card p.day-blurb{color:var(--ink-soft);font-size:14.8px;margin:10px 0 14px}
-@media(max-width:700px){.day-card{grid-template-columns:1fr}.day-card .day-photo{min-height:140px}}
-.day-stops{display:flex;flex-wrap:wrap;gap:8px}
-.stop-chip{display:inline-flex;align-items:center;gap:6px;background:var(--turq-l);color:var(--turq-d);border-radius:20px;padding:5px 12px 5px 8px;font-size:12.8px;font-weight:600}
-.stop-chip svg{width:14px;height:14px}
-.stop-chip.hike{background:var(--amber-l);color:var(--amber-d)}
-.stop-chip.booked{background:#E8F5E9;color:#2E7D32;border:1.5px solid #81C784}
-.day-note{margin-top:12px;font-size:13px;color:var(--ink-soft);background:var(--paper-d);border-radius:8px;padding:8px 12px;display:flex;gap:8px}
-.day-note b{color:var(--pine)}
+/* banners */
+.banner{display:flex;gap:10px;align-items:flex-start;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13.5px}
+.banner.info{background:var(--turq-l);color:var(--turq-d)}
+.banner.warn{background:var(--amber-l);color:var(--amber-d)}
+.banner b{color:inherit}
 
-/* card grids (attractions / restaurants) */
+/* === NEW DAY CARD === */
+.day-card{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:28px;box-shadow:var(--shadow);overflow:hidden}
+
+.day-header{padding:22px 26px 18px;border-bottom:1px solid var(--line)}
+.day-header-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.day-num{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#fff;background:var(--pine);padding:3px 10px;border-radius:20px}
+.day-date-pill{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--turq-d);background:var(--turq-l);padding:3px 10px;border-radius:20px}
+.day-card h3{font-size:20px;flex:1;min-width:200px}
+.day-base-pill{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-soft);background:var(--paper-d);padding:3px 10px;border-radius:20px}
+.day-overview{color:var(--ink-soft);font-size:14.5px;line-height:1.65;margin-top:4px}
+
+/* activity grid */
+.day-activities{display:grid;border-bottom:1px solid var(--line)}
+.activity-cell{position:relative;overflow:hidden;border-right:1px solid var(--line)}
+.activity-cell:last-child{border-right:none}
+.activity-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative}
+.activity-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.activity-cell:hover .activity-img{transform:scale(1.06)}
+.activity-caption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(transparent 35%,rgba(0,0,0,.76));padding:30px 11px 11px;color:#fff}
+.act-time{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.82;margin-bottom:2px}
+.act-name{font-family:'Fraunces',serif;font-size:14px;font-weight:600;line-height:1.25;margin-bottom:2px}
+.act-tip-text{font-size:10px;opacity:.84;line-height:1.35}
+.act-badge{position:absolute;top:8px;left:8px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase;z-index:2}
+.act-badge.essential{background:var(--amber);color:#fff}
+.act-badge.hidden-gem{background:var(--turq-d);color:#fff}
+.act-badge.booked{background:#2E7D32;color:#fff}
+.act-badge.hike{background:var(--amber-d);color:#fff}
+.act-fallback{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--turq-l),var(--amber-l));position:relative}
+.act-fallback svg{width:44px;height:44px;opacity:.55}
+
+@media(max-width:700px){
+  .day-activities{grid-template-columns:repeat(2,1fr)!important}
+  .activity-cell{border-right:none;border-bottom:1px solid var(--line)}
+  .activity-cell:nth-child(odd){border-right:1px solid var(--line)}
+  .activity-cell:last-child{border-bottom:none}
+}
+
+/* day map */
+.day-map-section{padding:18px 26px}
+.day-map-label{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.day-map-frame{width:100%;height:260px;border:none;border-radius:10px;border:1px solid var(--line);display:block;margin-bottom:10px}
+.open-day-btn{display:inline-flex;align-items:center;gap:6px;background:var(--pine);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;margin-right:8px}
+.open-day-btn:hover{background:var(--turq-d);color:#fff}
+.open-day-btn.secondary{background:var(--turq-l);color:var(--turq-d)}
+.open-day-btn.secondary:hover{background:var(--turq);color:#fff}
+
+/* day tip */
+.day-tip{display:flex;gap:8px;background:var(--paper-d);border-top:1px solid var(--line);padding:12px 26px;font-size:12.8px;color:var(--ink-soft)}
+.day-tip b{color:var(--pine)}
+
+/* compare */
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.compare-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.compare-card h4{font-size:17px;margin-bottom:8px}
+.compare-card ul{margin:10px 0 0 18px;font-size:13.3px;color:var(--ink-soft)}
+.compare-card li{margin-bottom:4px}
+@media(max-width:820px){.compare-grid{grid-template-columns:1fr}}
+
+/* restaurants */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.card-photo{height:148px;overflow:hidden;position:relative;background:var(--paper-d)}
-.card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.card:hover .card-photo img{transform:scale(1.05)}
-.photo-credit{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;font-size:10px;padding:14px 8px 6px;text-align:right;opacity:0;transition:opacity .25s}
-.card:hover .photo-credit{opacity:1}
-.photo-credit a{color:#fff;text-decoration:underline}
-.badge-fallback{height:148px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--turq-l),var(--amber-l))}
-.badge-fallback svg{width:46px;height:46px;opacity:.55}
-.card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card-body h4{font-size:16.5px}
-.card-tagrow{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.tag{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--turq-d);font-weight:600}
-.card-body p{font-size:13.6px;color:var(--ink-soft);flex:1}
-.card-body a.ext{font-size:12.5px;font-weight:600;color:var(--turq-d);text-decoration:none}
-.essential-flag{position:absolute;top:10px;left:10px;background:var(--amber);color:#fff;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;z-index:2}
-.hidden-gem-flag{position:absolute;top:10px;left:10px;background:var(--turq-d);color:#fff;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;z-index:2}
-.closed-flag{position:absolute;top:10px;right:10px;background:#A5402B;color:#fff;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;z-index:2}
-.closed-note{font-size:12.5px;background:#FBEAE6;color:#A5402B;border-radius:8px;padding:7px 10px;margin-top:2px;font-weight:600}
-.dest-group{margin-bottom:34px}
-.dest-group h3{font-size:19px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.dest-group h3 svg{width:18px;height:18px;flex-shrink:0}
-.dest-group .dest-sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px}
-
-/* restaurant cards */
 .eat-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
 .eat-card .eat-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .eat-card h4{font-size:15.5px}
 .eat-card .cuisine{font-size:12px;color:var(--turq-d);font-family:'IBM Plex Mono',monospace;font-weight:600}
-.eat-card .cuisine svg{width:14px;height:14px;vertical-align:-2px}
 .eat-card p{font-size:13.4px;color:var(--ink-soft);margin-top:6px}
 .veg-pill{display:inline-block;font-size:10.5px;font-weight:700;background:var(--turq-l);color:var(--turq-d);padding:2px 9px;border-radius:20px;font-family:'IBM Plex Mono',monospace;margin-top:8px}
-
-/* map */
-#map .map-wrap{display:grid;grid-template-columns:1fr 320px;gap:22px}
-#map iframe{width:100%;height:480px;border:0;border-radius:14px;border:1px solid var(--line)}
-.map-note{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
-.open-route-btn{display:inline-block;margin-top:10px;background:var(--pine);color:#fff;font-weight:600;font-size:13.5px;padding:10px 18px;border-radius:10px;text-decoration:none}
-.open-route-btn:hover{background:var(--turq-d)}
-.stops-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;max-height:480px;overflow-y:auto}
-.stops-panel h4{font-size:14px;margin-bottom:2px}
-.route-sub{font-size:12px;color:var(--ink-soft);margin-bottom:14px}
-.route-chip{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--turq-l);color:var(--turq-d);border-radius:8px;padding:7px 10px;margin-bottom:6px;font-size:12.5px;font-weight:600}
-.route-chip button{background:none;border:none;color:var(--turq-d);font-size:17px;line-height:1;cursor:pointer;padding:0 2px}
-.route-chip button:hover{color:var(--amber-d)}
-.route-empty{font-size:13px;color:var(--ink-soft);padding:4px 0}
-@media(max-width:860px){#map .map-wrap{grid-template-columns:1fr}}
-
-/* select rows (attraction map checkbox) */
-.select-row{display:flex;align-items:center;gap:8px;background:var(--paper-d);border-radius:8px;padding:7px 10px;margin-top:4px;font-size:12.3px;font-weight:600;color:var(--ink-soft)}
-.select-row label{cursor:pointer;flex:1}
-.select-row input[type=checkbox]{accent-color:var(--turq-d);width:15px;height:15px;flex-shrink:0;cursor:pointer}
-.select-row.checked{background:var(--turq-l);color:var(--turq-d)}
-.select-row.disabled{opacity:.5}
-.select-row.disabled label{cursor:not-allowed}
-.card.is-selected{box-shadow:0 0 0 2px var(--turq), var(--shadow)}
 
 /* tips */
 .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
@@ -143,13 +127,22 @@ section .section-intro{color:var(--ink-soft);max-width:640px;margin-bottom:30px;
 .tip-card h4{font-size:15px;margin-bottom:6px}
 .tip-card p{font-size:13.5px;color:var(--ink-soft)}
 
-/* park compare */
-.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.compare-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
-.compare-card h4{font-size:17px;margin-bottom:8px}
-.compare-card ul{margin:10px 0 0 18px;font-size:13.3px;color:var(--ink-soft)}
-.compare-card li{margin-bottom:4px}
-@media(max-width:820px){.compare-grid{grid-template-columns:1fr}}
+/* My Maps section */
+.mymaps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.mymaps-day{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.mymaps-head{background:var(--pine);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.mymaps-head .md-num{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;background:rgba(255,255,255,.18);padding:2px 8px;border-radius:20px}
+.mymaps-head .md-date{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.8}
+.mymaps-head .md-title{font-family:'Fraunces',serif;font-size:14px;font-weight:600;flex:1}
+.mymaps-body{padding:14px 16px}
+.mymaps-place{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.mymaps-place:last-child{border-bottom:none}
+.mymaps-place .mp-dot{width:8px;height:8px;border-radius:50%;background:var(--turq-d);flex-shrink:0;margin-top:5px}
+.mymaps-place .mp-info{}
+.mymaps-place .mp-name{font-size:13px;font-weight:600;color:var(--pine)}
+.mymaps-place .mp-addr{font-size:11.5px;color:var(--ink-soft);font-family:'IBM Plex Mono',monospace}
+.mymaps-open{display:block;text-align:center;background:var(--turq-l);color:var(--turq-d);font-size:12.5px;font-weight:600;padding:9px;text-decoration:none;border-top:1px solid var(--line)}
+.mymaps-open:hover{background:var(--turq-d);color:#fff}
 
 /* credits */
 #credits details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px}
@@ -168,9 +161,8 @@ footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:13p
     <nav>
       <a href="#itinerary">Itinerary</a>
       <a href="#compare">Parks</a>
-      <a href="#do">Do</a>
       <a href="#eat">Eat</a>
-      <a href="#map">Map</a>
+      <a href="#mymaps">My Maps</a>
       <a href="#tips">Tips</a>
     </nav>
   </div>
@@ -178,35 +170,16 @@ footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:13p
 
 <section id="hero">
   <div class="wrap">
-    <span class="eyebrow">Calgary · Canmore/Banff · Yoho/Golden · Jasper — July 19 – Aug 1, 2026</span>
-    <h1>14 days in the Canadian Rockies, start to finish.</h1>
-    <p class="lede">Fly into Calgary, spend two days in the city, then head west through Canmore and Banff for four nights, cross into Yoho and Golden, drive the full Icefields Parkway north to Jasper, and loop home. Hidden gem lakes, secret canyons, the best hikes, and every stop vegetarian-checked.</p>
+    <span class="eyebrow">Calgary · Canmore/Banff · Yoho/Golden · Jasper — Jul 19 – Aug 1, 2026</span>
+    <h1>14 days in the Canadian Rockies.</h1>
+    <p class="lede">Fly into Calgary, spend two nights in the city, drive to Canmore as your Banff base, cross into Yoho and Golden, drive the full Icefields Parkway to Jasper, and loop home. Every day mapped, every activity imaged.</p>
     <div class="stats">
       <div class="stat"><b>14</b><span>Days</span></div>
       <div class="stat"><b>4</b><span>Regions</span></div>
       <div class="stat"><b>13</b><span>Nights</span></div>
       <div class="stat"><b>~1,100km</b><span>Driving</span></div>
+      <div class="stat"><b>6</b><span>People</span></div>
     </div>
-    <svg id="elevation" viewBox="0 0 1180 170" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="elevGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1B8A86" stop-opacity="0.22"/>
-          <stop offset="100%" stop-color="#1B8A86" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <polygon class="fillpath" points="0,150 0,125 84,110 168,100 253,40 337,35 421,50 506,20 590,25 675,15 759,45 843,50 928,55 1012,95 1096,110 1180,125 1180,150"/>
-      <polyline class="linepath" points="0,125 84,110 168,100 253,40 337,35 421,50 506,20 590,25 675,15 759,45 843,50 928,55 1012,95 1096,110 1180,125"/>
-      <g class="mono">
-        <circle class="pt" cx="0" cy="125" r="3.5"/><text x="2" y="143">Jul 19 Calgary</text>
-        <circle class="pt" cx="253" cy="40" r="3.5"/><text x="195" y="32">Lake Louise</text>
-        <circle class="pt" cx="421" cy="50" r="3.5"/><text x="360" y="42">Emerald Lake</text>
-        <circle class="pt-r" cx="590" cy="25" r="4"/><text x="525" y="16">Peyto Lake</text>
-        <circle class="pt-r" cx="675" cy="15" r="4.5"/><text x="595" y="12">Columbia Icefield</text>
-        <circle class="pt" cx="759" cy="45" r="3.5"/><text x="715" y="62">Jasper</text>
-        <circle class="pt" cx="928" cy="55" r="3.5"/><text x="880" y="72">Maligne Lake</text>
-        <circle class="pt" cx="1180" cy="125" r="3.5"/><text x="1115" y="143">Aug 1 YYC</text>
-      </g>
-    </svg>
   </div>
 </section>
 
@@ -216,7 +189,7 @@ footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:13p
   <div class="wrap">
     <span class="eyebrow">Which park is which</span>
     <h2>Banff vs. Yoho vs. Jasper</h2>
-    <p class="section-intro">All three sit side by side along the same stretch of the Rockies, but they feel completely different. Here's the honest breakdown before you dive into the day-by-day.</p>
+    <p class="section-intro">All three sit side by side in the same stretch of the Rockies, but feel completely different. Here's the honest breakdown.</p>
     <div class="compare-grid" id="compareGrid"></div>
   </div>
 </section>
@@ -227,21 +200,10 @@ footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:13p
   <div class="wrap">
     <span class="eyebrow">Day by day</span>
     <h2>The full 14 days</h2>
-    <p class="section-intro">July 19 – August 1, 2026. Two nights in Calgary → four nights in Canmore (Banff base) → two nights in Golden (Yoho base) → four nights in Hinton (Jasper base) → one night back in Calgary → fly home August 1st.</p>
-    <div class="day-note" style="margin-bottom:24px"><span>📍</span><span><b>Icefields Parkway note —</b> You do NOT need a separate day trip to the Icefields Parkway from Banff. The entire Parkway is naturally covered on Day 9 (July 27) as you drive from Golden through Lake Louise north to Jasper — the only direction that makes sense. You'll see Bow Lake, Peyto Lake, Crowfoot Glacier, Columbia Icefield, Glacier Skywalk, and Sunwapta Falls on the way. No backtracking needed.</span></div>
-    <div class="day-note" style="margin-bottom:24px;background:var(--amber-l)"><span>🎫</span><span><b>Already booked: July 25 —</b> Full-day Lake Louise &amp; Emerald Lake tour. This day is locked in — the itinerary is built around it. Confirm your pickup point with the tour operator.</span></div>
+    <p class="section-intro">Jul 19 – Aug 1, 2026. Two nights Calgary → four nights Canmore → two nights Golden → four nights Hinton → one night Calgary → fly home.</p>
+    <div class="banner info">📍 <div><b>Icefields Parkway:</b> You do NOT need a separate day trip from Banff. The full Parkway (Peyto Lake, Columbia Icefield, Glacier Skywalk, Sunwapta Falls) is naturally covered on <b>Day 9</b> (Jul 27) as you drive from Golden north to Jasper via Lake Louise and Hwy 93.</div></div>
+    <div class="banner warn">🎫 <div><b>Already booked — Day 4 (Jul 22):</b> Full day tour covering Johnston Canyon, Lake Louise, Moraine Lake &amp; Emerald Lake. Pickup at <b>9:30 AM</b> at the Travel Alberta Canmore Visitor Information Centre, 2801 Bow Valley Trail, Canmore, AB T1W 3A2.</div></div>
     <div id="dayList"></div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="do">
-  <div class="wrap">
-    <span class="eyebrow">Sights, hikes &amp; hidden gems</span>
-    <h2>What to do, by region</h2>
-    <p class="section-intro">Amber chips are hikes. <b>ESSENTIAL</b> = worth reshuffling your day for. <b>HIDDEN GEM</b> = most visitors miss these entirely — don't.</p>
-    <div id="attrGroups"></div>
   </div>
 </section>
 
@@ -251,30 +213,19 @@ footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:13p
   <div class="wrap">
     <span class="eyebrow">Vegetarian-checked</span>
     <h2>Where to eat</h2>
-    <p class="section-intro">The Rockies are steak country, so we did the legwork — every restaurant below has a genuinely solid vegetarian or vegan menu, not just a sad side salad.</p>
+    <p class="section-intro">Every restaurant below has a genuinely solid vegetarian or vegan menu — not just a side salad.</p>
     <div id="eatGroups"></div>
   </div>
 </section>
 
 <hr class="divider">
 
-<section id="map">
+<section id="mymaps">
   <div class="wrap">
-    <span class="eyebrow">Route</span>
-    <h2>The loop</h2>
-    <p class="section-intro">Your route is built from whatever you've checked "Add to map route" on in the Do section above. Capped at 10 stops — remove any below to make room.</p>
-    <div class="map-wrap">
-      <div>
-        <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="map-note" id="mapNote"></div>
-        <a id="openRouteLink" class="open-route-btn" href="#" target="_blank" rel="noopener">Open full route in Google Maps ↗</a>
-      </div>
-      <div class="stops-panel">
-        <h4>Your route</h4>
-        <div class="route-sub" id="routeCount"></div>
-        <div id="stopsList"></div>
-      </div>
-    </div>
+    <span class="eyebrow">Google My Maps reference</span>
+    <h2>Places by day — for your custom map</h2>
+    <p class="section-intro">Use this to create your Google My Maps at <a href="https://maps.google.com/mymaps" target="_blank" rel="noopener">maps.google.com/mymaps</a>. Add a layer per day, paste in each place name, and pin with address or the route button below.</p>
+    <div class="mymaps-grid" id="myMapsGrid"></div>
   </div>
 </section>
 
@@ -295,479 +246,439 @@ footer{padding:40px 0 60px;text-align:center;color:var(--ink-soft);font-size:13p
     <span class="eyebrow">Attribution</span>
     <h2 style="font-size:20px;margin-bottom:14px">Photo credits</h2>
     <details>
-      <summary>All photos are freely licensed via Wikimedia Commons — click to expand credits</summary>
+      <summary>All photos via Wikimedia Commons — click to expand</summary>
       <ul id="creditsList"></ul>
     </details>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">Built for a vegetarian family road trip, July 2026. No tracking, no accounts — just a planning page.</div>
+  <div class="wrap">Built for a vegetarian family road trip, July 2026 · No tracking, no accounts</div>
 </footer>
 
 <script>
-/* ===== icons ===== */
-const ICONS = {
+/* ===== ICONS ===== */
+const ICONS={
   mountain:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M4 38 L18 14 L26 26 L32 16 L44 38 Z" stroke-linejoin="round"/><circle cx="34" cy="11" r="3.5"/></svg>',
-  lake:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M6 24 L16 10 L24 20 L30 12 L42 24" stroke-linejoin="round"/><path d="M4 34 Q12 30 20 34 T36 34 T44 34" /><path d="M4 40 Q12 36 20 40 T36 40 T44 40"/></svg>',
+  lake:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M6 24 L16 10 L24 20 L30 12 L42 24" stroke-linejoin="round"/><path d="M4 34 Q12 30 20 34 T36 34 T44 34"/><path d="M4 40 Q12 36 20 40 T36 40 T44 40"/></svg>',
   tower:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M24 4 L24 44 M14 44 L34 44 M17 30 L31 30 M19 18 L29 18 M14 12 L34 12"/><path d="M20 12 L24 4 L28 12"/></svg>',
-  castle:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M8 44 V22 H14 V16 H20 V22 H28 V16 H34 V22 H40 V44 Z" stroke-linejoin="round"/><path d="M8 22 V18 M14 16 V12 M20 16 V12 M28 16 V12 M34 16 V12 M40 22 V18"/></svg>',
   falls:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M14 6 L34 6 L30 24 L18 24 Z" stroke-linejoin="round"/><path d="M18 24 Q16 34 10 42 M24 24 Q24 34 24 42 M30 24 Q32 34 38 42"/></svg>',
   market:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M6 16 L42 16 L38 44 L10 44 Z" stroke-linejoin="round"/><path d="M16 16 V10 Q16 4 24 4 Q32 4 32 10 V16"/></svg>',
   museum:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M6 18 L24 6 L42 18 Z" stroke-linejoin="round"/><path d="M8 18 V42 M16 18 V42 M24 18 V42 M32 18 V42 M40 18 V42 M4 44 H44"/></svg>',
   tree:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M24 4 L34 20 H28 L36 32 H12 L20 20 H14 Z" stroke-linejoin="round"/><path d="M24 32 V44"/></svg>',
-  bed:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M6 40 V18 Q6 14 10 14 H38 Q42 14 42 18 V40"/><path d="M6 30 H42 M12 24 H20 V30 H12 Z" stroke-linejoin="round"/><path d="M6 40 V44 M42 40 V44"/></svg>',
   gondola:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M4 12 L44 30"/><rect x="20" y="20" width="12" height="10" rx="2" stroke-linejoin="round"/><path d="M24 20 V14 M28 20 V14"/></svg>',
   hotsprings:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M14 26 Q14 18 19 18 Q19 22 22 22 Q22 16 28 14 Q26 20 30 22 Q34 22 34 26"/><ellipse cx="24" cy="34" rx="18" ry="8"/></svg>',
   boat:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M8 28 H40 L34 38 H14 Z" stroke-linejoin="round"/><path d="M24 28 V8 M24 10 L34 16"/></svg>',
   fork:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M14 4 V20 M10 4 V14 Q10 18 14 18 Q18 18 18 14 V4"/><path d="M14 18 V44"/><path d="M34 4 Q26 8 26 18 Q26 24 34 24 V44"/></svg>',
   boot:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M16 6 V24 L8 30 Q6 32 6 36 V40 H42 Q42 34 36 32 L28 28 V6 Z" stroke-linejoin="round"/><path d="M16 12 H22 M16 18 H22"/></svg>',
-  van:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M4 30 V18 H30 L40 26 V30" stroke-linejoin="round"/><path d="M4 30 H44 M30 18 V30"/><circle cx="14" cy="34" r="4"/><circle cx="36" cy="34" r="4"/></svg>'
+  van:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M4 30 V18 H30 L40 26 V30" stroke-linejoin="round"/><path d="M4 30 H44 M30 18 V30"/><circle cx="14" cy="34" r="4"/><circle cx="36" cy="34" r="4"/></svg>',
+  bed:'<svg viewBox="0 0 48 48" fill="none" stroke="#21372D" stroke-width="2.2"><path d="M6 40 V18 Q6 14 10 14 H38 Q42 14 42 18 V40"/><path d="M6 30 H42 M12 24 H20 V30 H12 Z" stroke-linejoin="round"/><path d="M6 40 V44 M42 40 V44"/></svg>'
 };
-window.__badgeFallback = function(icon, tagText, essential, closed2026, hiddenGem){
-  return `<div class="badge-fallback" style="position:relative">${essential?'<span class="essential-flag">ESSENTIAL</span>':''}${hiddenGem?'<span class="hidden-gem-flag">HIDDEN GEM</span>':''}${closed2026?'<span class="closed-flag">CLOSED 2026</span>':''}${ICONS[icon]||ICONS.mountain}</div>`;
-};
-function mediaBlock(item, tagText){
-  const closedFlag = item.closed2026 ? '<span class="closed-flag">CLOSED 2026</span>' : '';
-  if(item.image){
-    const essFlag = item.essential ? '<span class="essential-flag">ESSENTIAL</span>' : '';
-    const gemFlag = item.hiddenGem ? '<span class="hidden-gem-flag">HIDDEN GEM</span>' : '';
-    const src = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(item.image)}?width=700`;
-    return `<div class="card-photo">${essFlag}${gemFlag}${closedFlag}<img src="${src}" alt="${item.name}" loading="lazy" onerror="this.parentElement.outerHTML=window.__badgeFallback('${item.icon}','',${!!item.essential},${!!item.closed2026},${!!item.hiddenGem})"><div class="photo-credit">Photo: <a href="${item.creditUrl}" target="_blank" rel="noopener">Wikimedia Commons</a></div></div>`;
+
+function actImg(act){
+  const badge = act.badge ? `<span class="act-badge ${act.badge}">${act.badge==='hidden-gem'?'HIDDEN GEM':act.badge.toUpperCase()}</span>`:'';
+  if(act.image){
+    const src=`https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(act.image)}?width=600`;
+    return `<div class="activity-img-wrap">${badge}<img class="activity-img" src="${src}" alt="${act.name}" loading="lazy" onerror="this.closest('.activity-img-wrap').innerHTML=actFallback('${act.icon}','${act.badge||''}')"></div>`;
   }
-  return window.__badgeFallback(item.icon, tagText, item.essential, item.closed2026, item.hiddenGem);
+  return `<div class="activity-img-wrap">${badge}${actFallback(act.icon,act.badge||'')}</div>`;
+}
+function actFallback(icon,badge){
+  const b=badge?`<span class="act-badge ${badge}">${badge==='hidden-gem'?'HIDDEN GEM':badge.toUpperCase()}</span>`:'';
+  return `<div class="act-fallback">${b}${ICONS[icon]||ICONS.mountain}</div>`;
 }
 
-/* ===== destinations ===== */
-const DEST_META = {
-  calgary:{name:'Calgary', icon:'tower'},
-  banff:{name:'Banff, Lake Louise &amp; Canmore', icon:'mountain'},
-  yoho:{name:'Yoho National Park &amp; Golden', icon:'falls'},
-  jasper:{name:'Jasper National Park', icon:'lake'}
+/* ===== DATA ===== */
+const DEST_META={
+  calgary:{name:'Calgary',icon:'tower'},
+  banff:{name:'Banff & Canmore',icon:'mountain'},
+  yoho:{name:'Yoho & Golden',icon:'falls'},
+  jasper:{name:'Jasper',icon:'lake'}
 };
-const DEST_ORDER = ['calgary','banff','yoho','jasper'];
 
-/* ===== attractions ===== */
-const ATTRACTIONS = [
+const DAYS=[
+  {n:1,date:'Jul 19',dest:'calgary',title:'Arrive Calgary — settle in',base:'Calgary · Blackfoot Trail SE',
+   overview:'Flight day. Pick up the rental car at YYC and drive to your hotel (~20 min south). Low-key evening — dinner at The Coup or Vegan Street, both vegetarian institutions close to your hotel. Rest up for 13 days of mountains.',
+   activities:[
+     {name:'Arrive YYC & pick up rental car',icon:'van',time:'Afternoon',note:'Budget 45 min for fuel, return, and shuttle',image:'Downtown Calgary 2020-2.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Downtown_Calgary_2020-2.jpg',mapsQuery:'Calgary International Airport YYC'},
+     {name:'The Coup — Dinner',icon:'fork',time:'Evening',note:'Fully veg since 2004 · 924 17 Ave SW',image:'Peace Bridge over The Bow River Calgary. (8068114908).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Peace_Bridge_over_The_Bow_River_Calgary._(8068114908).jpg',mapsQuery:'The Coup Restaurant Calgary'}
+   ],
+   mapLat:51.0447,mapLng:-114.0719,mapZoom:12,
+   mapsOrigin:'Calgary International Airport YYC',mapsDest:'8360 Blackfoot Trail SE Calgary',mapsWaypoints:[],
+   tip:'The Coup (924 17 Ave SW) is Calgary\'s best fully vegetarian restaurant. Vegan Street (1018 17 Ave SW) is excellent too and usually has more walk-in seats.'},
 
-  // --- Calgary ---
-  {id:'c1', dest:'calgary', name:'Calgary Tower', icon:'tower', essential:true, tag:'Glass floor · 191m · 1hr',
-    blurb:'360° views over the skyline and, on a clear morning, the Rockies silhouette on the western horizon. Sky360 revolving restaurant at the top. Good first stop before the Rockies put this to shame.',
-    link:'https://www.calgarytower.com/', mapQuery:'Calgary Tower',
-    image:'Calgary tower.png', creditUrl:'https://commons.wikimedia.org/wiki/File:Calgary_tower.png'},
-  {id:'c2', dest:'calgary', name:'Studio Bell / National Music Centre', icon:'museum', tag:"Canada's Music Hall of Fame · 3hrs",
-    blurb:"160,000 sq ft of Canadian music history — interactive exhibits, recording studios you can actually step into, and instruments you can play. Surprisingly engaging for the whole family.",
-    link:'https://www.studiobell.ca/', mapQuery:'Studio Bell National Music Centre Calgary',
-    image:'Studio Bell. Calgary. (37529795506).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:National_Music_Centre'},
-  {id:'c3', dest:'calgary', name:'Heritage Park Historical Village', icon:'museum', tag:'127 acres · steam train · half-to-full day', essential:true,
-    blurb:"Calgary's most-visited attraction — a living pioneer village with a working steam train, paddlewheeler, and over 180 heritage buildings. Kids love it. Get there right at 9am opening for the train first thing.",
-    link:'https://www.heritagepark.ca/', mapQuery:'Heritage Park Historical Village Calgary',
-    image:'A day out at Heritage park Calgary (11504935534).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Heritage_Park_Historical_Village'},
-  {id:'c4', dest:'calgary', name:'Stephen Avenue Walk', icon:'market', tag:'Pedestrian heritage district · free',
-    blurb:"Calgary's pedestrian main street — sandstone heritage buildings, restaurants, and shops. Good for a post-dinner stroll. The Coup and Vegan Street are both a short detour from here.",
-    link:'https://www.visitcalgary.com/', mapQuery:'Stephen Avenue Walk Calgary',
-    image:"Stephen's Ave. concert venue.jpg", creditUrl:'https://commons.wikimedia.org/wiki/Category:Stephen_Avenue,_Calgary'},
-  {id:'c5', dest:'calgary', name:"Prince's Island Park & Peace Bridge", icon:'tree', tag:'Bow River loop · free · 1hr',
-    blurb:'Walk the distinctive red Peace Bridge over the Bow River to the island and loop back — the best free hour in Calgary. Bring a coffee and walk before Heritage Park.',
-    link:'https://www.visitcalgary.com/', mapQuery:"Prince's Island Park Calgary",
-    image:"Prince's Island Park, Calgary (48708020643).jpg", creditUrl:"https://commons.wikimedia.org/wiki/Category:Prince's_Island_Park_(Calgary)"},
-  {id:'c6', dest:'calgary', name:'WinSport / Canada Olympic Park', icon:'mountain', tag:'1988 Olympics site · zipline & luge rides',
-    blurb:'The ski jumps and bobsled track from the 1988 Winter Games — still active in summer with ziplines and luge-on-wheels rides. Good quick stop on the way west out of the city.',
-    link:'https://www.winsport.ca/', mapQuery:'WinSport Canada Olympic Park Calgary'},
+  {n:2,date:'Jul 20',dest:'calgary',title:'Calgary: Heritage Park, Peace Bridge & Downtown',base:'Calgary',
+   overview:'Heritage Park opens at 9am — arrive at open and ride the steam train first. A working pioneer village needs 3-4 hours to do properly. Afternoon: walk the iconic Peace Bridge over the Bow River to Prince\'s Island Park, then wander Stephen Avenue for dinner.',
+   activities:[
+     {name:'Heritage Park Historical Village',icon:'museum',time:'9:00 AM – 1:00 PM',note:'127 acres · steam train · paddlewheeler · most-visited in Calgary',image:'A day out at Heritage park Calgary (11504935534).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Heritage_Park_Historical_Village',mapsQuery:'Heritage Park Historical Village Calgary',badge:'essential'},
+     {name:'Peace Bridge & Bow River',icon:'boat',time:'2:00 PM',note:'Santiago Calatrava\'s iconic red bridge — walk across and back along the river',image:'Peace Bridge over The Bow River Calgary. (8068114908).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Peace_Bridge_over_The_Bow_River_Calgary._(8068114908).jpg',mapsQuery:'Peace Bridge Calgary'},
+     {name:"Prince's Island Park",icon:'tree',time:'2:30 PM',note:'Loop the river island — free, flat, 45 min walk',image:"Prince's Island Park, Calgary (48708020643).jpg",creditUrl:"https://commons.wikimedia.org/wiki/Category:Prince's_Island_Park_(Calgary)",mapsQuery:"Prince's Island Park Calgary"},
+     {name:'Stephen Avenue Walk',icon:'market',time:'4:30 PM',note:'Pedestrian sandstone heritage street — dinner at The Coup or Nan\'s Noodle House nearby',image:"Stephen's Ave. concert venue.jpg",creditUrl:'https://commons.wikimedia.org/wiki/Category:Stephen_Avenue,_Calgary',mapsQuery:'Stephen Avenue Walk Calgary'},
+     {name:'Studio Bell / National Music Centre',icon:'museum',time:'Optional · 2-3 hrs',note:'Interactive music history, instruments to actually play — excellent if time allows',image:'Studio Bell. Calgary. (37529795506).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:National_Music_Centre',mapsQuery:'Studio Bell National Music Centre Calgary'}
+   ],
+   mapLat:51.0447,mapLng:-114.0719,mapZoom:13,
+   mapsOrigin:'Heritage Park Historical Village Calgary',mapsDest:'Stephen Avenue Calgary',
+   mapsWaypoints:['Peace Bridge Calgary',"Prince's Island Park Calgary"],
+   tip:'Heritage Park sells out on summer weekends — book tickets online. The steam train runs on a schedule; plan around it.'},
 
-  // --- Banff / Lake Louise / Canmore ---
-  {id:'a1', dest:'banff', name:'Moraine Lake', icon:'lake', essential:true, tag:'Sunrise recommended · shuttle required',
-    blurb:'The Valley of the Ten Peaks reflected in glacial-blue water — the most photographed lake in Canada. Personal vehicles are turned away in summer; you must take the Parks Canada shuttle from Lake Louise Park & Ride. Book the shuttle well in advance.',
-    link:'https://www.banfflakelouise.com/moraine-lake', mapQuery:'Moraine Lake Banff',
-    image:'Moraine Lake-Banff NP.JPG', creditUrl:'https://commons.wikimedia.org/wiki/File:Moraine_Lake-Banff_NP.JPG'},
-  {id:'a2', dest:'banff', name:'Lake Louise', icon:'lake', essential:true, tag:'Iconic — arrive before 8am',
-    blurb:'The single most-photographed lake in Canada, with Victoria Glacier behind it. Walk the lakeshore trail, or rent a canoe from the boathouse. Already included in your July 25 booked tour.',
-    link:'https://www.banfflakelouise.com/lake-louise', mapQuery:'Lake Louise Banff',
-    image:'Lake Louise Canada Banff.JPG', creditUrl:'https://commons.wikimedia.org/wiki/File:Lake_Louise_Canada_Banff.JPG'},
-  {id:'ag1', dest:'banff', name:'Grassi Lakes', icon:'lake', hiddenGem:true, tag:'Hidden gem · 3.4km return · Canmore',
-    blurb:'Twin turquoise lakes perched above Canmore — the locals\' favourite and far less crowded than anything in Banff. Ancient First Nations petroglyphs are carved into the canyon walls near the upper lake. Take the harder route up (left fork) for the better approach.',
-    link:'https://www.trailscanmore.ca/grassi-lakes-trail/', mapQuery:'Grassi Lakes Canmore Alberta',
-    image:'Rock climbing on the Cairn Formation at Grassi Lakes, Alberta..JPG', creditUrl:'https://commons.wikimedia.org/wiki/File:Rock_climbing_on_the_Cairn_Formation_at_Grassi_Lakes,_Alberta..JPG'},
-  {id:'ag2', dest:'banff', name:'Grotto Canyon', icon:'falls', hiddenGem:true, tag:'Hidden gem · 4km return · rock art',
-    blurb:'A narrow slot canyon east of Canmore with a creek running along the canyon floor — and actual prehistoric pictographs painted on the walls. Largely unknown to tourists. Easy walking on the creek bed. One of the most underrated spots in the whole Banff corridor.',
-    link:'https://www.trailscanmore.ca/grotto-canyon-trail/', mapQuery:'Grotto Canyon Canmore Alberta'},
-  {id:'ag3', dest:'banff', name:'Ha Ling Peak', icon:'boot', tag:'Hike · 6km · 700m gain · Canmore\'s summit', isHike:true,
-    blurb:'The iconic peak directly above Canmore — named for a Chinese cook who bet he could summit it in under 2 hours (he did it in 90 minutes). Steep but well-marked switchbacks, and the view over the Bow Valley and Three Sisters from the top is outstanding.',
-    link:'https://www.trailscanmore.ca/ha-ling-peak/', mapQuery:'Ha Ling Peak Canmore'},
-  {id:'a3', dest:'banff', name:'Banff Gondola (Sulphur Mtn)', icon:'gondola', tag:'~26 min round trip · best in morning',
-    blurb:'Glass gondola up Sulphur Mountain for 360° views over six mountain ranges and the Banff townsite. Go in the morning for clearest air — by afternoon clouds often build around the peaks.',
-    link:'https://www.banffjaspercollection.com/attractions/banff-gondola/', mapQuery:'Banff Gondola',
-    image:'Banff Sulphur Mountain Gondola IMG 4259.JPG', creditUrl:'https://commons.wikimedia.org/wiki/File:Banff_Sulphur_Mountain_Gondola_IMG_4259.JPG'},
-  {id:'a4', dest:'banff', name:'Johnston Canyon', icon:'falls', tag:'Easy catwalk · 2.7km to Lower Falls',
-    blurb:'An elevated catwalk trail through a limestone canyon to two waterfalls — go first thing in the morning before the boardwalks fill up. Extend to the Ink Pots (11km total) for a much quieter finish with turquoise cold springs.',
-    link:'https://www.banfflakelouise.com/johnston-canyon', mapQuery:'Johnston Canyon Banff',
-    image:'Cascade Falls Johnston Canyon from the cave (9906891773).jpg', creditUrl:'https://commons.wikimedia.org/wiki/File:Cascade_Falls_Johnston_Canyon_from_the_cave_(9906891773).jpg'},
-  {id:'a5', dest:'banff', name:'Peyto Lake', icon:'mountain', tag:'Icefields Parkway · drive-by viewpoint',
-    blurb:"A short walk from the Bow Summit parking lot to a wolf-head-shaped, impossibly blue lake — the signature Icefields Parkway stop. Covered on your Day 9 drive from Golden to Jasper. Don't do this as a day trip from Banff — save it for the drive north.",
-    link:'https://www.banfflakelouise.com/peyto-lake', mapQuery:'Peyto Lake Banff',
-    image:'Peyto Lake-Banff NP-Canada.jpg', creditUrl:'https://commons.wikimedia.org/wiki/File:Peyto_Lake-Banff_NP-Canada.jpg'},
-  {id:'a6', dest:'banff', name:'Lake Minnewanka', icon:'boat', tag:'Boat cruise or shoreline walk',
-    blurb:"Banff's largest lake — 1-hour scenic cruise, or just walk the shoreline for the mountain views without the ticket. About 10 minutes from downtown Banff. Good afternoon add-on.",
-    link:'https://www.banfflakelouise.com/lake-minnewanka', mapQuery:'Lake Minnewanka Banff',
-    image:'Banff National Park - Lake Minnewanka (33321241396).jpg', creditUrl:'https://commons.wikimedia.org/wiki/File:Banff_National_Park_-_Lake_Minnewanka_(33321241396).jpg'},
-  {id:'a9', dest:'banff', name:'Bow Falls', icon:'falls', tag:'10 min walk from townsite · free',
-    blurb:"Wide, powerful falls right at the edge of Banff — the easiest 'wow' in town, no driving required. Walk down from the Fairmont Banff Springs for the classic framing.",
-    link:'https://www.banfflakelouise.com/bow-falls', mapQuery:'Bow Falls Banff',
-    image:"'Roots' -- Near the Bow Falls at Banff (AB) September 2019 (49571536726).jpg", creditUrl:'https://commons.wikimedia.org/wiki/File:%27Roots%27_--_Near_the_Bow_Falls_at_Banff_(AB)_September_2019_(49571536726).jpg'},
-  {id:'a10', dest:'banff', name:'Cave and Basin NHS', icon:'hotsprings', tag:"Birthplace of Canada's parks · small museum",
-    blurb:"The hot spring that started the entire national park system in 1885. Small museum, boardwalks over the pools, and an easy visit. This is the one you look at — the Upper Hot Springs (a16) is the one you get into.",
-    link:'https://parks.canada.ca/lhn-nhs/ab/cavebasin', mapQuery:'Cave and Basin National Historic Site',
-    image:'Cave and Basin National Historic Site, Banff.JPG', creditUrl:'https://commons.wikimedia.org/wiki/File:Cave_and_Basin_National_Historic_Site,_Banff.JPG'},
-  {id:'a15', dest:'banff', name:'Vermilion Lakes', icon:'lake', tag:'5 min from townsite · free · best at sunset',
-    blurb:'Three shallow lakes right off the road into Banff — the classic wildlife and sunset spot, with Mount Rundle reflected perfectly on a calm evening. Free, no hiking required, and usually uncrowded.',
-    link:'https://www.banfflakelouise.com/listings/vermilion-lakes', mapQuery:'Vermilion Lakes Banff'},
-  {id:'a16', dest:'banff', name:'Banff Upper Hot Springs', icon:'hotsprings', tag:'Soakable mineral pool · open-air',
-    blurb:"Cave and Basin is the historic site you look at; this is the one you actually get into — a hot mineral pool at the base of Sulphur Mountain with mountain views. Perfect wind-down after a long hiking day.",
-    link:'https://www.hotsprings.ca/banff/', mapQuery:'Banff Upper Hot Springs'},
-  {id:'a12', dest:'banff', name:'Plain of Six Glaciers + Lake Agnes Teahouse', icon:'boot', tag:'Hike · 14.6km loop · full day', isHike:true,
-    blurb:"Lake Louise's best hike: lakeshore trail, the Plain of Six Glaciers Teahouse at the foot of Victoria Glacier, connected via the Highline Trail to the Lake Agnes Teahouse above the lake. Teahouses are cash-only — bring money.",
-    link:'https://www.10adventures.com/hikes/lake-louise/plain-of-the-6-glaciers/', mapQuery:'Plain of Six Glaciers trailhead Lake Louise',
-    image:'Lake Louise seen from the Big Beehive, Banff National Park, Canada (54881218746).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Lake_Louise,_Alberta'},
-  {id:'a13', dest:'banff', name:'Larch Valley / Sentinel Pass', icon:'boot', tag:'Hike · 11.6km · groups of 4+ required', isHike:true,
-    blurb:"Switchbacks from Moraine Lake up into Larch Valley and through Sentinel Pass with the Ten Peaks as backdrop. Parks Canada requires groups of 4+ on this trail due to active bear activity — solo pairs will be turned back. In July it's all alpine green (golden larches are a fall thing), still spectacular.",
-    link:'https://www.backcountryviews.com/lake_louise', mapQuery:'Sentinel Pass trailhead Moraine Lake'},
-  {id:'a17', dest:'banff', name:'Sunshine Meadows', icon:'gondola', tag:'Gondola + alpine wildflowers · peak bloom July',
-    blurb:"Ride the Sunshine Village gondola up to high alpine meadows on the Continental Divide — July is peak wildflower season (mid-July to late August). The easy Rock Isle Lake loop is family-friendly. One of the best half-days in the entire Banff area.",
-    link:'https://www.banffsunshinemeadows.com/', mapQuery:'Sunshine Village Gondola Banff'},
+  {n:3,date:'Jul 21',dest:'calgary',title:'Calgary Tower & Drive to Canmore',base:'Calgary → Canmore',
+   overview:'Quick morning in Calgary, then head west on the Trans-Canada. The mountains appear on the horizon 45 minutes out of the city and grow larger for the rest of the drive. Check into your Canmore hotel on 9 St and walk the townsite. Railway Ave has a perfect eye-level view of the Three Sisters.',
+   activities:[
+     {name:'Calgary Tower',icon:'tower',time:'9:00 AM',note:'Glass floor · 191m · on a clear morning you see the Rockies from here',image:'Calgary Tower (27308602782).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Calgary_Tower_(27308602782).jpg',mapsQuery:'Calgary Tower'},
+     {name:'Drive West — Trans-Canada Hwy 1',icon:'van',time:'10:30 AM',note:'~1.5 hrs to Canmore · mountains fill the windscreen for the last 30 min',image:'Canmore Canada.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Canmore_Canada.jpg',mapsQuery:'Trans-Canada Highway Kananaskis Alberta'},
+     {name:'Canmore Townsite — Arrive & Explore',icon:'mountain',time:'Evening',note:'Three Sisters view on Railway Ave · Communitea Cafe for dinner (vegetarian-forward)',image:'Canmore Canada.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Canmore_Canada.jpg',mapsQuery:'Canmore Alberta Main Street'}
+   ],
+   mapLat:51.09,mapLng:-115.36,mapZoom:9,
+   mapsOrigin:'Calgary Tower Calgary',mapsDest:'825 9 Street Canmore AB',mapsWaypoints:[],
+   tip:'Communitea Cafe (707 8th St, Canmore) is your best vegetarian dinner option in town. The drive from Calgary to Canmore is one of the most beautiful in North America — no headphones, eyes on the road.'},
 
-  // --- Yoho / Golden ---
-  {id:'y1', dest:'yoho', name:'Emerald Lake', icon:'lake', essential:true, tag:'Canoe rentals on site · Yoho\'s crown jewel',
-    blurb:"Yoho's largest lake, ringed by the President Range — the same turquoise as Moraine Lake but with a fraction of the crowds. Canoe rentals at the dock, a short trail around the lake, and Cilantro on the Lake restaurant for lunch. Already included in your July 25 booked tour.",
-    link:'https://www.field.ca/yohonationalpark/emeraldlake/', mapQuery:'Emerald Lake Yoho',
-    image:'Emerald Lake - Yoho National Park.JPG', creditUrl:'https://commons.wikimedia.org/wiki/File:Emerald_Lake_-_Yoho_National_Park.JPG'},
-  {id:'y2', dest:'yoho', name:'Natural Bridge', icon:'falls', tag:'2 min stop · free · on the way to Emerald Lake',
-    blurb:'The Kicking Horse River cuts straight through solid rock in a dramatic natural arch — a classic 5-minute stop on the road to Emerald Lake. Do not skip it.',
-    link:'https://www.field.ca/yohonationalpark/naturalbridge/', mapQuery:'Natural Bridge Yoho National Park'},
-  {id:'y3', dest:'yoho', name:'Takakkaw Falls', icon:'falls', essential:true, tag:"Canada's 2nd-tallest waterfall · 373m",
-    blurb:"A 373-meter glacier-fed waterfall dropping in a dramatic roostertail spray. The road up has tight switchbacks (turns trailers around) and is only open June through October. A stop you'll remember longer than most lakes.",
-    link:'https://thebanffblog.com/takakkaw-falls-in-yoho/', mapQuery:'Takakkaw Falls Yoho',
-    image:'Takakkaw Falls and Waputik Glacier, Yoho National Park, Canada (54881204831).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Waputik_Icefield'},
-  {id:'y4', dest:'yoho', name:'Iceline Trail', icon:'boot', tag:'Hike · 20km loop · full day · challenging', isHike:true,
-    blurb:"Yoho's signature hike — starts at Takakkaw Falls, climbs past hanging glaciers to the Iceline, descends through the Little Yoho Valley. Full day, early start required. The best hike in Yoho if you have the legs for it.",
-    link:'https://parks.canada.ca/pn-np/bc/yoho/activ/randonnee-hike/jour-day', mapQuery:'Iceline Trail trailhead Yoho'},
-  {id:'y5', dest:'yoho', name:'Wapta Falls', icon:'falls', tag:'Easy · 4.6km return · far less crowded',
-    blurb:"The biggest waterfall on the Kicking Horse River — and far less visited than Takakkaw. About 25 minutes past Field near the BC border. Good second waterfall stop without backtracking far.",
-    link:'https://parks.canada.ca/pn-np/bc/yoho/activ/randonnee-hike/jour-day', mapQuery:'Wapta Falls trailhead Yoho'},
-  {id:'yg1', dest:'yoho', name:'Golden Skybridge', icon:'mountain', tag:'Canada\'s highest suspension bridge · Golden',
-    blurb:"Two suspension bridges hanging over a dramatic Kicking Horse River gorge just outside Golden — the highest in Canada at 426m elevation. Zip lines and a canyon walk included. A worthwhile half-day from your Golden base.",
-    link:'https://www.goldenskybridge.ca/', mapQuery:'Golden Skybridge Golden BC'},
+  {n:4,date:'Jul 22',dest:'banff',title:'🎫 BOOKED: Johnston Canyon · Lake Louise · Moraine Lake · Emerald Lake',base:'Canmore (full day tour)',
+   overview:'Your pre-booked tour covers the four most iconic sites in the Banff-Yoho corridor in one day. Pickup at 9:30 AM at the Travel Alberta Canmore Visitor Information Centre (2801 Bow Valley Trail, Canmore, AB T1W 3A2). Return to Canmore in the evening.',
+   activities:[
+     {name:'Pickup — Travel Alberta Canmore',icon:'van',time:'9:30 AM',note:'2801 Bow Valley Trail, Canmore, AB T1W 3A2 · confirm with tour operator',image:'Canmore Canada.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Canmore_Canada.jpg',mapsQuery:'Travel Alberta Canmore Visitor Information Centre',badge:'booked'},
+     {name:'Johnston Canyon',icon:'falls',time:'~10:30 AM',note:'Elevated catwalk through limestone canyon to two waterfalls — stunning in July',image:'Cascade Falls Johnston Canyon from the cave (9906891773).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Cascade_Falls_Johnston_Canyon_from_the_cave_(9906891773).jpg',mapsQuery:'Johnston Canyon Banff National Park',badge:'essential'},
+     {name:'Lake Louise',icon:'lake',time:'~12:30 PM',note:'Victoria Glacier backdrop · lakeshore walk · most-photographed lake in Canada',image:'Lake Louise Canada Banff.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Lake_Louise_Canada_Banff.JPG',mapsQuery:'Lake Louise Alberta Canada',badge:'essential'},
+     {name:'Moraine Lake',icon:'lake',time:'~2:00 PM',note:'Valley of the Ten Peaks · peak glacial-blue colour in July',image:'Moraine Lake-Banff NP.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Moraine_Lake-Banff_NP.JPG',mapsQuery:'Moraine Lake Banff National Park',badge:'essential'},
+     {name:'Emerald Lake',icon:'lake',time:'~4:00 PM',note:'Yoho\'s crown jewel · same turquoise colour · far fewer crowds',image:'Emerald Lake - Yoho National Park.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Emerald_Lake_-_Yoho_National_Park.JPG',mapsQuery:'Emerald Lake Yoho National Park Field BC',badge:'essential'}
+   ],
+   mapLat:51.35,mapLng:-116.15,mapZoom:9,
+   mapsOrigin:'Travel Alberta Canmore Visitor Information Centre Canmore',mapsDest:'Emerald Lake Yoho National Park Field BC',
+   mapsWaypoints:['Johnston Canyon Banff','Lake Louise Alberta','Moraine Lake Banff National Park'],
+   tip:'Confirm exact pickup/drop-off, included meals, and timing with your tour operator. Emerald Lake is in Yoho National Park — you\'ll cross into BC briefly. No separate Yoho pass needed if on a guided tour.'},
 
-  // --- Jasper ---
-  {id:'j1', dest:'jasper', name:'Maligne Lake & Spirit Island', icon:'boat', essential:true, tag:'Cruise · sells out daily · book ahead',
-    blurb:"The largest glacially-fed lake in the Rockies; the 90-minute cruise to Spirit Island is one of the most photographed views in Canada. Book the cruise before you arrive — it sells out in summer. Maligne Canyon (nearby) is closed for the entire 2026 season.",
-    link:'https://www.banffjaspercollection.com/attractions/maligne-lake-cruise/', mapQuery:'Maligne Lake Jasper',
-    image:'Spirit Island, Maligne Lake, Jasper NP.jpg', creditUrl:'https://commons.wikimedia.org/wiki/File:Spirit_Island,_Maligne_Lake,_Jasper_NP.jpg'},
-  {id:'j2', dest:'jasper', name:'Maligne Canyon', icon:'falls', tag:'Closed for 2026', closed2026:true,
-    blurb:'A deep limestone gorge with footbridges crossing the narrowest sections. Closed for the entire 2026 season for post-wildfire rehabilitation work — check Parks Canada before your trip in case status changes.',
-    link:'https://parks.canada.ca/pn-np/ab/jasper/visit/ouvert-fermee-open-closed', mapQuery:'Maligne Canyon Jasper',
-    image:'MK04167 Maligne Canyon (Jasper NP).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Maligne_Canyon'},
-  {id:'j3', dest:'jasper', name:'Jasper SkyTram (Whistlers Mtn)', icon:'gondola', tag:'7 min ride to 2,263m · go late afternoon',
-    blurb:"Longest and highest guided tramway in Canada. Go late afternoon for better light and significantly smaller crowds — most tour buses clear out by 4pm. The view over the Athabasca Valley from the top is outstanding.",
-    link:'https://www.jasperskytram.com/', mapQuery:'Jasper SkyTram'},
-  {id:'j4', dest:'jasper', name:'Pyramid Lake & Pyramid Island', icon:'lake', tag:'10 min from town · bridge to island',
-    blurb:'A footbridge out to a tiny island with Pyramid Mountain as a perfect backdrop — great for sunrise or a late afternoon paddle. Quieter than the main townsite lakes. Canoe and kayak rentals available.',
-    link:'https://thebanffblog.com/pyramid-lake-jasper/', mapQuery:'Pyramid Lake Jasper',
-    image:'Pyramid Mountain and Pyramid Lake 2.jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Pyramid_Mountain_(Alberta)'},
-  {id:'j5', dest:'jasper', name:'Athabasca Falls', icon:'falls', essential:true, tag:'Most powerful falls in the Rockies',
-    blurb:"Not the tallest, but the most forceful waterfall in the Canadian Rockies — the Athabasca River squeezed through a narrow quartzite gorge at full glacier-melt force. Easy boardwalk access from the parking lot, and it's impossible not to feel the mist.",
-    link:'https://en.wikipedia.org/wiki/Athabasca_Falls', mapQuery:'Athabasca Falls Jasper',
-    image:'Athabasca Falls (24622739401).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Athabasca_Falls'},
-  {id:'j6', dest:'jasper', name:'Columbia Icefield / Glacier Skywalk', icon:'mountain', essential:true, tag:'Glass-floor walkway · 280m above valley',
-    blurb:"Walk onto the Athabasca Glacier in an Ice Explorer, or take the glass-floored Skywalk over the Sunwapta Valley — or both. Book both online before your trip. Sits right on the Banff/Jasper park boundary and is covered on Day 9 (July 27) during the Icefields Parkway drive.",
-    link:'https://www.banffjaspercollection.com/attractions/columbia-icefield/', mapQuery:'Columbia Icefield Glacier Discovery Centre',
-    image:'Mount Athabasca, Sunwapta River, and Glacier Skywalk -- Jasper National Park, Alberta September 2019 (49440407578).jpg', creditUrl:'https://commons.wikimedia.org/wiki/Category:Mount_Athabasca'},
-  {id:'j7', dest:'jasper', name:'Mount Edith Cavell', icon:'mountain', tag:'Closed for 2026', closed2026:true,
-    blurb:"Short trail to a viewpoint of Angel Glacier, and usually one of Jasper's top stops. Cavell Road — the only access — is closed for the entire 2026 season for post-wildfire rehabilitation. Check Parks Canada for updates.",
-    link:'https://parks.canada.ca/pn-np/ab/jasper/visit/ouvert-fermee-open-closed', mapQuery:'Mount Edith Cavell Jasper'},
-  {id:'j8', dest:'jasper', name:'Miette Hot Springs', icon:'hotsprings', tag:"Canada's warmest natural hot springs",
-    blurb:"Natural mineral springs heated and cooled to a soakable temperature — the warmest in Canada. About 40 minutes east of Jasper townsite (conveniently close to your Hinton base). Opens at 8:30am. Drive into the Fiddle River Valley and watch for elk on the way in.",
-    link:'https://www.pursuitcollection.com/destinations/canada/explore/miette-hot-springs/', mapQuery:'Miette Hot Springs'},
-  {id:'j9', dest:'jasper', name:'Valley of the Five Lakes', icon:'boot', tag:'Hike · 4.5km easy loop · reopened 2026', isHike:true,
-    blurb:'Five small lakes, each a different shade of green and turquoise, on a flat, family-friendly loop. Closed in 2024-25 after wildfire damage — rerouted and reopened for the 2026 season. One of the best easy hikes near Jasper.',
-    link:'https://www.parks.canada.ca/pn-np/ab/jasper/visit/ouvert-fermee-open-closed', mapQuery:'Valley of the Five Lakes trailhead Jasper'},
-  {id:'j10', dest:'jasper', name:'Old Fort Point', icon:'mountain', tag:'Easy · 3.5km loop · right by town',
-    blurb:'A short rocky climb to a lookout over the Athabasca River and entire Jasper townsite — one of the best sunset spots in the park. Walkable from most Jasper hotels, no driving required.',
-    link:'https://www.jasper.travel/listing/old-fort-point/', mapQuery:'Old Fort Point Jasper'},
-  {id:'j11', dest:'jasper', name:'Patricia Lake', icon:'lake', tag:'Quieter than Pyramid · canoe rentals',
-    blurb:"Right next to Pyramid Lake but noticeably less busy — a good canoe-and-picnic stop. Home to the wreck of the Habbakuk, a WWII prototype ice-ship that sank intentionally and now sits a few metres offshore — bizarre slice of history.",
-    link:'https://www.jasper.travel/listing/patricia-lake/', mapQuery:'Patricia Lake Jasper'},
-  {id:'jg1', dest:'jasper', name:'Medicine Lake', icon:'lake', hiddenGem:true, tag:'Hidden gem — a lake that disappears',
-    blurb:'A glacially-fed lake on the Maligne Road that drains entirely underground through a vast limestone cave network — no visible outlet river. By September the "lake" is almost gone, replaced by a braided glacial valley. In July it\'s full and vivid; fascinating to know what it\'s doing beneath your feet.',
-    link:'https://www.jasper.travel/listing/medicine-lake/', mapQuery:'Medicine Lake Jasper National Park',
-    image:'Medicine Lake, Jasper National Park.jpg', creditUrl:'https://commons.wikimedia.org/wiki/File:Medicine_Lake,_Jasper_National_Park.jpg'},
-  {id:'jg2', dest:'jasper', name:'Horseshoe Lake', icon:'lake', hiddenGem:true, tag:'Hidden gem · turquoise · swimmable in July',
-    blurb:"A small, deep-turquoise lake about 10 minutes south of Jasper townsite that most visitors drive straight past. No facilities, no shuttle, no crowds. In July the water temperature can reach 18-20°C — genuinely swimmable, which is rare for a lake at this altitude.",
-    link:'https://www.jasper.travel/', mapQuery:'Horseshoe Lake Jasper National Park'}
+  {n:5,date:'Jul 23',dest:'banff',title:'Banff Townsite: Gondola · Falls · Hot Springs · Sunset',base:'Canmore',
+   overview:'A full Banff townsite day. Start with the gondola first thing — morning has the clearest air before afternoon clouds build around the peaks. Work down through Bow Falls, Cave & Basin, and the Upper Hot Springs. Vermilion Lakes at golden hour for the Mount Rundle reflection.',
+   activities:[
+     {name:'Banff Gondola — Sulphur Mountain',icon:'gondola',time:'9:00 AM',note:'360° views · six mountain ranges · far fewer people in the morning',image:'Banff Sulphur Mountain Gondola IMG 4259.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Banff_Sulphur_Mountain_Gondola_IMG_4259.JPG',mapsQuery:'Banff Gondola Sulphur Mountain'},
+     {name:'Bow Falls',icon:'falls',time:'11:30 AM',note:'Wide & powerful · 10 min walk from the Fairmont · totally free',image:"'Roots' -- Near the Bow Falls at Banff (AB) September 2019 (49571536726).jpg",creditUrl:"https://commons.wikimedia.org/wiki/File:%27Roots%27_--_Near_the_Bow_Falls_at_Banff_(AB)_September_2019_(49571536726).jpg",mapsQuery:'Bow Falls Banff Alberta'},
+     {name:'Cave & Basin NHS',icon:'hotsprings',time:'1:00 PM',note:'Where Canada\'s national park system was born in 1885 · boardwalks + museum',image:'Cave and Basin National Historic Site, Banff.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Cave_and_Basin_National_Historic_Site,_Banff.JPG',mapsQuery:'Cave and Basin National Historic Site Banff'},
+     {name:'Banff Upper Hot Springs',icon:'hotsprings',time:'3:00 PM',note:'The one you actually soak in · hot mineral pool · open-air mountain views',image:'Cave and Basin National Historic Site, Banff.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Cave_and_Basin_National_Historic_Site,_Banff.JPG',mapsQuery:'Banff Upper Hot Springs Alberta'},
+     {name:'Vermilion Lakes — Sunset',icon:'lake',time:'7:30 PM',note:'Mount Rundle reflected in still water · 5 min from townsite · free · no hiking',image:'Vermilion Lakes - Banff.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Vermilion_Lakes_-_Banff.jpg',mapsQuery:'Vermilion Lakes Banff Alberta'}
+   ],
+   mapLat:51.1784,mapLng:-115.5708,mapZoom:13,
+   mapsOrigin:'Banff Gondola Sulphur Mountain Banff',mapsDest:'Vermilion Lakes Banff',
+   mapsWaypoints:['Bow Falls Banff','Cave and Basin National Historic Site Banff','Banff Upper Hot Springs'],
+   tip:'Book the Banff Gondola online to avoid the queue. The entire Bow Falls–Cave & Basin–Upper Hot Springs loop is within 2km of the town centre. Park downtown and walk.'},
+
+  {n:6,date:'Jul 24',dest:'banff',title:'Canmore Hidden Gems: Grassi Lakes · Grotto Canyon · Lake Minnewanka',base:'Canmore',
+   overview:'The best kept secrets in the whole Banff corridor, and almost no tourists find them. Grassi Lakes sits above Canmore with ancient petroglyphs on the canyon walls. Grotto Canyon is a slot canyon with actual prehistoric pictographs — remarkable and nearly unmarked. Lake Minnewanka for a boat cruise or shoreline walk in the afternoon.',
+   activities:[
+     {name:'Grassi Lakes',icon:'lake',time:'9:00 AM',note:'Twin turquoise pools · ancient petroglyphs · take the harder left fork up',image:'Rock climbing on the Cairn Formation at Grassi Lakes, Alberta..JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Rock_climbing_on_the_Cairn_Formation_at_Grassi_Lakes,_Alberta..JPG',mapsQuery:'Grassi Lakes Trailhead Canmore Alberta',badge:'hidden-gem'},
+     {name:'Grotto Canyon',icon:'falls',time:'11:30 AM',note:'Slot canyon with prehistoric pictographs on the walls · 4km return · nearly flat',image:'Cascade Falls Johnston Canyon from the cave (9906891773).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Cascade_Falls_Johnston_Canyon_from_the_cave_(9906891773).jpg',mapsQuery:'Grotto Canyon Trailhead Exshaw Alberta',badge:'hidden-gem'},
+     {name:'Lake Minnewanka',icon:'boat',time:'2:30 PM',note:'Banff\'s largest lake · 1-hr boat cruise or shoreline walk · 10 min from townsite',image:'Banff National Park - Lake Minnewanka (33321241396).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Banff_National_Park_-_Lake_Minnewanka_(33321241396).jpg',mapsQuery:'Lake Minnewanka Banff National Park'}
+   ],
+   mapLat:51.11,mapLng:-115.35,mapZoom:11,
+   mapsOrigin:'Grassi Lakes Trailhead Canmore Alberta',mapsDest:'Lake Minnewanka Banff',
+   mapsWaypoints:['Grotto Canyon Exshaw Alberta'],
+   tip:'Grassi Lakes (3.4km, 300m gain): park at the Spray Lakes Rd trailhead, free. Take the left fork — the harder route has better views. The petroglyphs are near the upper lake on the right canyon wall. Grotto Canyon: park at the Exshaw trailhead ~10 min east of Canmore on Hwy 1A, almost no signage.'},
+
+  {n:7,date:'Jul 25',dest:'yoho',title:'Drive to Yoho & Golden — Natural Bridge & Kicking Horse',base:'Canmore → Golden',
+   overview:'Drive day heading west. The Trans-Canada climbs through Kicking Horse Pass into BC — stop at the viewpoint near the top. Natural Bridge is a 5-minute detour right on the highway that\'s impossible to beat for impact-per-minute. Settle into Golden (1416 Golden View Rd) and walk the Kicking Horse River downtown.',
+   activities:[
+     {name:'Kicking Horse Pass Viewpoint',icon:'mountain',time:'~11:00 AM',note:'Continental Divide · highest point on the Trans-Canada · worth a quick stop',image:'Peyto Lake-Banff NP-Canada.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Peyto_Lake-Banff_NP-Canada.jpg',mapsQuery:'Kicking Horse Pass Alberta BC border'},
+     {name:'Natural Bridge',icon:'falls',time:'~12:30 PM',note:'Kicking Horse River carved through solid rock · 5 min stop · right off the highway',image:'Emerald Lake - Yoho National Park.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Emerald_Lake_-_Yoho_National_Park.JPG',mapsQuery:'Natural Bridge Yoho National Park Field BC'},
+     {name:'Arrive Golden',icon:'bed',time:'Afternoon',note:'Check in at 1416 Golden View Rd · walk the Kicking Horse River riverfront',image:'Takakkaw Falls and Waputik Glacier, Yoho National Park, Canada (54881204831).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Waputik_Icefield',mapsQuery:'Golden British Columbia Canada'}
+   ],
+   mapLat:51.35,mapLng:-116.50,mapZoom:9,
+   mapsOrigin:'Canmore Alberta',mapsDest:'1416 Golden View Road Golden BC',
+   mapsWaypoints:['Kicking Horse Pass Alberta','Natural Bridge Yoho National Park Field BC'],
+   tip:'Natural Bridge is signed just inside Yoho (~7km past the BC border). Very short walk from the parking lot to the bridge — the river literally disappears through a hole in the rock. Field (the tiny town inside Yoho) is 2km past Natural Bridge if you want lunch at Cathedral Mountain Bakery.'},
+
+  {n:8,date:'Jul 26',dest:'yoho',title:'Yoho: Takakkaw Falls · Wapta Falls · Golden Skybridge',base:'Golden',
+   overview:'Full Yoho day. Takakkaw Falls is one of the great natural spectacles in the Rockies — 373m of glacier-fed water free-falling. The drive up to it (tight switchbacks, trailers turned around) is part of the experience. Lunch in Field at Cathedral Mountain Bakery, a legendary tiny-town bakery inside the national park. Golden Skybridge for a dramatic end.',
+   activities:[
+     {name:'Takakkaw Falls',icon:'falls',time:'9:00 AM',note:'Canada\'s 2nd tallest waterfall · 373m · glacier-fed · road open June–Oct only',image:'Takakkaw Falls and Waputik Glacier, Yoho National Park, Canada (54881204831).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Waputik_Icefield',mapsQuery:'Takakkaw Falls Yoho National Park BC',badge:'essential'},
+     {name:'Cathedral Mountain Bakery · Field BC',icon:'market',time:'12:00 PM',note:'Legendary cinnamon buns in a 200-person town inside the national park',image:'Emerald Lake - Yoho National Park.JPG',creditUrl:'https://commons.wikimedia.org/wiki/File:Emerald_Lake_-_Yoho_National_Park.JPG',mapsQuery:'Cathedral Mountain Bakery Field BC',badge:'hidden-gem'},
+     {name:'Wapta Falls',icon:'falls',time:'2:00 PM',note:'Biggest waterfall on the Kicking Horse River · 4.6km easy return · quiet',image:'Takakkaw Falls and Waputik Glacier, Yoho National Park, Canada (54881204831).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Waputik_Icefield',mapsQuery:'Wapta Falls Trailhead Yoho National Park BC'},
+     {name:'Golden Skybridge',icon:'mountain',time:'5:00 PM',note:'Canada\'s highest suspension bridge (426m) · ziplines · canyon walk · 5 min from hotel',image:'Bow Lake, Crowfoot Glacier, et al.jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Crowfoot_Mountain',mapsQuery:'Golden Skybridge Golden BC'}
+   ],
+   mapLat:51.42,mapLng:-116.52,mapZoom:10,
+   mapsOrigin:'Takakkaw Falls Yoho National Park',mapsDest:'Golden Skybridge Golden BC',
+   mapsWaypoints:['Cathedral Mountain Bakery Field BC','Wapta Falls Trailhead Yoho'],
+   tip:'Takakkaw Falls Road: tight switchbacks turn vehicles over 25ft. Open June–Oct only. The road fills by 9am in July. Go early. Wapta Falls trailhead is ~30km west of Field on Hwy 1, just before the BC/AB border.'},
+
+  {n:9,date:'Jul 27',dest:'jasper',title:'Icefields Parkway — The Most Scenic Drive in Canada',base:'Golden → Hinton · via Icefields Parkway · 5-7 hrs',
+   overview:'The centrepiece of the entire trip. Leave Golden early, drive east through Yoho back to Lake Louise, then turn north on Highway 93 — the Icefields Parkway. 230km of glaciers, alpine lakes, and mountains you can\'t believe are real. Fill the tank in Lake Louise before you go.',
+   activities:[
+     {name:'Bow Lake',icon:'lake',time:'~10:30 AM',note:'Turquoise glacier lake reflecting Crowfoot Mountain · one of the Parkway\'s best',image:'Bow Lake, Crowfoot Glacier, et al.jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Crowfoot_Mountain',mapsQuery:'Bow Lake Banff National Park Alberta',badge:'essential'},
+     {name:'Peyto Lake Viewpoint',icon:'lake',time:'~11:30 AM',note:'Wolf-head shaped brilliant-blue lake · short walk from Bow Summit parking',image:'Peyto Lake-Banff NP-Canada.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Peyto_Lake-Banff_NP-Canada.jpg',mapsQuery:'Peyto Lake Bow Summit Banff National Park',badge:'essential'},
+     {name:'Columbia Icefield — Athabasca Glacier',icon:'mountain',time:'~1:30 PM',note:'Ice Explorer vehicle onto the glacier surface · book online before the trip',image:'Mount Athabasca, Sunwapta River, and Glacier Skywalk -- Jasper National Park, Alberta September 2019 (49440407578).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Mount_Athabasca',mapsQuery:'Columbia Icefield Discovery Centre Icefields Parkway Alberta',badge:'essential'},
+     {name:'Glacier Skywalk',icon:'mountain',time:'~3:00 PM',note:'Glass-floor walkway 280m above the Sunwapta Valley · book online in advance',image:'Mount Athabasca, Sunwapta River, and Glacier Skywalk -- Jasper National Park, Alberta September 2019 (49440407578).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Mount_Athabasca',mapsQuery:'Glacier Skywalk Jasper National Park'},
+     {name:'Sunwapta Falls',icon:'falls',time:'~4:30 PM',note:'Double waterfall right off the highway · 5 min walk from parking · stunning',image:'Sunwapta Falls Jasper National Park Canada.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Sunwapta_Falls_Jasper_National_Park_Canada.jpg',mapsQuery:'Sunwapta Falls Jasper National Park Alberta'},
+     {name:'Arrive Hinton',icon:'bed',time:'Evening',note:'752 Carmichael Lane, Hinton · ~70km east of Jasper townsite',image:'Spirit Island, Maligne Lake, Jasper NP.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Spirit_Island,_Maligne_Lake,_Jasper_NP.jpg',mapsQuery:'Hinton Alberta Canada'}
+   ],
+   mapLat:51.97,mapLng:-116.94,mapZoom:8,
+   mapsOrigin:'Lake Louise Alberta',mapsDest:'Hinton Alberta',
+   mapsWaypoints:['Bow Lake Banff National Park','Peyto Lake Bow Summit','Columbia Icefield Discovery Centre','Glacier Skywalk Jasper','Sunwapta Falls Jasper'],
+   tip:'Book Ice Explorer AND Glacier Skywalk at banffjaspercollection.com — both sell out in July. Fill up in Lake Louise; the next gas is the Icefield Centre (expensive). Budget 6-7 hours Lake Louise to Hinton with stops.'},
+
+  {n:10,date:'Jul 28',dest:'jasper',title:'Maligne Valley: Medicine Lake · Spirit Island · Valley of Five Lakes',base:'Hinton',
+   overview:'Drive from Hinton west to Jasper, then take the Maligne Road east into the valley. Stop at Medicine Lake first — a lake with no outlet river that drains underground through limestone caverns and literally disappears in autumn. Spirit Island cruise on Maligne Lake is one of the most photographed views in Canada. Valley of Five Lakes in the afternoon.',
+   activities:[
+     {name:'Medicine Lake',icon:'lake',time:'9:30 AM',note:'HIDDEN GEM: a lake that drains underground and vanishes by September · in July it\'s vivid',image:'Medicine Lake, Jasper National Park.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Medicine_Lake,_Jasper_National_Park.jpg',mapsQuery:'Medicine Lake Jasper National Park Alberta',badge:'hidden-gem'},
+     {name:'Maligne Lake — Spirit Island Cruise',icon:'boat',time:'11:00 AM',note:'90-min cruise to Spirit Island · iconic view · must book weeks before you arrive',image:'Spirit Island, Maligne Lake, Jasper NP.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Spirit_Island,_Maligne_Lake,_Jasper_NP.jpg',mapsQuery:'Maligne Lake Jasper Alberta',badge:'essential'},
+     {name:'Valley of the Five Lakes',icon:'boot',time:'3:30 PM',note:'Five different-coloured turquoise lakes · 4.5km flat loop · reopened 2026',image:'Athabasca Falls (24622739401).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Athabasca_Falls',mapsQuery:'Valley of the Five Lakes Jasper National Park',badge:'hike'}
+   ],
+   mapLat:52.72,mapLng:-117.63,mapZoom:10,
+   mapsOrigin:'Hinton Alberta',mapsDest:'Valley of the Five Lakes Jasper',
+   mapsWaypoints:['Medicine Lake Jasper National Park','Maligne Lake Jasper Alberta'],
+   tip:'Book the Maligne Lake Spirit Island Cruise at banffjaspercollection.com well before your trip — it sells out in summer. Maligne Canyon (on the same road) is closed all of 2026. Valley of Five Lakes was closed in 2024-25 and reopened for 2026.'},
+
+  {n:11,date:'Jul 29',dest:'jasper',title:'Athabasca Falls · Horseshoe Lake · SkyTram · Pyramid Lake',base:'Hinton',
+   overview:'Athabasca Falls is the most powerful waterfall in the Rockies — easy boardwalk, the sound hits you before you see it. Horseshoe Lake is the secret locals don\'t tell anyone: turquoise, quiet, and sometimes warm enough to swim in July. SkyTram up Whistlers Mountain in the afternoon when crowds thin.',
+   activities:[
+     {name:'Athabasca Falls',icon:'falls',time:'9:00 AM',note:'Most powerful waterfall in the Canadian Rockies · easy boardwalk · arrive early',image:'Athabasca Falls (24622739401).jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Athabasca_Falls',mapsQuery:'Athabasca Falls Jasper National Park',badge:'essential'},
+     {name:'Horseshoe Lake',icon:'lake',time:'11:00 AM',note:'HIDDEN GEM: turquoise, quiet, no crowds, no facilities · 18-20°C in July = actually swimmable',image:'Pyramid Mountain and Pyramid Lake 2.jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Pyramid_Mountain_(Alberta)',mapsQuery:'Horseshoe Lake Jasper National Park Alberta',badge:'hidden-gem'},
+     {name:'Jasper SkyTram — Whistlers Mountain',icon:'gondola',time:'3:00 PM',note:'Longest + highest aerial tramway in Canada · go after 3pm for smaller crowds and better light',image:'View of Jasper City from Whistlers Mountain.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:View_of_Jasper_City_from_Whistlers_Mountain.jpg',mapsQuery:'Jasper SkyTram Whistlers Mountain Alberta'},
+     {name:'Pyramid Lake — Evening Paddle',icon:'lake',time:'6:30 PM',note:'Footbridge to a tiny island · Pyramid Mountain backdrop · canoe/kayak rentals on site',image:'Pyramid Mountain and Pyramid Lake 2.jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Pyramid_Mountain_(Alberta)',mapsQuery:'Pyramid Lake Jasper Alberta'}
+   ],
+   mapLat:52.55,mapLng:-117.93,mapZoom:11,
+   mapsOrigin:'Athabasca Falls Jasper',mapsDest:'Pyramid Lake Jasper Alberta',
+   mapsWaypoints:['Horseshoe Lake Jasper National Park','Jasper SkyTram Whistlers Mountain'],
+   tip:'Horseshoe Lake: no signs, pullout on Hwy 93A about 8km south of the Jasper junction. The colour is best from the north cliff. Bring a towel if the kids want to swim — the water is surprisingly warm in late July. Athabasca Falls fills up by 10am; go right at 9.'},
+
+  {n:12,date:'Jul 30',dest:'jasper',title:'Miette Hot Springs · Old Fort Point · Jasper Townsite',base:'Hinton',
+   overview:'A convenient Hinton-side day — Miette is only 40 minutes from your hotel, much closer than from Jasper townsite. Canada\'s warmest natural springs, open at 8:30am in a beautiful mountain valley. The Fiddle River approach is outstanding for wildlife. Old Fort Point for a short sunset hike, then a final evening in Jasper townsite.',
+   activities:[
+     {name:'Miette Hot Springs',icon:'hotsprings',time:'8:30 AM',note:'Canada\'s warmest natural mineral springs · 40 min from Hinton · watch for elk on the drive in',image:'Spirit Island, Maligne Lake, Jasper NP.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Spirit_Island,_Maligne_Lake,_Jasper_NP.jpg',mapsQuery:'Miette Hot Springs Jasper National Park Alberta',badge:'essential'},
+     {name:'Old Fort Point',icon:'mountain',time:'2:00 PM',note:'Easy 3.5km loop · best bird\'s-eye view over Jasper townsite and the Athabasca River',image:'View of Jasper City from Whistlers Mountain.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:View_of_Jasper_City_from_Whistlers_Mountain.jpg',mapsQuery:'Old Fort Point Jasper Alberta'},
+     {name:'Jasper Townsite — Final Evening',icon:'market',time:'5:00 PM',note:'Walk Patricia St · Coco\'s Cafe or The Raven Bistro for your last Jasper dinner',image:'Pyramid Mountain and Pyramid Lake 2.jpg',creditUrl:'https://commons.wikimedia.org/wiki/Category:Pyramid_Mountain_(Alberta)',mapsQuery:'Jasper Alberta Townsite Patricia Street'}
+   ],
+   mapLat:52.90,mapLng:-117.82,mapZoom:10,
+   mapsOrigin:'Miette Hot Springs Jasper',mapsDest:'Jasper Alberta Townsite',
+   mapsWaypoints:['Old Fort Point Jasper Alberta'],
+   tip:'Miette Hot Springs closes one day per week — check hotsprings.ca/jasper before you go. The Fiddle River Valley (Miette Rd) is one of the most reliable elk-watching drives in the park. Coco\'s Cafe in Jasper opens early for breakfast; The Raven Bistro is better for dinner.'},
+
+  {n:13,date:'Jul 31',dest:'calgary',title:'Drive Back to Calgary',base:'Hinton → Calgary',
+   overview:'Drive east from Hinton on Highway 16, then south on Highway 2 — direct to Calgary in about 3.5 hours. Or take the scenic David Thompson Highway (Hwy 11) through Rocky Mountain House to see Abraham Lake — turquoise braided channels backed by the front range, one of Alberta\'s most surreal views — adding about 1.5 hours if you leave by 8am.',
+   activities:[
+     {name:'Abraham Lake Detour (optional)',icon:'lake',time:'Midday',note:'Take Hwy 11 via Rocky Mountain House · adds 1.5hrs · worth it if you leave Hinton by 8am',image:'Abraham Lake, Alberta, Canada3.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Abraham_Lake,_Alberta,_Canada3.jpg',mapsQuery:'Abraham Lake Alberta Canada',badge:'hidden-gem'},
+     {name:'Arrive Calgary — Final Dinner',icon:'van',time:'Afternoon',note:'9030 Macleod Trail SE · dinner at The Coup or Nan\'s Noodle House',image:'Downtown Calgary 2020-2.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Downtown_Calgary_2020-2.jpg',mapsQuery:'9030 Macleod Trail SE Calgary Alberta'}
+   ],
+   mapLat:51.50,mapLng:-115.50,mapZoom:8,
+   mapsOrigin:'Hinton Alberta',mapsDest:'9030 Macleod Trail SE Calgary Alberta',
+   mapsWaypoints:['Abraham Lake Alberta'],
+   tip:'Abraham Lake route: Hwy 16 east → Hwy 93 south to Hwy 11 east toward Nordegg. The lake is just before the Bighorn Dam. Then Hwy 11 east to Hwy 2 south to Calgary. Leave Hinton before 8am if doing this route.'},
+
+  {n:14,date:'Aug 1',dest:'calgary',title:'Flight Day — Depart YYC',base:'Calgary',
+   overview:'Flight day. If you have a late morning or afternoon departure, the Calgary Tower takes 1 hour and is right in the city centre. Studio Bell needs 2-3 hours. Return the rental car and budget 45 minutes minimum for fuel, return, and the shuttle bus from the rental lot to the terminal.',
+   activities:[
+     {name:'Calgary Tower (if time allows)',icon:'tower',time:'Morning',note:'Glass floor · 191m · Rockies on the horizon on a clear day',image:'Calgary Tower (27308602782).jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Calgary_Tower_(27308602782).jpg',mapsQuery:'Calgary Tower'},
+     {name:'YYC — Return Rental & Fly Home',icon:'van',time:'Pre-flight',note:'Fuel on Airport Trail NE · rental return shuttle adds 15-20 min to terminal · leave early',image:'Downtown Calgary 2020-2.jpg',creditUrl:'https://commons.wikimedia.org/wiki/File:Downtown_Calgary_2020-2.jpg',mapsQuery:'Calgary International Airport YYC'}
+   ],
+   mapLat:51.0447,mapLng:-114.0719,mapZoom:12,
+   mapsOrigin:'9030 Macleod Trail SE Calgary',mapsDest:'Calgary International Airport YYC',
+   mapsWaypoints:['Calgary Tower'],
+   tip:'YYC rental car return: follow "Consolidated Rent-A-Car" signs off Airport Trail NE. Budget more time than you think — rental return, shuttle, check-in, and security all take longer in July.'}
 ];
 
-/* ===== restaurants (all vegetarian-checked) ===== */
-const RESTAURANTS = [
-  {id:'r1', dest:'banff', name:'Nourish Bistro', cuisine:'Global comfort food', vegLevel:'Fully plant-based',
-    blurb:"Banff's only fully vegetarian restaurant, almost everything veganizable. Mushroom ravioli, Vietnamese noodle salad, build-your-own charcuterie. Reserve ahead in July.", mapQuery:'Nourish Bistro Banff'},
-  {id:'r2', dest:'banff', name:'Park Distillery Restaurant + Bar', cuisine:'Canadian / house-distilled spirits', vegLevel:'Full separate vegan menu',
-    blurb:'A genuinely full separate plant-based menu — not an afterthought. Vegan mac & cheese, vegan burger, house-distilled whiskey and gin. One of the best dinner spots in Banff townsite.', mapQuery:'Park Distillery Banff'},
-  {id:'r3', dest:'banff', name:'Wild Flour Bakery', cuisine:'Bakery / café', vegLevel:'Vegan-friendly · call ahead',
-    blurb:'Rotating vegan pastry case — menu changes daily. Call ahead to confirm vegan options for breakfast. Good quick morning stop before early starts to Moraine or Lake Louise.', mapQuery:'Wild Flour Bakery Banff'},
-  {id:'r4', dest:'banff', name:'Communitea Cafe', cuisine:'Café (Canmore)', vegLevel:'Vegetarian/vegan-forward',
-    blurb:'20 minutes from Banff in Canmore — relaxed café with a vegetarian/vegan-heavy menu, great coffee, and a calmer atmosphere than Banff townsite. Perfect for your Canmore base.', mapQuery:'Communitea Cafe Canmore'},
-  {id:'r4b', dest:'banff', name:'The Trough (Canmore)', cuisine:'Comfort food · Canmore', vegLevel:'Strong veg options',
-    blurb:"A Canmore institution in a converted 1920s barn. Good plant-based options on a hearty menu. Local favourite for years.", mapQuery:'The Trough Restaurant Canmore'},
-  {id:'r5', dest:'yoho', name:'Cilantro on the Lake', cuisine:'Rocky Mountain cuisine', vegLevel:'Vegetarian options',
-    blurb:'The only restaurant actually at Emerald Lake — shareable plates and a lakeside patio at Emerald Lake Lodge. Worth a reservation for dinner the night you arrive in Golden.', mapQuery:'Cilantro on the Lake Emerald Lake Lodge'},
-  {id:'r5b', dest:'yoho', name:'Cedar House Restaurant (Golden)', cuisine:'Local farm-to-table · Golden', vegLevel:'Good vegetarian selection',
-    blurb:"One of Golden's best restaurants — seasonal local ingredients, strong vegetarian selection, and a relaxed mountain atmosphere.", mapQuery:'Cedar House Restaurant Golden BC'},
-  {id:'r6', dest:'jasper', name:"Coco's Cafe", cuisine:'Bakery / café', vegLevel:'Most of the menu vegan/vegetarian',
-    blurb:'Homemade vegan bagels and sourdough, plus a vegan BLT that regularly gets called the best vegan food in Jasper. Breakfast and lunch only — get there early.', mapQuery:"Coco's Cafe Jasper"},
-  {id:'r7', dest:'jasper', name:'The Raven Bistro', cuisine:'Mediterranean / Canadian fusion', vegLevel:'Extensive vegan, vegetarian, GF menu',
-    blurb:'Tofu chorizo tostadas, Moroccan-inspired dishes, a genuinely large plant-based section. One of the best vegetarian dinner options in Jasper townsite.', mapQuery:'The Raven Bistro Jasper'},
-  {id:'r8', dest:'calgary', name:'The Coup', cuisine:'Vegetarian / vegan', vegLevel:'Fully vegetarian/vegan since 2004',
-    blurb:"Calgary's longest-running vegetarian restaurant — whole, organic, local ingredients, veggie sushi and rice bowls. A landmark. Good for both your arrival and departure nights.", mapQuery:'The Coup Calgary'},
-  {id:'r9', dest:'calgary', name:'Vegan Street', cuisine:'Comfort food', vegLevel:'Fully vegan',
-    blurb:"Cruelty-free comfort food, voted Calgary's top vegan/vegetarian spot in recent years. Excellent burgers and wraps.", mapQuery:'Vegan Street Calgary'},
-  {id:'r10', dest:'calgary', name:"Nan's Noodle House", cuisine:'Pan-Asian', vegLevel:'Fully plant-based',
-    blurb:'Noodle-focused plant-based menu — black garlic ramen, kimchi udon, banh mi. One of Calgary\'s best kept vegetarian secrets.', mapQuery:"Nan's Noodle House Calgary"}
+/* ===== RESTAURANTS ===== */
+const DEST_ORDER=['calgary','banff','yoho','jasper'];
+const RESTAURANTS=[
+  {dest:'banff',name:'Nourish Bistro',cuisine:'Global comfort food',vegLevel:'Fully plant-based',blurb:"Banff's only fully vegetarian restaurant. Mushroom ravioli, Vietnamese noodle salad, almost everything veganizable. Reserve ahead in July.",mapQuery:'Nourish Bistro Banff'},
+  {dest:'banff',name:'Park Distillery Restaurant',cuisine:'Canadian / house spirits',vegLevel:'Full separate vegan menu',blurb:'Not a vegetarian restaurant, but a genuinely full separate plant-based menu — vegan mac & cheese, vegan burger. One of the best dinner spots in Banff townsite.',mapQuery:'Park Distillery Banff'},
+  {dest:'banff',name:'Wild Flour Bakery',cuisine:'Bakery / café',vegLevel:'Vegan-friendly · call ahead',blurb:'Rotating vegan pastry case — menu changes daily. Good quick morning stop before early starts to Moraine or Lake Louise.',mapQuery:'Wild Flour Bakery Banff'},
+  {dest:'banff',name:'Communitea Cafe',cuisine:'Café · Canmore',vegLevel:'Vegetarian/vegan-forward',blurb:'Relaxed café in Canmore with a vegetarian/vegan-heavy menu and great coffee. Best casual dinner spot near your Canmore base.',mapQuery:'Communitea Cafe Canmore'},
+  {dest:'yoho',name:'Cedar House Restaurant',cuisine:'Farm-to-table · Golden',vegLevel:'Good vegetarian options',blurb:'One of Golden\'s best restaurants — seasonal local ingredients and a strong vegetarian selection. Good first night dinner.',mapQuery:'Cedar House Restaurant Golden BC'},
+  {dest:'yoho',name:'Cathedral Mountain Bakery',cuisine:'Bakery · Field BC',vegLevel:'Vegetarian-friendly',blurb:'A legendary bakery inside the tiny town of Field in Yoho National Park. Legendary cinnamon buns. Stop here on your Yoho day.',mapQuery:'Cathedral Mountain Bakery Field BC'},
+  {dest:'jasper',name:"Coco's Cafe",cuisine:'Bakery / café',vegLevel:'Most of the menu vegan/veg',blurb:'Homemade vegan bagels, sourdough, and a vegan BLT that gets called the best vegan food in Jasper. Breakfast and lunch only — go early.',mapQuery:"Coco's Cafe Jasper"},
+  {dest:'jasper',name:'The Raven Bistro',cuisine:'Mediterranean / Canadian fusion',vegLevel:'Extensive vegan & vegetarian menu',blurb:'Tofu chorizo tostadas, Moroccan-inspired dishes, a genuinely large plant-based section. Best vegetarian dinner in Jasper townsite.',mapQuery:'The Raven Bistro Jasper'},
+  {dest:'calgary',name:'The Coup',cuisine:'Vegetarian / vegan',vegLevel:'Fully vegetarian since 2004',blurb:"Calgary's longest-running vegetarian restaurant — whole, organic, local ingredients. Good for both arrival and departure nights.",mapQuery:'The Coup Calgary'},
+  {dest:'calgary',name:'Vegan Street',cuisine:'Comfort food',vegLevel:'Fully vegan',blurb:'Cruelty-free comfort food — voted Calgary\'s top vegan spot in recent years. Excellent burgers and wraps.',mapQuery:'Vegan Street Calgary'},
+  {dest:'calgary',name:"Nan's Noodle House",cuisine:'Pan-Asian',vegLevel:'Fully plant-based',blurb:'Noodle-focused plant-based menu — black garlic ramen, kimchi udon, banh mi. One of Calgary\'s best kept vegetarian secrets.',mapQuery:"Nan's Noodle House Calgary"}
 ];
 
-/* ===== day-by-day ===== */
-const DAYS = [
-  {n:1, date:'Jul 19', dest:'calgary', title:'Land in Calgary — settle in', base:'Calgary (YYC)',
-    stops:[],
-    blurb:'Flight day. Pick up the rental car at YYC and drive south to your hotel on Blackfoot Trail SE (~20 min). No agenda tonight — grab vegetarian dinner at The Coup or Vegan Street (both within a few km) and rest up. The Rockies start tomorrow.',
-    photo:'Calgary tower.png', photoCredit:'https://commons.wikimedia.org/wiki/File:Calgary_tower.png'},
-
-  {n:2, date:'Jul 20', dest:'calgary', title:'Calgary: Heritage Park, Bow River & downtown', base:'Calgary',
-    stops:['c3','c5','c4','c8'],
-    blurb:'Heritage Park Historical Village opens at 9am — get there right at open for the steam train and paddlewheeler, then spend the morning working through the pioneer village (budget 3-4 hours). Afternoon: walk the Peace Bridge over the Bow River to Prince\'s Island Park, then stroll Stephen Avenue for a pre-dinner wander. Dinner at The Coup or Nan\'s Noodle House.',
-    note:"Heritage Park is Calgary's most-visited attraction and genuinely earns a half-day. Don't rush it.",
-    photo:'A day out at Heritage park Calgary (11504935534).jpg', photoCredit:'https://commons.wikimedia.org/wiki/Category:Heritage_Park_Historical_Village'},
-
-  {n:3, date:'Jul 21', dest:'calgary', title:'Calgary Tower & drive to Canmore', base:'Calgary → Canmore',
-    stops:['c1','c2'],
-    blurb:'Morning: Calgary Tower for the glass floor and your first proper Rockies silhouette on the horizon. Studio Bell / National Music Centre next door if you have time (genuinely excellent). After lunch, hit the Trans-Canada Highway west — the mountains grow for a full 45 minutes until you\'re in them. Check into your Canmore hotel (825 9 St) and walk the townsite in the evening.',
-    note:'On the drive into Canmore, the Three Sisters Mountain viewpoints along Railway Ave look incredible in evening light. Communitea Cafe is a great Canmore dinner stop.',
-    photo:'Canmore Canada.jpg', photoCredit:'https://commons.wikimedia.org/wiki/File:Canmore_Canada.jpg'},
-
-  {n:4, date:'Jul 22', dest:'banff', title:'Moraine Lake, Lake Louise & Larch Valley', base:'Canmore',
-    stops:['a1','a2','a13'],
-    blurb:'Earliest start of the trip. The Parks Canada Moraine Lake shuttle runs from the Lake Louise Park & Ride — catch an early one. Moraine Lake first (the most dramatic light is morning), then walk or shuttle to Lake Louise. Afternoon option: Larch Valley trail from Moraine Lake for alpine views — go in a group of 4 or more (Parks Canada enforces this for bear safety). Back to Canmore for dinner.',
-    note:'Moraine Lake personal vehicles are turned back in summer — shuttle is mandatory. Book at reservation.pc.gc.ca (opens months before). In July the lake is at peak melt-blue colour.',
-    photo:'Moraine Lake-Banff NP.JPG', photoCredit:'https://commons.wikimedia.org/wiki/File:Moraine_Lake-Banff_NP.JPG'},
-
-  {n:5, date:'Jul 23', dest:'banff', title:'Grassi Lakes, Grotto Canyon & Vermilion Lakes', base:'Canmore',
-    stops:['ag1','ag2','a15'],
-    blurb:'A hidden gems day, all based out of Canmore. Grassi Lakes in the morning — twin turquoise pools above town with ancient rock petroglyphs, far less crowded than anything in Banff proper. Take the harder route (left fork) for the better approach. Grotto Canyon in the afternoon — a slot canyon with actual prehistoric pictographs on the walls that most tourists never find. Then drive through Banff to catch Vermilion Lakes at golden hour for the Mount Rundle reflection.',
-    note:"Grassi Lakes (3.4km, 300m gain) and Grotto Canyon (4km, nearly flat) are both easy enough for all ages. Grotto Canyon: walk along the creek bed through the canyon — the rock art is about 1km in on the left wall.",
-    photo:'Rock climbing on the Cairn Formation at Grassi Lakes, Alberta..JPG', photoCredit:'https://commons.wikimedia.org/wiki/File:Rock_climbing_on_the_Cairn_Formation_at_Grassi_Lakes,_Alberta..JPG'},
-
-  {n:6, date:'Jul 24', dest:'banff', title:'Banff townsite: gondola, canyon, falls & hot springs', base:'Canmore',
-    stops:['a3','a4','a9','a10','a16'],
-    blurb:'Drive into Banff. Johnston Canyon first (on the way in from Canmore — go early before the catwalk fills up, extend to the Ink Pots if you have energy). Then into Banff townsite: Gondola up Sulphur Mountain for the panoramic view, Bow Falls right below the Fairmont, Cave and Basin NHS as a quick historical stop. Wind down with a soak at the Upper Hot Springs. Vermilion Lakes if you missed it yesterday.',
-    note:"Johnston Canyon is between Canmore and Banff on the Bow Valley Parkway (Hwy 1A) — it's a natural morning warmup before Banff townsite.",
-    photo:'Banff Sulphur Mountain Gondola IMG 4259.JPG', photoCredit:'https://commons.wikimedia.org/wiki/File:Banff_Sulphur_Mountain_Gondola_IMG_4259.JPG'},
-
-  {n:7, date:'Jul 25', dest:'yoho', title:'🎫 BOOKED: Lake Louise & Emerald Lake tour → Golden', base:'Canmore → Golden',
-    stops:['a2','y1','y2'],
-    blurb:'Your pre-booked full-day tour covers Lake Louise and Emerald Lake — confirm your pickup point with the tour operator. After the tour, you\'re already headed west: continue along the Trans-Canada through Kicking Horse Pass (stop at the viewpoint at the top of the pass — worth 5 minutes) and into Golden (~45 min from Emerald Lake). Check into your Golden hotel (1416 Golden View Rd). Dinner at Cedar House Restaurant if reservations allow.',
-    note:"The drive from Emerald Lake to Golden follows the Kicking Horse River through a dramatic canyon. Natural Bridge (Kicking Horse River cutting through rock) is right on this road — a 2-minute stop you've essentially already planned.",
-    photo:'Emerald Lake - Yoho National Park.JPG', photoCredit:'https://commons.wikimedia.org/wiki/File:Emerald_Lake_-_Yoho_National_Park.JPG'},
-
-  {n:8, date:'Jul 26', dest:'yoho', title:'Yoho National Park: Takakkaw Falls, Natural Bridge & Golden Skybridge', base:'Golden',
-    stops:['y2','y3','y5','yg1'],
-    blurb:'Full Yoho day from Golden. Drive east into Yoho: Natural Bridge first (2-minute stop), then up the Takakkaw Falls Road switchbacks to Canada\'s 2nd-tallest waterfall (373m, spectacular). Stop in Field for lunch — Cathedral Mountain Bakery inside the tiny town makes legendary cinnamon buns. Afternoon: Wapta Falls for a quieter second waterfall stop. Back in Golden, the Golden Skybridge (Canada\'s highest suspension bridge) makes a dramatic end to the day if energy allows.',
-    note:"Takakkaw Falls Road: the switchbacks are tight enough that vehicles over 25 feet (trailers, large RVs) are turned around. Fine for a minivan. Field is a 200-person town inside the national park and the bakery is cash-friendly.",
-    photo:'Takakkaw Falls and Waputik Glacier, Yoho National Park, Canada (54881204831).jpg', photoCredit:'https://commons.wikimedia.org/wiki/Category:Waputik_Icefield'},
-
-  {n:9, date:'Jul 27', dest:'jasper', title:'Icefields Parkway: the most scenic drive in Canada', base:'Golden → Hinton (via Icefields Parkway)',
-    stops:['a5','j6','j5'],
-    blurb:'The centrepiece of the trip. Leave Golden early, drive east back through Yoho to Lake Louise, then turn north on Highway 93 — the Icefields Parkway. 230km to Jasper with stops at Bow Lake, Peyto Lake overlook (10-min walk, unmissable wolf-head lake), Crowfoot Glacier, Saskatchewan River Crossing, and the Columbia Icefield for the Ice Explorer walk on the Athabasca Glacier and Glacier Skywalk. Then Sunwapta Falls on the way north to Jasper. Check into your Hinton hotel (~70km east of Jasper townsite).',
-    note:'Book the Ice Explorer walk AND Glacier Skywalk online before your trip at banffjaspercollection.com — both sell out in summer. Fill the tank in Lake Louise; no gas until the Icefield Centre (pricier there). Budget 6-8 hours total for the drive with stops.',
-    photo:'Peyto Lake-Banff NP-Canada.jpg', photoCredit:'https://commons.wikimedia.org/wiki/File:Peyto_Lake-Banff_NP-Canada.jpg'},
-
-  {n:10, date:'Jul 28', dest:'jasper', title:'Maligne Lake cruise, Medicine Lake & Valley of Five Lakes', base:'Hinton',
-    stops:['j1','jg1','j9'],
-    blurb:'Drive west from Hinton to Jasper, then take the Maligne Road. First stop: Medicine Lake — a glacially-fed lake that drains underground through limestone caverns and literally disappears in autumn. It\'s full and vivid in July, but fascinating knowing what it\'s doing beneath the surface. Continue to Maligne Lake (45 min from Jasper townsite) for the 90-minute Spirit Island cruise. Afternoon: Valley of the Five Lakes (4.5km easy loop, five different-coloured turquoise lakes, rerouted and reopened 2026).',
-    note:'Book the Maligne Lake cruise well before you leave home — it sells out in summer. Maligne Canyon is closed for the entire 2026 season.',
-    photo:'Spirit Island, Maligne Lake, Jasper NP.jpg', photoCredit:'https://commons.wikimedia.org/wiki/File:Spirit_Island,_Maligne_Lake,_Jasper_NP.jpg'},
-
-  {n:11, date:'Jul 29', dest:'jasper', title:'Athabasca Falls, Horseshoe Lake & Jasper SkyTram', base:'Hinton',
-    stops:['j5','jg2','j3','j4'],
-    blurb:'South on Highway 93: Athabasca Falls first (the Rockies\' most powerful waterfall, 10-minute easy boardwalk, absolutely unmissable). On the way back north, pull off at Horseshoe Lake — a hidden gem 10 minutes from the townsite. Turquoise, quiet, no facilities, and the water can hit 18-20°C in July — actually swimmable. Jasper SkyTram up Whistlers Mountain in the late afternoon for the best light (crowds thin out after 3pm). Pyramid Lake for an evening paddle.',
-    note:"Horseshoe Lake is easy to miss — it's just off the highway but not well-signed. Look for the small pullout on the east side of Hwy 93A, about 8km south of the Jasper townsite turnoff.",
-    photo:'Athabasca Falls (24622739401).jpg', photoCredit:'https://commons.wikimedia.org/wiki/Category:Athabasca_Falls'},
-
-  {n:12, date:'Jul 30', dest:'jasper', title:'Miette Hot Springs, Patricia Lake & Old Fort Point', base:'Hinton',
-    stops:['j8','j11','j10'],
-    blurb:'A convenient Hinton-side day. Miette Hot Springs is only 40 minutes from Hinton (closer than it is from Jasper townsite) — Canada\'s warmest natural mineral springs, open 8:30am in a beautiful mountain valley. The Fiddle River Valley drive in is excellent for wildlife. Afternoon: Patricia Lake for a canoe (quieter than Pyramid). Old Fort Point for a short sunset hike with the best bird\'s-eye view over Jasper townsite.',
-    note:"Miette Hot Springs is one of the highlights in Jasper — don't leave it for tomorrow. The valley approach has consistently good elk and bear sightings in the morning.",
-    photo:'Pyramid Mountain and Pyramid Lake 2.jpg', photoCredit:'https://commons.wikimedia.org/wiki/Category:Pyramid_Mountain_(Alberta)'},
-
-  {n:13, date:'Jul 31', dest:'calgary', title:'Drive back to Calgary', base:'Hinton → Calgary',
-    stops:[],
-    blurb:'Depart Hinton east on Highway 16, then south on Highway 2 — roughly 3.5-4 hours direct to Calgary. Or take the scenic David Thompson Highway (Hwy 11 via Rocky Mountain House) to see Abraham Lake — turquoise braided channels backed by the front range, one of Alberta\'s most surreal views — adding about 1.5 hours. Check into your Calgary hotel (9030 Macleod Trail SE) and have a final group dinner. The Coup is close to this end of Calgary.',
-    note:"Abraham Lake detour: worth it if you leave Hinton by 8am. Take Hwy 16 west to Hwy 93 south to Hwy 11 east — Abraham Lake is on Hwy 11 near the Bighorn Dam before Rocky Mountain House. The turquoise braided river delta is unlike anything else in Alberta.",
-    photo:'Abraham Lake, Alberta, Canada3.jpg', photoCredit:'https://commons.wikimedia.org/wiki/File:Abraham_Lake,_Alberta,_Canada3.jpg'},
-
-  {n:14, date:'Aug 1', dest:'calgary', title:'Flight day — depart YYC', base:'Calgary',
-    stops:['c1','c2'],
-    blurb:'Flight day. If you have an afternoon or evening flight, the Calgary Tower (1 hour) or Studio Bell / National Music Centre (2-3 hours) are both close to the city core. Heritage Park needs a full morning and only works for an evening flight. Return the rental car at YYC — budget 45 minutes minimum for fuel, return, and the shuttle from the rental lot back to the terminal.',
-    note:'YYC fuel station: on Airport Trail NE before the rental car return lot. The rental return shuttle to the terminal adds 10-20 minutes — leave more time than you think.',
-    photo:'Calgary tower.png', photoCredit:'https://commons.wikimedia.org/wiki/File:Calgary_tower.png'}
+/* ===== TIPS ===== */
+const TIPS=[
+  {h:'Book: Maligne Lake cruise',t:'The Spirit Island cruise sells out daily in summer — book at banffjaspercollection.com before you leave home. Do not wait until you arrive in Jasper.'},
+  {h:'Book: Columbia Icefield',t:'Both the Ice Explorer (glacier walk) and Glacier Skywalk sell out in July. Book together at banffjaspercollection.com. Budget 2-3 hours at the icefield.'},
+  {h:'Moraine Lake — shuttle only',t:'Personal vehicles are turned away at Moraine Lake in summer. Parks Canada shuttle is mandatory from the Lake Louise Park & Ride. Your July 22 tour handles this, but know the rule.'},
+  {h:'Parks Canada passes',t:'You need a Discovery Pass for Banff, Yoho, and Jasper — it pays for itself in 2-3 days vs. daily fees. Buy online at pc.gc.ca or at the park gate.'},
+  {h:'Icefields Parkway fuel',t:"Fill up in Lake Louise before turning north on Hwy 93. The next gas is at the Columbia Icefield Centre — significantly more expensive. Don't leave Lake Louise with under 3/4 tank."},
+  {h:'Jasper closures 2026',t:'Maligne Canyon and Mount Edith Cavell Road are both closed for the full 2026 season (wildfire rehab). Valley of Five Lakes reopened. Check parks.canada.ca for the latest.'},
+  {h:'Bear safety',t:'Carry bear spray on every hike. Travel in groups of 4+ where posted. Make noise on blind corners. After the 2024 Jasper wildfires, wildlife patterns have shifted — be especially alert.'},
+  {h:'Rental car for 6 people',t:'You need a 7+ seat minivan or large SUV. Best options: Toyota Sienna (fuel-efficient), GMC Yukon XL (most space), Chrysler Pacifica (budget). Book a specific class, not "similar." Discount Car Rentals (Canadian chain) and Costco Travel often have the best rates.'},
+  {h:'Hinton as Jasper base',t:'Your hotel at 752 Carmichael Lane, Hinton is ~70km east of Jasper townsite but closer to Miette Hot Springs and the Maligne Valley than most Jasper hotels. Budget 45-60 min driving each way into the park.'},
+  {h:'Vegetarian food',t:"Banff: Nourish Bistro (fully plant-based) and Park Distillery (full vegan menu). Canmore: Communitea Cafe. Jasper: Coco's Cafe and The Raven Bistro. Field: Cathedral Mountain Bakery. Calgary: The Coup (open since 2004)."}
 ];
 
-/* ===== park comparison ===== */
-const COMPARE = [
-  {key:'banff', title:'Banff & Canmore', sub:'Most iconic, most visited',
-    bullets:[
-      'The famous turquoise lakes — Moraine &amp; Lake Louise',
-      'Canmore is your base: a real mountain town 20 min from Banff, less crowded and cheaper',
-      'Full resort townsite — hot springs, gondola, shops, restaurants',
-      'Hidden gems nearby: Grassi Lakes, Grotto Canyon (most visitors never find these)',
-      'Best for: the classic postcard shots AND the underrated local secrets'
-    ]},
-  {key:'yoho', title:'Yoho &amp; Golden', sub:'Smallest, quietest, high-reward',
-    bullets:[
-      "Smallest of the 4 Rockies parks — Emerald Lake and Takakkaw Falls are less than 1hr apart",
-      'Your Golden base is right outside the park — the Kicking Horse River runs through town',
-      'Emerald Lake, Natural Bridge, Takakkaw Falls, and Wapta Falls all easy from Golden',
-      'Golden Skybridge: Canada\'s highest suspension bridge, 5 min from your hotel',
-      'Best for: big waterfalls, a gorgeous lake, and a real adventure-sports mountain town'
-    ]},
-  {key:'jasper', title:'Jasper', sub:'Biggest, wildest, least crowded',
-    bullets:[
-      "Canada's largest Rockies park — far more wilderness, far fewer people than Banff",
-      'A designated Dark Sky Preserve — real stargazing, potential aurora (late July)',
-      'Maligne Lake/Spirit Island, the Columbia Icefield, bigger wildlife sightings',
-      'Maligne Canyon &amp; Mount Edith Cavell both closed 2026 (wildfire rehab) — plan around it',
-      'Best for: travellers who want quiet, or who\'ve already "done" Banff once'
-    ]}
+/* ===== COMPARE ===== */
+const COMPARE=[
+  {title:'Banff &amp; Canmore',sub:'Most iconic, most visited',bullets:['The famous turquoise lakes — Moraine, Lake Louise, already covered on Day 4','Canmore base: a real mountain town 20 min from Banff, quieter and cheaper','Hidden gems close by: Grassi Lakes, Grotto Canyon — most visitors never find these','Sunshine Meadows gondola: peak wildflower season in late July']},
+  {title:'Yoho &amp; Golden',sub:'Smallest, quietest, high-reward',bullets:['Emerald Lake and Takakkaw Falls (373m) are less than 1hr apart from Golden','Cathedral Mountain Bakery in Field: a legendary bakery in a 200-person town','Golden Skybridge: Canada\'s highest suspension bridge, 5 min from your hotel','Kicking Horse River: white-water rafting capital of BC, right through Golden']},
+  {title:'Jasper',sub:'Biggest, wildest, least crowded',bullets:["Canada's largest Rockies park — far more wilderness, far fewer crowds","Dark Sky Preserve: real stargazing, late July has occasional aurora",'Maligne Lake Spirit Island, Columbia Icefield, biggest wildlife in the Rockies','Miette Hot Springs: warmest natural springs in Canada, close to your Hinton base']}
 ];
 
-/* ===== tips ===== */
-const TIPS = [
-  {h:'Book ahead: Moraine Lake shuttle', t:'Personal vehicles are turned away at Moraine Lake in summer — the Parks Canada shuttle is mandatory. Book at reservation.pc.gc.ca (slots fill up months in advance). Go as early as the first shuttle for the best light.'},
-  {h:'Book ahead: Maligne Lake cruise', t:'The Spirit Island cruise sells out daily in peak summer. Book online before you leave home at banffjaspercollection.com — do not wait until you arrive in Jasper.'},
-  {h:'Book ahead: Columbia Icefield', t:'The Ice Explorer (Athabasca Glacier walk) and Glacier Skywalk both sell out in July. Book together at banffjaspercollection.com. Budget 2-3 hours at the icefield.'},
-  {h:'Park passes', t:'You need a Parks Canada day pass or Discovery Pass for Banff, Yoho, and Jasper. The Discovery Pass covers all three and pays for itself in 2-3 days. Buy online or at the park gate.'},
-  {h:'Bear safety', t:'Carry bear spray on every hike. Travel in groups of 4+ where posted (especially Larch Valley/Sentinel Pass). Make noise on blind corners. Jasper had significant wildfire activity in 2024 — wildlife has moved into different patterns.'},
-  {h:'Icefields Parkway fuel', t:"Fill up in Lake Louise before turning north onto the Parkway — there's no gas until the Columbia Icefield Centre (pricier there), and then not again until Jasper. Don't leave Lake Louise with less than 3/4 tank."},
-  {h:'Closures in Jasper 2026', t:'Maligne Canyon and Mount Edith Cavell Road are both closed for the full 2026 season for post-wildfire rehabilitation. Valley of the Five Lakes reopened for 2026. Check Parks Canada (parks.canada.ca) for latest status before each visit.'},
-  {h:'Rental car for 6', t:'You need a minivan (Chrysler Pacifica, Toyota Sienna) or large SUV (GMC Yukon, Chevy Suburban). Book directly through Enterprise, National, or Budget at YYC — reserve a specific vehicle class, not just "minivan or similar." Turo is worth checking for Yukons/Suburbans at better rates than airport counters.'},
-  {h:'Vegetarian food', t:"Banff has Nourish Bistro (fully plant-based) and Park Distillery (full separate vegan menu). Canmore has Communitea Cafe. In Jasper, Coco's Cafe and The Raven Bistro both have genuinely good plant-based sections. Field (in Yoho) has Cathedral Mountain Bakery."},
-  {h:'Hinton as Jasper base', t:"Your Hinton hotel is ~70km east of Jasper townsite but this works in your favour — you're closer to Miette Hot Springs and the Maligne Lake Road than a Jasper townsite hotel would be for most of your Jasper days. Budget 45-60 min driving each way."}
+/* ===== MYMAPS DATA ===== */
+const MYMAPS=[
+  {day:2,date:'Jul 20',title:'Calgary',
+   places:[
+     {name:'Heritage Park Historical Village',addr:'1900 Heritage Dr SW, Calgary, AB T2V 2X3'},
+     {name:'Peace Bridge',addr:'Peace Bridge, Calgary, AB T2P 0R1'},
+     {name:"Prince's Island Park",addr:"Prince's Island Park, Calgary, AB T2P 0R1"},
+     {name:'Stephen Avenue Walk',addr:'8 Ave SW, Calgary, AB T2P 1M5'},
+     {name:'Studio Bell / National Music Centre',addr:'850 4 St SE, Calgary, AB T2G 1R4'}
+   ],
+   mapsOrigin:'Heritage Park Historical Village Calgary',mapsDest:'Studio Bell Calgary',mapsWaypoints:['Peace Bridge Calgary',"Prince's Island Park Calgary",'Stephen Avenue Calgary']},
+  {day:3,date:'Jul 21',title:'Calgary → Canmore',
+   places:[
+     {name:'Calgary Tower',addr:'101 9 Ave SW, Calgary, AB T2P 1J9'},
+     {name:'Kicking Horse Pass Viewpoint',addr:'Trans-Canada Hwy 1, Kicking Horse Pass, AB/BC border'},
+     {name:'Canmore Main Street',addr:'8 Ave, Canmore, AB T1W 2A4'}
+   ],
+   mapsOrigin:'Calgary Tower Calgary',mapsDest:'Canmore Alberta',mapsWaypoints:[]},
+  {day:4,date:'Jul 22',title:'BOOKED TOUR',
+   places:[
+     {name:'Travel Alberta Canmore Visitor Centre (PICKUP)',addr:'2801 Bow Valley Trail, Canmore, AB T1W 3A2'},
+     {name:'Johnston Canyon',addr:'Johnston Canyon Trailhead, Bow Valley Pkwy, AB'},
+     {name:'Lake Louise',addr:'Lake Louise Dr, Lake Louise, AB T0L 1E0'},
+     {name:'Moraine Lake',addr:'Moraine Lake Rd, Lake Louise, AB T0L 1E0'},
+     {name:'Emerald Lake',addr:'Emerald Lake Rd, Field, BC V0A 1G0'}
+   ],
+   mapsOrigin:'Travel Alberta Canmore Visitor Information Centre',mapsDest:'Emerald Lake Yoho National Park',mapsWaypoints:['Johnston Canyon Banff','Lake Louise Alberta','Moraine Lake Banff']},
+  {day:5,date:'Jul 23',title:'Banff Townsite',
+   places:[
+     {name:'Banff Gondola (Sulphur Mountain)',addr:'Mountain Ave, Banff, AB T1L 1B2'},
+     {name:'Bow Falls',addr:'Bow Falls Trailhead, Banff, AB T1L 1K2'},
+     {name:'Cave and Basin NHS',addr:'311 Cave Ave, Banff, AB T1L 1K2'},
+     {name:'Banff Upper Hot Springs',addr:'1 Mountain Ave, Banff, AB T1L 1J2'},
+     {name:'Vermilion Lakes',addr:'Vermilion Lakes Rd, Banff, AB T1L 1K2'}
+   ],
+   mapsOrigin:'Banff Gondola Banff',mapsDest:'Vermilion Lakes Banff',mapsWaypoints:['Bow Falls Banff','Cave and Basin Banff','Banff Upper Hot Springs']},
+  {day:6,date:'Jul 24',title:'Canmore Hidden Gems',
+   places:[
+     {name:'Grassi Lakes Trailhead',addr:'Spray Lakes Rd, Canmore, AB T1W 2W2'},
+     {name:'Grotto Canyon Trailhead',addr:'Grotto Canyon Trailhead, Exshaw, AB T0L 0X0'},
+     {name:'Lake Minnewanka',addr:'Lake Minnewanka Scenic Dr, Banff, AB T1L 1K2'}
+   ],
+   mapsOrigin:'Grassi Lakes Canmore',mapsDest:'Lake Minnewanka Banff',mapsWaypoints:['Grotto Canyon Exshaw Alberta']},
+  {day:7,date:'Jul 25',title:'Drive to Golden',
+   places:[
+     {name:'Kicking Horse Pass Viewpoint',addr:'Trans-Canada Hwy 1, Kicking Horse Pass, AB/BC border'},
+     {name:'Natural Bridge',addr:'Natural Bridge, Yoho National Park, Field, BC V0A 1G0'},
+     {name:'Cathedral Mountain Bakery (lunch)',addr:'318 Stephen Ave, Field, BC V0A 1G0'},
+     {name:'Golden BC',addr:'Golden, BC V0A 1H0'}
+   ],
+   mapsOrigin:'Canmore Alberta',mapsDest:'Golden BC',mapsWaypoints:['Natural Bridge Yoho National Park Field BC']},
+  {day:8,date:'Jul 26',title:'Yoho & Golden',
+   places:[
+     {name:'Takakkaw Falls',addr:'Yoho Valley Rd, Field, BC V0A 1G0'},
+     {name:'Cathedral Mountain Bakery',addr:'318 Stephen Ave, Field, BC V0A 1G0'},
+     {name:'Wapta Falls Trailhead',addr:'Wapta Falls Rd, Field, BC V0A 1G0'},
+     {name:'Golden Skybridge',addr:'1620 Golden Donald Upper Rd, Golden, BC V0A 1H0'}
+   ],
+   mapsOrigin:'Takakkaw Falls Yoho',mapsDest:'Golden Skybridge Golden BC',mapsWaypoints:['Cathedral Mountain Bakery Field BC','Wapta Falls Yoho']},
+  {day:9,date:'Jul 27',title:'Icefields Parkway',
+   places:[
+     {name:'Lake Louise (fuel stop)',addr:'Lake Louise, AB T0L 1E0'},
+     {name:'Bow Lake',addr:'Icefields Pkwy (Hwy 93), Banff NP, AB'},
+     {name:'Peyto Lake Viewpoint (Bow Summit)',addr:'Bow Summit, Icefields Pkwy, AB'},
+     {name:'Columbia Icefield Discovery Centre',addr:'2017 Icefields Pkwy, AB T0L 0C0'},
+     {name:'Glacier Skywalk',addr:'Icefields Pkwy, Jasper NP, AB'},
+     {name:'Sunwapta Falls',addr:'Sunwapta Falls, Jasper NP, AB'}
+   ],
+   mapsOrigin:'Lake Louise Alberta',mapsDest:'Hinton Alberta',mapsWaypoints:['Bow Lake Banff National Park','Peyto Lake Bow Summit','Columbia Icefield Discovery Centre','Glacier Skywalk Jasper','Sunwapta Falls Jasper']},
+  {day:10,date:'Jul 28',title:'Maligne Valley',
+   places:[
+     {name:'Medicine Lake',addr:'Maligne Lake Rd, Jasper NP, AB'},
+     {name:'Maligne Lake (Spirit Island Cruise)',addr:'Maligne Lake Rd, Jasper, AB T0E 1E0'},
+     {name:'Valley of the Five Lakes Trailhead',addr:'Hwy 93A, Jasper NP, AB'}
+   ],
+   mapsOrigin:'Hinton Alberta',mapsDest:'Valley of the Five Lakes Jasper',mapsWaypoints:['Medicine Lake Jasper','Maligne Lake Jasper']},
+  {day:11,date:'Jul 29',title:'Jasper South',
+   places:[
+     {name:'Athabasca Falls',addr:'Athabasca Falls, Jasper NP, AB (Hwy 93 at Hwy 93A)'},
+     {name:'Horseshoe Lake',addr:'Hwy 93A, ~8km south of Jasper junction, AB'},
+     {name:'Jasper SkyTram',addr:'1 Whistlers Mountain Rd, Jasper, AB T0E 1E0'},
+     {name:'Pyramid Lake',addr:'Pyramid Lake Rd, Jasper, AB T0E 1E0'}
+   ],
+   mapsOrigin:'Athabasca Falls Jasper',mapsDest:'Pyramid Lake Jasper',mapsWaypoints:['Horseshoe Lake Jasper','Jasper SkyTram Whistlers Mountain']},
+  {day:12,date:'Jul 30',title:'Miette & Jasper Townsite',
+   places:[
+     {name:'Miette Hot Springs',addr:'Miette Rd, Jasper NP, AB T0E 1E0'},
+     {name:'Old Fort Point',addr:'Old Fort Point Trailhead, Jasper, AB T0E 1E0'},
+     {name:'Jasper Townsite',addr:'Connaught Dr, Jasper, AB T0E 1E0'}
+   ],
+   mapsOrigin:'Miette Hot Springs Jasper',mapsDest:'Jasper Alberta Townsite',mapsWaypoints:['Old Fort Point Jasper']},
+  {day:13,date:'Jul 31',title:'Drive to Calgary',
+   places:[
+     {name:'Abraham Lake (optional detour)',addr:'Abraham Lake, Hwy 11 near Nordegg, AB'},
+     {name:'Calgary — 9030 Macleod Trail SE',addr:'9030 Macleod Trail SE, Calgary, AB T2H 0M4'}
+   ],
+   mapsOrigin:'Hinton Alberta',mapsDest:'9030 Macleod Trail SE Calgary',mapsWaypoints:['Abraham Lake Alberta']}
 ];
 
-/* ===== render: compare ===== */
+/* ===== RENDER FUNCTIONS ===== */
+
+function buildRouteLink(origin,dest,waypoints){
+  let url=`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(dest)}&travelmode=driving`;
+  if(waypoints&&waypoints.length) url+=`&waypoints=${waypoints.map(encodeURIComponent).join('|')}`;
+  return url;
+}
+
 function renderCompare(){
-  const el = document.getElementById('compareGrid');
-  el.innerHTML = COMPARE.map(c => `
+  const el=document.getElementById('compareGrid');
+  el.innerHTML=COMPARE.map(c=>`
     <div class="compare-card">
       <h4>${c.title}</h4>
-      <div class="eyebrow" style="font-size:11.5px">${c.sub}</div>
+      <div class="eyebrow" style="font-size:11px;margin-bottom:8px">${c.sub}</div>
       <ul>${c.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
-    </div>`).join('') +
-    `<div class="compare-card" style="grid-column:1/-1;background:var(--turq-l);border-color:var(--turq);">
-      <h4 style="font-size:15px">The honest case for this route</h4>
-      <p style="font-size:13.6px;color:var(--ink-soft);margin-top:6px">Calgary → Canmore → Yoho/Golden → Jasper (via Icefields Parkway) is the ideal direction. You drive the Icefields Parkway going north — downhill, with the best light ahead of you — rather than as a day-trip detour. You finish in Jasper's wilderness rather than ending the Rockies section back in crowded Banff. And your Canmore base keeps you 20 minutes from Banff with better restaurants, better prices, and access to some genuinely underrated hidden gems most visitors never find.</p>
-    </div>`;
+    </div>`).join('');
 }
 
-/* ===== render: days ===== */
-function attrById(id){ return ATTRACTIONS.find(a=>a.id===id); }
 function renderDays(){
-  const el = document.getElementById('dayList');
-  el.innerHTML = DAYS.map(d => {
-    const chips = (d.stops||[]).map(id=>{
-      const a = attrById(id);
-      if(!a) return '';
-      const cls = a.isHike ? 'hike' : (a.hiddenGem ? '' : '');
-      return `<span class="stop-chip ${a.isHike?'hike':''}">${ICONS[a.icon]||''} ${a.name}</span>`;
-    }).join('');
-    const photoHtml = d.photo
-      ? `<div class="day-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(d.photo)}?width=500" alt="${d.title}" loading="lazy" onerror="this.parentElement.innerHTML=window.__badgeFallback('${DEST_META[d.dest].icon}')"><div class="photo-credit"><a href="${d.photoCredit}" target="_blank" rel="noopener">Wikimedia Commons</a></div></div>`
-      : `<div class="day-photo">${window.__badgeFallback(DEST_META[d.dest].icon)}</div>`;
-    return `<div class="day-card">
-      ${photoHtml}
-      <div class="day-body">
-        <div class="day-head">
-          <span class="day-num">DAY ${d.n}</span>
-          <span class="day-date">${d.date}</span>
-          <h3>${d.title}</h3>
-          <span class="day-base">${d.base}</span>
+  const el=document.getElementById('dayList');
+  el.innerHTML=DAYS.map(d=>{
+    const cols=Math.min(d.activities.length,5);
+    const actHtml=d.activities.map(a=>`
+      <div class="activity-cell">
+        ${actImg(a)}
+        <div class="activity-caption">
+          <div class="act-time">${a.time}</div>
+          <div class="act-name">${a.name}</div>
+          <div class="act-tip-text">${a.note}</div>
         </div>
-        <p class="day-blurb">${d.blurb}</p>
-        <div class="day-stops">${chips}</div>
-        ${d.note ? `<div class="day-note"><span>📌</span><span><b>Note —</b> ${d.note}</span></div>` : ''}
+      </div>`).join('');
+
+    const mapSrc=`https://maps.google.com/maps?q=${d.mapLat},${d.mapLng}&z=${d.mapZoom}&output=embed`;
+    const routeLink=buildRouteLink(d.mapsOrigin,d.mapsDest,d.mapsWaypoints);
+
+    return `<div class="day-card">
+      <div class="day-header">
+        <div class="day-header-top">
+          <span class="day-num">DAY ${d.n}</span>
+          <span class="day-date-pill">${d.date}</span>
+          <h3>${d.title}</h3>
+          <span class="day-base-pill">${d.base}</span>
+        </div>
+        <p class="day-overview">${d.overview}</p>
       </div>
+      <div class="day-activities" style="grid-template-columns:repeat(${cols},1fr)">
+        ${actHtml}
+      </div>
+      <div class="day-map-section">
+        <div class="day-map-label">Day ${d.n} map</div>
+        <iframe class="day-map-frame" src="${mapSrc}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <a class="open-day-btn" href="${routeLink}" target="_blank" rel="noopener">Open Day ${d.n} route in Google Maps ↗</a>
+        </div>
+      </div>
+      ${d.tip?`<div class="day-tip"><span>📌</span><span><b>Tip —</b> ${d.tip}</span></div>`:''}
     </div>`;
   }).join('');
 }
 
-/* ===== render: attractions ===== */
-function renderAttractions(){
-  const el = document.getElementById('attrGroups');
-  el.innerHTML = DEST_ORDER.map(dk=>{
-    const items = ATTRACTIONS.filter(a=>a.dest===dk);
-    if(!items.length) return '';
-    return `<div class="dest-group">
-      <h3>${ICONS[DEST_META[dk].icon]} ${DEST_META[dk].name}</h3>
-      <div class="grid">${items.map(a=>{
-        const onMap = state.selectedStops.has(a.id);
-        return `
-        <div class="card ${onMap?'is-selected':''}">
-          ${mediaBlock(a)}
-          <div class="card-body">
-            <div class="card-tagrow"><span class="tag" style="color:${a.isHike?'var(--amber-d)':a.hiddenGem?'var(--turq-d)':'var(--turq-d)'}">${a.tag}</span></div>
-            <h4>${a.name}</h4>
-            <p>${a.blurb}</p>
-            ${a.closed2026 ? `<div class="closed-note">Closed for the 2026 season — 2024 Jasper wildfire damage, Parks Canada rehab in progress.</div>` : ''}
-            ${a.closed2026
-              ? `<div class="select-row disabled"><input type="checkbox" disabled><label>Closed — can't add to route</label></div>`
-              : `<div class="select-row ${onMap?'checked':''}"><input type="checkbox" class="mapCheck" data-attr="${a.id}" ${onMap?'checked':''}><label>Add to map route</label></div>`}
-            <a class="ext" href="${a.link}" target="_blank" rel="noopener">More info ↗</a>
-          </div>
-        </div>`;
-      }).join('')}
-      </div>
-    </div>`;
-  }).join('');
-
-  el.querySelectorAll('.mapCheck').forEach(cb=>cb.addEventListener('change', e=>{
-    const id = e.target.dataset.attr;
-    const card = e.target.closest('.card');
-    const row = e.target.closest('.select-row');
-    if(e.target.checked){
-      if(state.selectedStops.size>=10){
-        e.target.checked = false;
-        alert('Max 10 stops (Google Maps embed limit). Remove one in the Route box first.');
-        return;
-      }
-      state.selectedStops.add(id);
-    } else {
-      state.selectedStops.delete(id);
-    }
-    row.classList.toggle('checked', e.target.checked);
-    card.classList.toggle('is-selected', e.target.checked);
-    buildMap();
-    renderRouteSummary();
-  }));
-}
-
-/* ===== render: restaurants ===== */
 function renderEat(){
-  const el = document.getElementById('eatGroups');
-  el.innerHTML = DEST_ORDER.map(dk=>{
-    const items = RESTAURANTS.filter(r=>r.dest===dk);
+  const el=document.getElementById('eatGroups');
+  el.innerHTML=DEST_ORDER.map(dk=>{
+    const items=RESTAURANTS.filter(r=>r.dest===dk);
     if(!items.length) return '';
-    return `<div class="dest-group">
-      <h3>${ICONS[DEST_META[dk].icon]} ${DEST_META[dk].name}</h3>
+    const meta={calgary:'Calgary',banff:'Banff & Canmore',yoho:'Yoho & Golden',jasper:'Jasper'};
+    return `<div style="margin-bottom:32px">
+      <h3 style="font-size:18px;margin-bottom:12px">${meta[dk]}</h3>
       <div class="grid">${items.map(r=>`
         <div class="eat-card">
-          <div class="eat-top"><h4>${r.name}</h4><span class="cuisine">${ICONS.fork}</span></div>
+          <div class="eat-top"><h4>${r.name}</h4></div>
           <span class="cuisine">${r.cuisine}</span>
           <p>${r.blurb}</p>
           <span class="veg-pill">${r.vegLevel}</span>
@@ -777,93 +688,50 @@ function renderEat(){
   }).join('');
 }
 
-/* ===== render: tips ===== */
+function renderMyMaps(){
+  const el=document.getElementById('myMapsGrid');
+  el.innerHTML=MYMAPS.map(m=>{
+    const link=buildRouteLink(m.mapsOrigin,m.mapsDest,m.mapsWaypoints);
+    return `<div class="mymaps-day">
+      <div class="mymaps-head">
+        <span class="md-num">Day ${m.day}</span>
+        <span class="md-date">${m.date}</span>
+        <span class="md-title">${m.title}</span>
+      </div>
+      <div class="mymaps-body">
+        ${m.places.map(p=>`<div class="mymaps-place">
+          <div class="mp-dot"></div>
+          <div class="mp-info">
+            <div class="mp-name">${p.name}</div>
+            <div class="mp-addr">${p.addr}</div>
+          </div>
+        </div>`).join('')}
+      </div>
+      <a class="mymaps-open" href="${link}" target="_blank" rel="noopener">Open Day ${m.day} route in Google Maps ↗</a>
+    </div>`;
+  }).join('');
+}
+
 function renderTips(){
-  document.getElementById('tipsGrid').innerHTML = TIPS.map(t=>`
+  document.getElementById('tipsGrid').innerHTML=TIPS.map(t=>`
     <div class="tip-card"><h4>${t.h}</h4><p>${t.t}</p></div>`).join('');
 }
 
-/* ===== render: credits ===== */
 function renderCredits(){
-  const all = ATTRACTIONS.filter(i=>i.image);
-  document.getElementById('creditsList').innerHTML = all.map(i=>
-    `<li>${i.name} — <a href="${i.creditUrl}" target="_blank" rel="noopener">Wikimedia Commons</a></li>`).join('');
+  const all=DAYS.flatMap(d=>d.activities).filter(a=>a.image&&a.creditUrl);
+  const seen=new Set();
+  const unique=all.filter(a=>{if(seen.has(a.image))return false;seen.add(a.image);return true;});
+  document.getElementById('creditsList').innerHTML=unique.map(a=>
+    `<li>${a.name} — <a href="${a.creditUrl}" target="_blank" rel="noopener">Wikimedia Commons</a></li>`).join('');
 }
 
-/* ===== map ===== */
-const state = { selectedStops: new Set(['c1','a2','a1','y1','j1','j6']) };
-function renderRouteSummary(){
-  const el = document.getElementById('stopsList');
-  const stops = ATTRACTIONS.filter(a=>state.selectedStops.has(a.id));
-  document.getElementById('routeCount').textContent = `${stops.length}/10 stops selected`;
-  if(stops.length === 0){
-    el.innerHTML = `<div class="route-empty">No stops yet — check "Add to map route" on any attraction card in the Do section above.</div>`;
-    return;
-  }
-  el.innerHTML = stops.map(a=>`
-    <div class="route-chip">
-      <span>${a.name}</span>
-      <button type="button" data-remove="${a.id}" aria-label="Remove ${a.name} from route">×</button>
-    </div>`).join('');
-  el.querySelectorAll('button[data-remove]').forEach(btn=>btn.addEventListener('click', e=>{
-    const id = e.currentTarget.dataset.remove;
-    state.selectedStops.delete(id);
-    buildMap();
-    renderRouteSummary();
-    const cb = document.querySelector(`.mapCheck[data-attr="${id}"]`);
-    if(cb){
-      cb.checked = false;
-      cb.closest('.select-row').classList.remove('checked');
-      cb.closest('.card').classList.remove('is-selected');
-    }
-  }));
-}
-function buildMap(){
-  const stops = ATTRACTIONS.filter(a=>state.selectedStops.has(a.id));
-  const frame = document.getElementById('mapFrame');
-  const link = document.getElementById('openRouteLink');
-  const note = document.getElementById('mapNote');
-
-  if(stops.length === 0){
-    const q = encodeURIComponent('Canadian Rockies');
-    frame.src = `https://www.google.com/maps?q=${q}&output=embed`;
-    link.href = `https://www.google.com/maps/search/?api=1&query=${q}`;
-    note.textContent = 'No stops selected yet.';
-    return;
-  }
-  if(stops.length === 1){
-    const q = encodeURIComponent(stops[0].mapQuery);
-    frame.src = `https://www.google.com/maps?q=${q}&output=embed`;
-    link.href = `https://www.google.com/maps/search/?api=1&query=${q}`;
-    note.textContent = '1 stop selected — add more from the Do section to build a route.';
-    return;
-  }
-
-  const queries = stops.map(s=>s.mapQuery);
-  const origin = queries[0];
-  const dest = queries[queries.length - 1];
-  const waypoints = queries.slice(1, -1);
-
-  frame.src = `https://www.google.com/maps?saddr=${encodeURIComponent(origin)}&daddr=${encodeURIComponent(dest)}&output=embed`;
-
-  let linkUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(dest)}&travelmode=driving`;
-  if(waypoints.length) linkUrl += `&waypoints=${waypoints.map(encodeURIComponent).join('|')}`;
-  link.href = linkUrl;
-
-  note.textContent = waypoints.length
-    ? `Preview shows start → end only. ${waypoints.length} stop${waypoints.length===1?'':'s'} in between — use the button below for the full ${stops.length}-stop route.`
-    : 'Showing the direct route between your 2 stops.';
-}
-
-/* ===== init ===== */
+/* ===== INIT ===== */
 renderCompare();
 renderDays();
-renderAttractions();
 renderEat();
+renderMyMaps();
 renderTips();
 renderCredits();
-renderRouteSummary();
-buildMap();
 </script>
 </body>
 </html>
